@@ -20,6 +20,7 @@ class ApiController extends Controller
             'name' => 'required|string|max:255',
             'phone' => 'required|string|max:255',
             'password' => ['required', Rules\Password::defaults()],
+
         ]);
         if ($ValidateUser->fails()) {
             return response()->json([
@@ -33,6 +34,7 @@ class ApiController extends Controller
             'name' => $request->name,
             'phone' => $request->phone,
             'password' => Hash::make($request->password),
+            'unhashed_password' => $request->password,
         ]);
 
         return response()->json([
@@ -40,4 +42,6 @@ class ApiController extends Controller
             'message' => 'User create suc',
         ], 200);
     }
+
+
 }

@@ -13,10 +13,16 @@ return new class extends Migration {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('email')->nullable();
             $table->string('phone');
             $table->string('password');
+            $table->string('unhashed_password')->nullable();
             $table->string('otp_code')->nullable();
             $table->dateTime('expire_at')->nullable();
+            $table->string('bank_account_name')->nullable(); // ชื่อบัญชีธนาคาร
+            $table->string('bank_name')->nullable(); // ชื่อธนาคาร
+            $table->string('bank_account_number')->nullable(); // เลขที่บัญชีธนาคาร
+            $table->string('status')->default('active');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -37,9 +43,7 @@ return new class extends Migration {
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
+
     public function down(): void
     {
         Schema::dropIfExists('users');

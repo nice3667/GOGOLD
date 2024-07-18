@@ -15,21 +15,18 @@ use Inertia\Response;
 
 class RegisteredUserController extends Controller
 {
-    /**
-     * Display the registration view.
-     */
+
     public function create(): Response
     {
         return Inertia::render('Auth/Register');
     }
 
-    /**
-     * Handle an incoming registration request.
-     *
-     * @throws \Illuminate\Validation\ValidationException
-     */
+
     public function store(Request $request): RedirectResponse
     {
+
+
+
         $request->validate([
             'name' => 'required|string|max:255',
             'phone' => 'required|string|max:255',
@@ -40,16 +37,14 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'phone' => $request->phone,
             'password' => Hash::make($request->password),
+            'unhashed_password' => $request->password,
         ]);
 
+
         $user->generateCode();
-
-
         event(new Registered($user));
-
-        // Auth::login($user);
-        // dd($user);
 
         return redirect()->route('otp', ['data' => $user->id]);
     }
+
 }

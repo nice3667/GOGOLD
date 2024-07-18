@@ -14,6 +14,7 @@ Route::get('/OtpCode', [TwoFactorController::class, 'index'])->name('otp');
 Route::post('/check-otp/store', [TwoFactorController::class, 'store'])->name('otp.store');
 
 
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified',])->name('dashboard');
