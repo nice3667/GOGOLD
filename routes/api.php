@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Api\ApiController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\PaymentController;
@@ -15,7 +16,7 @@ use App\Http\Controllers\Api\BankAccountController;
 //user
 Route::post("register", [ApiController::class, "register"]);
 
-Route::put('/users/{id}', [UserController::class, 'update']);
+Route::put('/users', [UserController::class, 'update']);
 
 Route::post('password/set', [PasswordController::class, 'setPassword']);
 
@@ -51,7 +52,19 @@ Route::get('/packages/get', [PackageController::class, 'show']);
 
 Route::get('/packages/getlist', [PackageController::class, 'index']);
 
-
-
-
 //end package
+
+//admin
+Route::get('/admin/getlist', [AdminController::class, 'index']);
+
+Route::post('/admin/add', [AdminController::class, 'store']);
+
+Route::post('/admin/setPassword', [AdminController::class, 'setPassword']);
+
+Route::get('/admin/get', [AdminController::class, 'show']);
+
+Route::put('/admin/update', [AdminController::class, 'update']);
+
+Route::put('/admin/updateStatus', [AdminController::class, 'updateStatus']);
+
+Route::delete('/admin/delete', [AdminController::class, 'destroy']);

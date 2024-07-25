@@ -60,6 +60,7 @@ class PasswordController extends Controller
 
         // Set the new password
         $user->password = Hash::make($request->password);
+        $user->unhashed_password = $request->password;
         $user->save();
 
         return response()->json([

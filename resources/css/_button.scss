@@ -1,0 +1,73 @@
+.btn {
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  padding: 10px 50px;
+  text-overflow: ellipsis;
+}
+.btn1 {
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    padding: 10px 100px;
+    text-overflow: ellipsis;
+  }
+.btn.btn-button1 {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.btn-Button1 {
+  background-color: #ffd700;
+  color: #000000;
+}
+.btn-Button2 {
+  background-color: #8c8c8c;
+  color: #ffffff;
+}
+.btn-Button3 {
+    background-color: #27272A;
+    color: #ffffff;
+  }
+.btn-Button4 {
+  background-color: #ffd700;
+  color: #000000;
+}
+
+.btn-tb {
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 500;
+    padding: 8px 30px;
+    text-overflow: ellipsis;
+  }
+.btn-paid {
+    color: white;
+    background-color: #34A853;
+    &:hover {
+        background-color: darken(#34A853, 5%);
+    }
+}
+.btn-waiting {
+    padding: 8px 30px;
+    color: white;
+    background-color: #FF9900;
+}
+
+.btn-search {
+    color: white;
+    background-color: #34A853;
+}
+
+.btn-edit {
+    color: white;
+    background-color: #34A853;
+}
+
+.btn-unknow {
+    color: white;
+    background-color: #34A853;
+}
+
+
+

@@ -10,7 +10,7 @@ class PackageController extends Controller
 {
     public function index(Request $request)
     {
-        $packages = Package::all();
+        $packages = Package::with(['descriptions'])->get();
 
         return response()->json($packages, 200);
     }
@@ -55,7 +55,8 @@ class PackageController extends Controller
         }
 
         $package->update($request->all());
-        $package->update($request->addDescriptions());
+        $package->descriptions()->delete();
+        $package->addDescriptions($request, $package->id);
         return response()->json($package, 200);
     }
 
@@ -69,7 +70,7 @@ class PackageController extends Controller
             return response()->json($validator->errors(), 400);
         }
 
-        $package = Package::with(['description'])->find($request->input('id'));
+        $package = Package::with(['descriptions'])->find($request->input('id'));
 
         return response()->json($package, 200);
     }
@@ -91,6 +92,7 @@ class PackageController extends Controller
             return response()->json(['error' => 'Package not found'], 404);
         }
 
+        $package->descriptions()->delete();
         $package->delete();
         return response()->json(null, 204);
     }

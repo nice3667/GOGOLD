@@ -13,7 +13,9 @@ Route::get('/', [UserController::class, 'index'])->name('home');
 Route::get('/OtpCode', [TwoFactorController::class, 'index'])->name('otp');
 Route::post('/check-otp/store', [TwoFactorController::class, 'store'])->name('otp.store');
 
-
+Route::get('/style-guide', function () {
+    return Inertia::render('style-guide');
+});
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

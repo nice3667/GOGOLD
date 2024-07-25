@@ -11,7 +11,7 @@ return new class extends Migration {
         Schema::create('package_descriptions', function (Blueprint $table) {
             $table->id();
             $table->integer('package_id');
-            $table->json('descriptions'); // ใช้ชนิดข้อมูล JSON
+            $table->text('descriptions');
             $table->timestamps();
         });
     }

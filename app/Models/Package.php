@@ -16,7 +16,7 @@ class Package extends Model
         'is_popular',
     ];
 
-    public function description()
+    public function descriptions()
     {
         return $this->hasMany(PackageDescription::class);
     }
@@ -27,7 +27,7 @@ class Package extends Model
             $item = new PackageDescription();
             $item->package_id = $package_id;
             $item->descriptions = $description;
-            $this->description()->save($item);
+            $this->descriptions()->save($item);
         }
     }
     public function updateDescriptions(array $descriptions)
