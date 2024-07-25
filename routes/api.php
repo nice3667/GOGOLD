@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ApiController;
+use App\Http\Controllers\PackageController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\User\UserController;
@@ -34,5 +35,23 @@ Route::post('/bank/add', [BankAccountController::class, 'store']);
 
 Route::put('/bank/update', [BankAccountController::class, 'update']);
 
-Route::get('/bank/detail', [BankAccountController::class, 'getAllBank']);
+Route::post('/bank/detail', [BankAccountController::class, 'getBankById']);
+
+Route::get('/bank/detailAll', [BankAccountController::class, 'getAllBank']);
+
 //end Bank
+//package
+Route::post('/packages/add', [PackageController::class, 'store']);
+
+Route::put('/packages/update', [PackageController::class, 'update']);
+
+Route::delete('/packages/delete', [PackageController::class, 'destroy']);
+
+Route::get('/packages/get', [PackageController::class, 'show']);
+
+Route::get('/packages/getlist', [PackageController::class, 'index']);
+
+
+
+
+//end package

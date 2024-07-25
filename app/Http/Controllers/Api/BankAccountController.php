@@ -65,4 +65,21 @@ class BankAccountController extends Controller
         return response()->json($bankAccount);
     }
 
+    public function getBankById(Request $request)
+    {
+        $request->validate([
+            'id' => 'required|integer',
+        ]);
+
+        $bankAccount = BankAccount::find($request->id);
+
+        if (!$bankAccount) {
+            return response()->json([
+                'message' => 'User นี่ ไม่มี'
+            ], 404);
+        }
+
+        return response()->json($bankAccount);
+    }
+
 }
