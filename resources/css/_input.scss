@@ -1,0 +1,75 @@
+@import '_color';
+
+.border-danger{
+	@apply text-red-600;
+	@apply border-b-red-600 #{!important};
+}
+
+select {
+	&.form-control {
+		background: transparent;
+		background-repeat: no-repeat;
+		background-position-x: 100%;
+		background-position-y: 14px;
+
+		option {
+			color: $text-base;
+
+			&:disabled {
+				color: $placeholder;
+			}
+		}
+
+		&:disabled {
+			background: none;
+		}
+	}
+}
+
+
+.form-group {
+	display: grid;
+
+	&.form-inline {
+		display: flex;
+		align-items: center;
+	}
+
+	label {
+		&:not(.v-label) {
+			margin-bottom: 5px;
+		}
+
+		&.required {
+			&::after {
+				content: " *";
+				color: red;
+			}
+		}
+	}
+    .form-control {
+		margin-bottom: 10px;
+
+		&.form-control-search {
+			width: 100%;
+			margin-bottom: 0;
+			border: none;
+		}
+	}
+}
+.form-control {
+	border-bottom: 1px solid $placeholder;
+	padding: 8px 12px;
+	cursor: pointer;
+
+	&:focus, &:hover, &:active, &:focus-visible {
+		border-bottom: 1px solid $text-base;
+		outline: none;
+	}
+
+	&:disabled {
+		color: $placeholder;
+		border: none;
+		cursor: default;
+	}
+}

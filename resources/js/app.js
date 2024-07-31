@@ -3,6 +3,10 @@ import '../css/app.css';
 import '../css/_button.scss'
 import '../css/_card.scss'
 import '../css/_text.scss'
+import '../css/_input.scss'
+import '../css/_color.scss'
+import '../css/_form.scss'
+import '../css/_table.scss'
 import { createVuetify } from 'vuetify';
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
@@ -22,21 +26,20 @@ const vuetify = createVuetify({
     theme: {
         themes: {
             light: {
-                primary: '#3D90D1', // Primary
-                info: '#30384C', // Info
-                warning: '#FFA83B', // Warning
-                danger: '#FF3E22', // Danger
-                muted: '#707070', // Muted
-                base: '#707070', // Base
-                placeholder: '#B5B5B5', // Placeholder
-                headline: '#004086', // Headline
-                white: '#FFFFFF', // White
-                success: '#179BFF', // Success
-                successText: '#517D2E', // Success Text
-                switchActive: '#0E54A2', // Switch Active
-                tabActive: '#004086', // Tab Active
-                headlineBg: '#FB5135', // Headline BG
-                mainBg: '#E3E8EB', // Main BG
+                primary: '#3D90D1',
+                info: '#30384C',
+                warning: '#FFAB3B',
+                danger: '#FF3E22',
+                muted: '#707070',
+                base: '#707070',
+                placeholder: '#B5B5B5',
+                headline: '#004086',
+                white: '#FFFFFF',
+                newGold: '#FFD700',
+                newGray: '#737373',
+                newRed: '#F56565',
+                newGreen: '#34A853',
+                newOrange: '#FF9900',
             },
         },
     },

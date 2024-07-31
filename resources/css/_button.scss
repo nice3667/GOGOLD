@@ -41,6 +41,13 @@
     padding: 8px 30px;
     text-overflow: ellipsis;
   }
+.btn-tb2 {
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    padding: 8px 8px;
+    text-overflow: ellipsis;
+  }
 .btn-paid {
     color: white;
     background-color: #34A853;
@@ -49,25 +56,53 @@
     }
 }
 .btn-waiting {
-    padding: 8px 30px;
     color: white;
     background-color: #FF9900;
 }
 
 .btn-search {
     color: white;
-    background-color: #34A853;
+    background-color: #FFD700;
 }
 
 .btn-edit {
     color: white;
-    background-color: #34A853;
+    background-color: #FFD700;
 }
 
 .btn-unknow {
     color: white;
-    background-color: #34A853;
+    background-color: #F56565;
 }
+.btn-icon {
+    img {
+        width: 13px;
+        height: 13px;
+        margin-right: 5px;
+    }
+}
+.btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+    img {
+        width: 22px;
+        height: 22px;
+        margin-right: 10px;
+    }
+}
+.icon-button {
+    @apply p-2 rounded-lg flex items-center justify-center;
+    transition: transform 0.2s;
+  }
+  .icon-button:hover {
+    @apply transform scale-110;
+  }
+
+  .custom-table .v-icon[data-v-1250b807] {
+    cursor: pointer;
+    color: #000000;
+}
 
 
