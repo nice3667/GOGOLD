@@ -7,6 +7,7 @@
       <button class="btn btn-Button3 btn-button1">text</button>
       <button class="btn1 btn-Button4 btn-button1">text</button>
     </div>
+    s
 
     <h2 class="mt-3">Table Buttons</h2>
     <div class="flex items-center mt-3 space-x-2">
@@ -23,8 +24,8 @@
     </div>
     <div>
       <h2 class="mt-3">Vuetify Button</h2>
-      <v-container fluid>
-        <v-row>
+      <v-container class="bt-color" fluid>
+        <v-row class="bt-colorrow">
           <v-col cols="12" sm="6" md="4">
             <v-btn
               color="#FFD700"
@@ -33,6 +34,7 @@
               size="large"
               min-width="300"
               rounded="xl"
+              class="bt1"
             >
             </v-btn>
           </v-col>

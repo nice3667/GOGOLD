@@ -1,76 +1,124 @@
 <template>
-  <section class="overflow-auto">
-    <h2 class="mb-3">Forms</h2>
-    <div class="p-8 text-white bg-gray-900 rounded-lg">
-      <h2 class="mb-6 text-2xl">ตั้งค่า</h2>
-      <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-        <div>
-          <label>ชื่อแพ็กเกจ</label>
-          <input class="form-control" placeholder="กรุณากรอกชื่อ" />
-        </div>
-        <div>
-          <label>ราคา</label>
-          <input class="form-control" placeholder="กรุณากรอกราคาสกุล" />
-        </div>
-        <div>
-          <label>อายุแพ็กเกจ (วัน)</label>
-          <input class="form-control" placeholder="กรุณากรอกอีเมล" />
-        </div>
-        <div>
-          <label>หมายเลขโทรศัพท์</label>
-          <input class="form-control" placeholder="กรุณากรอกหมายเลขโทรศัพท์" />
-        </div>
-      </div>
+  <v-container fluid class="pa-0">
+    <v-card class="pa-8" color="#2c2c2c" dark>
+      <v-card-title class="mb-5">
+        <h2 class="header">ตั้งค่า</h2>
+      </v-card-title>
+      <v-card-text>
+        <v-row>
+          <v-col cols="12" md="6">
+            <v-text-field
+              class="border-box"
+              label="ชื่อแพ็กเกจ"
+              placeholder="กรุณากรอกชื่อ"
+              variant="outlined"
+              rounded=""
+              dense
+              hide-details
+              color="grey"
+            ></v-text-field>
+          </v-col>
+          <v-col cols="12" md="6">
+            <v-text-field
+              class="border-box"
+              label="ราคา"
+              placeholder="กรุณากรอกราคา"
+              variant="outlined"
+              rounded=""
+              dense
+              hide-details
+              color="grey"
+            ></v-text-field>
+          </v-col>
+          <v-col cols="12" md="6">
+            <v-text-field
+              class="border-box"
+              label="อายุแพ็กเกจ (วัน)"
+              placeholder="กรุณากรอกอายุแพ็กเกจ"
+              variant="outlined"
+              rounded=""
+              dense
+              hide-details
+              color="grey"
+            ></v-text-field>
+          </v-col>
+          <v-col cols="12" md="6">
+            <v-text-field
+              class="border-box"
+              label="หมายเลขโทรศัพท์"
+              placeholder="กรุณากรอกหมายเลขโทรศัพท์"
+              variant="outlined"
+              rounded=""
+              dense
+              hide-details
+              color="grey"
+            ></v-text-field>
+          </v-col>
+        </v-row>
 
-      <h2 class="mt-6 mb-4 text-2xl">คำอธิบาย</h2>
-      <div
-        v-for="(detail, index) in details"
-        :key="index"
-        class="flex items-center mb-4"
-      >
-        <input
-          class="flex-grow form-control"
-          placeholder="กรุณากรอกรายละเอียด"
-        />
+        <h2 class="mt-6 mb-4 text-2xl">คำอธิบาย</h2>
+        <v-row v-for="(detail, index) in details" :key="index" align="center">
+          <v-col>
+            <v-text-field
+              class="border2-box"
+              v-model="detail.detail"
+              placeholder="กรุณากรอกรายละเอียด"
+              variant="outlined"
+              rounded=""
+              dense
+              hide-details
+              color="grey"
+            ></v-text-field>
+          </v-col>
+          <v-col cols="auto">
+            <v-btn
+              icon
+              @click="removeDetail(index)"
+              class="btn"
+              height="35"
+              width="35"
+            >
+              <v-icon>mdi-delete</v-icon>
+            </v-btn>
+          </v-col>
+        </v-row>
 
-        <button
-          @click="removeDetail(index)"
-          class="mx-4 bg-red-500 icon-button"
+        <v-btn
+          class="mt-4 text-capitalize"
+          color="yellow darken-2"
+          @click="addDetail"
+          outlined
         >
-          <img src="@/assets/icon/bin2.svg" alt="" />
-        </button>
-      </div>
-      <button
-        @click="addDetail"
-        class="px-4 py-2 mt-4 text-gray-900 bg-yellow-500 rounded-full"
-      >
-        + เพิ่มรายละเอียด
-      </button>
+          + เพิ่มรายละเอียด
+        </v-btn>
 
-      <div class="flex items-center mt-6">
-        <label class="mr-2">หมายเหตุ</label>
-        <input type="checkbox" class="form-checkbox" />
-        <span class="ml-2">แพ็กเกจยอดนิยม</span>
-      </div>
+        <v-row class="mt-6" align="center">
+          <v-col cols="auto">
+            <v-checkbox
+              v-model="note"
+              label="แพ็กเกจยอดนิยม"
+              hide-details
+            ></v-checkbox>
+          </v-col>
+        </v-row>
+      </v-card-text>
 
-      <div class="flex justify-between mt-6">
-        <button class="px-4 py-2 text-white bg-gray-700 rounded-lg">
-          ยกเลิก
-        </button>
-        <button class="px-4 py-2 text-gray-900 bg-yellow-500 rounded-lg">
-          บันทึก
-        </button>
-      </div>
-    </div>
-  </section>
+      <v-card-actions class="justify-between">
+        <v-btn color="grey darken-2" outlined @click="cancel">ยกเลิก</v-btn>
+        <v-btn color="yellow darken-2" outlined @click="save">บันทึก</v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-container>
 </template>
-<script>
+
+  <script>
 export default {
   name: "Form",
   data() {
     return {
       tab: null,
       details: [{ detail: "" }, { detail: "" }, { detail: "" }],
+      note: false,
     };
   },
   methods: {
@@ -80,6 +128,42 @@ export default {
     removeDetail(index) {
       this.details.splice(index, 1);
     },
+    cancel() {
+      // Cancel action
+    },
+    save() {
+      // Save action
+    },
   },
 };
 </script>
+
+  <style>
+.border-box .v-field__loader {
+  border-color: rgba(192, 0, 250, 0.986);
+}
+.text-2xl {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.pa-0 {
+  padding: 0;
+}
+.pa-8 {
+  padding: 2rem;
+}
+.mt-6 {
+  margin-top: 1.5rem;
+}
+.mb-4 {
+  margin-bottom: 1rem;
+}
+.header {
+  margin: 10px;
+}
+
+.btn {
+  border-radius: 6px;
+  background-color: #f56565;
+}
+</style>

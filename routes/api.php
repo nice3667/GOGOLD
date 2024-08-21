@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\StudycoursesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
@@ -54,6 +55,14 @@ Route::get('/packages/getlist', [PackageController::class, 'index']);
 
 //end package
 
+//buy package
+
+Route::post('/payment', [PaymentController::class, 'store']);
+
+Route::post('/payment/update', [PaymentController::class, 'update']);
+
+//end buy package
+
 //admin
 Route::get('/admin/getlist', [AdminController::class, 'index']);
 
@@ -68,3 +77,16 @@ Route::put('/admin/update', [AdminController::class, 'update']);
 Route::put('/admin/updateStatus', [AdminController::class, 'updateStatus']);
 
 Route::delete('/admin/delete', [AdminController::class, 'destroy']);
+
+//studycourses
+
+Route::post('/studycourses/add', [StudycoursesController::class, 'store']);
+
+Route::post('/studycourses/update', [StudycoursesController::class, 'update']);
+
+Route::post('/studycourses/delete', [StudycoursesController::class, 'destroy']);
+
+Route::get('/studycourses/details', [StudycoursesController::class, 'show']);
+
+
+//studycourses end
