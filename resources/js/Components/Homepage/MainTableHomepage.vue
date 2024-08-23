@@ -1,16 +1,16 @@
 <template>
   <div class="container">
     <div class="flex main-table-homepage">
-      <div class="table-container">
-        <v-data-table hide-default-footer="" class="w-full table-hp">
+      <div class="main-table-container">
+        <v-data-table hide-default-footer="" class="w-full main-table-hp">
           <thead>
-            <th class="table-title">Lorem ipsum</th>
+            <th class="main-table-title">Lorem ipsum</th>
 
-            <tr class="table-content">
-              <th class="text-table-name">Name</th>
-              <th class="text-table-gain">Gain</th>
-              <th class="text-table-monthly">Monthly</th>
-              <th class="text-table-total">Total</th>
+            <tr class="main-table-content">
+              <th class="text-main-table-name">Name</th>
+              <th class="text-main-table-gain">Gain</th>
+              <th class="text-main-table-monthly">Monthly</th>
+              <th class="text-main-table-total">Total</th>
             </tr>
           </thead>
           <tbody>
@@ -39,23 +39,11 @@
           </tbody>
         </v-data-table>
       </div>
-      <div class="text-main-tablehome">
-        <div class="side-text">
-          <div class="mt-5 font-bold text-center text-title-content-tablehome">
-            Lorem ipsum dolor sit amet consectetur.
-          </div>
-          <div class="mt-10 text-content-tablehome">
-            <li>Lorem ipsum dolor sit amet consectetur. Eget netus feugiat</li>
-            <li>Lorem ipsum dolor sit amet consectetur. Eget netus feugiat</li>
-            <li>Lorem ipsum dolor sit amet consectetur. Eget netus feugiat</li>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </template>
 
-  <script>
+    <script>
 export default {
   data() {
     return {
@@ -81,6 +69,48 @@ export default {
         {
           name: "Jame Foxy",
           gain: 55.51,
+          monthly: 44.96,
+          revenue: "25,256.12$",
+        },
+        {
+          name: "Jame Foxy",
+          gain: -55.51,
+          monthly: 44.96,
+          revenue: "25,256.12$",
+        },
+        {
+          name: "Jame Foxy",
+          gain: -55.51,
+          monthly: 44.96,
+          revenue: "25,256.12$",
+        },
+        {
+          name: "Jame Foxy",
+          gain: -55.51,
+          monthly: 44.96,
+          revenue: "25,256.12$",
+        },
+        {
+          name: "Jame Foxy",
+          gain: -55.51,
+          monthly: 44.96,
+          revenue: "25,256.12$",
+        },
+        {
+          name: "Jame Foxy",
+          gain: -55.51,
+          monthly: 44.96,
+          revenue: "25,256.12$",
+        },
+        {
+          name: "Jame Foxy",
+          gain: -55.51,
+          monthly: 44.96,
+          revenue: "25,256.12$",
+        },
+        {
+          name: "Jame Foxy",
+          gain: -55.51,
           monthly: 44.96,
           revenue: "25,256.12$",
         },

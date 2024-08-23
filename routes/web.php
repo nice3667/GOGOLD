@@ -7,8 +7,22 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TwoFactorController;
 use App\Http\Controllers\User\UserController;
 
-Route::get('/', [UserController::class, 'index'])->name('home');
+//homepage
+Route::get('/home', function () {
+    return Inertia::render('HomePage');
+});
+Route::get('/stats', function () {
+    return Inertia::render('StatsPage');
+});
+Route::get('/learn', function () {
+    return Inertia::render('LearnPage');
+});
+Route::get('/about', function () {
+    return Inertia::render('AboutPage');
+});
+//eng
 
+Route::get('/', [UserController::class, 'index'])->name('home');
 
 Route::get('/OtpCode', [TwoFactorController::class, 'index'])->name('otp');
 Route::post('/check-otp/store', [TwoFactorController::class, 'store'])->name('otp.store');

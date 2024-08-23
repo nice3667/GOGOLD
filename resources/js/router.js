@@ -8,7 +8,7 @@ const router = createRouter({
     routes: [
 
         {
-            path: '/style-test',
+            path: '/about',
             name: 'style-guide',
             component: StyleGuide
         },
@@ -16,7 +16,10 @@ const router = createRouter({
             path: '/style-test',
             name: 'style-guide',
             component: StyleGuide
-        }
+        },{ path: "/", name: "หน้าแรก", component: StyleGuide },
+        { path: "/about", name: "เกี่ยวกับเรา", component: StyleGuide },
+        { path: "/stats", name: "สถิติ", component: StyleGuide },
+        { path: "/learn", name: "เรียนรู้", component: StyleGuide },
     ]
 })
 

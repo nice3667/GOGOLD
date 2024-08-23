@@ -49,7 +49,7 @@
           <v-text-field
             v-model="search"
             density="compact"
-            label="ค้นหา"
+            label="ค้น5หา"
             prepend-inner-icon="mdi-magnify"
             variant="solo"
             hide-details

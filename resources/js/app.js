@@ -8,7 +8,11 @@ import '../css/_color.scss'
 import '../css/_form.scss'
 import '../css/_table.scss'
 //Homepage
-import '../css/Homepage/_btnlogin.scss'
+import '../css/Homepage/_bodyhome.scss'
+import '../css/Homepage/_tablehome.scss'
+import '../css/Homepage/_toolbar.scss'
+import '../css/Homepage/_commenthome.scss'
+import '../css/Homepage/_maintablehome.scss'
 //end
 import { createVuetify } from 'vuetify';
 import * as components from 'vuetify/components'
