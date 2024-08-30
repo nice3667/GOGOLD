@@ -4,7 +4,7 @@
       <div class="table-container">
         <v-data-table hide-default-footer="" class="w-full table-hp">
           <thead>
-            <th class="table-title">Lorem ipsum</th>
+            <th class="flex table-title">Lorem ipsum</th>
 
             <tr class="table-content">
               <th class="text-table-name">Name</th>

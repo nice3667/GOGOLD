@@ -13,8 +13,8 @@
           </div>
         </div>
         <div class="flex items-center pr-md-7 pr-lg-15">
-          <v-btn flat href="/" class="mr-2 btn-login">เข้าสู่ระบบ</v-btn>
-          <v-btn flat href="/" class="btn-register">สมัครสมาชิก</v-btn>
+          <v-btn flat href="/login" class="mr-2 btn-login">เข้าสู่ระบบ</v-btn>
+          <v-btn flat href="/register" class="btn-register">สมัครสมาชิก</v-btn>
         </div>
       </div>
     </v-app-bar>

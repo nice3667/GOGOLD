@@ -15,8 +15,8 @@
             laoreet eget vitae donec tincidunt adipiscing mi congue.
           </div>
         </div>
-        <div>
-          <v-btn class="body-home-btn">สมัครเลย!</v-btn>
+        <div class="flex justify-center">
+          <v-btn href="/register" class="body-home-btn">สมัครเลย!</v-btn>
         </div>
       </div>
     </div>
