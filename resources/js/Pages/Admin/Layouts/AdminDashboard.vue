@@ -12,13 +12,11 @@
         <v-app class="main-content-admin-dashboard">
           <v-main>
             <v-container class="main-content-admin-dashboard">
-              <div class="flex space-x-4">
-                <div
-                  class="flex justify-start space-x-4 main-content-admin-dashboard"
-                >
-                  <div class="card1">
+              <div class="flex">
+                <div class="flex main-content-admin-dashboard">
+                  <div class="mr-5 content-admin-dashboard">
                     <div class="flex items-center space-x-4">
-                      <img src="@/assets/icon/3.svg" alt="" class="icon" />
+                      <img src="@/assets/icon/pp-1.png" alt="" class="icon" />
 
                       <div class="text-left">
                         <div class="text-sm text-gray-400">สมาชิกทั้งหมด</div>
@@ -27,51 +25,63 @@
                     </div>
                   </div>
                 </div>
-                <div class="flex p-6 space-x-4 bg-gray-800 rounded-lg">
-                  <div class="flex-1 text-center text-white">
-                    <div class="flex items-center justify-center space-x-4">
-                      <img
-                        src="@/assets/icon/people.svg"
-                        alt=""
-                        class="material-icons"
-                      />
-                      <div class="text-left">
-                        <div class="text-sm text-gray-400">สมัครใหม่วันนี้</div>
-                        <div class="text-xl font-bold text-white">20 คน</div>
+                <div class="flex-1 bg-[#1D1D1D] main-content-admin-dashboard">
+                  <div
+                    class="flex p-6 space-x-4 bg-[#1D1D1D] content-group-admin-dashboard justify-evenly"
+                  >
+                    <div class="flex text-center text-white">
+                      <div class="flex items-center space-x-4">
+                        <img
+                          src="@/assets/icon/people.svg"
+                          alt=""
+                          class="material-icons"
+                        />
+                        <div class="text-left">
+                          <div class="text-sm text-gray-400">
+                            สมัครใหม่วันนี้
+                          </div>
+                          <div class="text-xl font-bold text-white">20 คน</div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="flex-1 text-center text-white">
-                    <div class="flex items-center justify-center space-x-4">
-                      <img
-                        src="@/assets/icon/people.svg"
-                        alt=""
-                        class="material-icons"
-                      />
-                      <div class="text-left">
-                        <div class="text-sm text-gray-400">สมัครใหม่วันนี้</div>
-                        <div class="text-xl font-bold text-white">20 คน</div>
+                    <div class="flex text-center text-white">
+                      <div class="flex items-center justify-center space-x-4">
+                        <img
+                          src="@/assets/icon/people.svg"
+                          alt=""
+                          class="material-icons"
+                        />
+                        <div class="text-left">
+                          <div class="text-sm text-gray-400">
+                            สมัครใหม่วันนี้
+                          </div>
+                          <div class="text-xl font-bold text-white">20 คน</div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="flex-1 text-center text-white">
-                    <div class="flex items-center justify-center space-x-4">
-                      <img
-                        src="@/assets/icon/people.svg"
-                        alt=""
-                        class="material-icons"
-                      />
-                      <div class="text-left">
-                        <div class="text-sm text-gray-400">สมัครใหม่วันนี้</div>
-                        <div class="text-xl font-bold text-white">20 คน</div>
+                    <div class="flex text-center text-white">
+                      <div class="flex items-center justify-center space-x-4">
+                        <img
+                          src="@/assets/icon/people.svg"
+                          alt=""
+                          class="material-icons"
+                        />
+                        <div class="text-left">
+                          <div class="text-sm text-gray-400">
+                            สมัครใหม่วันนี้
+                          </div>
+                          <div class="text-xl font-bold text-white">20 คน</div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="flex items-center">
-                    <a href="#" class="text-yellow-500">ดูรายละเอียด</a>
+                    <div class="flex items-center">
+                      <a href="#" class="text-yellow-500">ดูรายละเอียด</a>
+                    </div>
                   </div>
                 </div>
               </div>
+
+              <LineChart></LineChart>
             </v-container>
           </v-main>
         </v-app>
@@ -81,11 +91,34 @@
 </template>
 
 <script setup>
+import LineChart from "@/components/Dashboard/Admin/LineChart.vue";
 import NavbarLeft from "@/components/Dashboard/Admin/NavbarLeft.vue";
 import NavbarTop from "@/components/Dashboard/Admin/NavbarTop.vue";
 </script>
 
 <style scoped>
+.content-admin-dashboard {
+  @apply bg-[#1D1D1D] p-6  flex items-center justify-center w-64 h-24;
+  border-radius: 24px;
+}
+.content-group-admin-dashboard {
+  border-radius: 24px;
+}
+
+.icon {
+  @apply w-12 h-12;
+}
+
+.text-left {
+  @apply flex flex-col;
+}
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
 .main-content-admin-dashboard {
   background-color: #252525;
 }
