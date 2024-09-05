@@ -2,7 +2,7 @@
   <v-navigation-drawer :width="330" app permanent class="text-white bg-black">
     <!-- โลโก้ด้านบนในแถบซ้าย -->
     <div class="flex items-center justify-center py-4">
-      <LogoIcon />
+      <LogoIconUser />
     </div>
 
     <!-- รายการเมนู -->
@@ -30,18 +30,17 @@
 </template>
 <script setup>
 console.log(route().current());
+import LogoIconUser from "@/components/LogoIconUser.vue";
 import LogoIcon from "@/components/LogoIcon.vue";
 import { ref } from "vue";
 const menuItems = ref([
-  { title: "แดชบอร์ด", icon: "mdi-view-dashboard", route: "admindashboard" },
-  { title: "รายงาน", icon: "mdi-file-chart", route: "report" },
-  { title: "คำสั่งซื้อ", icon: "mdi-cart", route: "order" },
-  { title: "สินค้า", icon: "mdi-package-variant", route: "product" },
-  { title: "แพ็กเกจ", icon: "mdi-cube-outline", route: "package" },
-  { title: "บทความ", icon: "mdi-newspaper", route: "article" },
-  { title: "คอร์สเรียน", icon: "mdi-school", route: "course" },
-  { title: "ลูกค้า", icon: "mdi-account-group", route: "customer" },
-  { title: "ตั้งค่า", icon: "mdi-cog", route: "setting" },
+  { title: "หน้าหลัก", icon: "mdi-file-chart", route: "UserHomepage" },
+  { title: "แดชบอร์ด", icon: "mdi-view-dashboard", route: "UserDashboard" },
+  { title: "สถิติ", icon: "mdi-cart", route: "UserStatistics" },
+  { title: "คอร์สเรียน", icon: "mdi-school", route: "UserCourse" },
+  { title: "บัญชีของฉัน", icon: "mdi-cog", route: "UserAccount" },
+  { title: "การสั่งซื้อ", icon: "mdi-cog", route: "UserOrder" },
+  { title: "ออกจากระบบ", icon: "mdi-cog", route: "logout" },
 ]);
 </script>
 <style scoped>

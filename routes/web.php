@@ -29,6 +29,38 @@ Route::get('/orderhistory', function () {
 });
 //eng
 
+
+//User
+Route::get('/dashboardd', function () {
+  return Inertia::render('User/Layouts/UserDashboard');
+})->name('UserDashboard');
+
+Route::get('/account', function () {
+  return Inertia::render('User/Layouts/UserAccount');
+})->name('UserAccount');
+
+Route::get('/course', function () {
+  return Inertia::render('User/Layouts/UserCourse');
+})->name('UserCourse');
+
+Route::get('/homepage', function () {
+  return Inertia::render('User/Layouts/UserHomepage');
+})->name('UserHomepage');
+
+Route::get('/statistics', function () {
+  return Inertia::render('User/Layouts/UserStatistics');
+})->name('UserStatistics');
+
+Route::get('/order', function () {
+  return Inertia::render('User/Layouts/UserOrder');
+})->name('UserOrder');
+
+//End
+Route::get('/dashboard', function () {
+  Log::info('dashboard');
+  return Inertia::render('Dashboard');
+})->middleware(['auth', 'verified',])->name('dashboard');
+
 //Admin Dashboard
 Route::get('/admin/dashboard', function () {
   return Inertia::render('Admin/Layouts/AdminDashboard');
@@ -73,10 +105,6 @@ Route::get('/style-guide', function () {
   return Inertia::render('style-guide');
 });
 
-Route::get('/dashboard', function () {
-  Log::info('dashboard');
-  return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified',])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
   Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

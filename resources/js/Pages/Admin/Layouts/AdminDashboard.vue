@@ -59,6 +59,7 @@
                         </div>
                       </div>
                     </div>
+                    <hr />
                     <div class="flex text-center text-white">
                       <div class="flex items-center justify-center space-x-4">
                         <img
@@ -74,14 +75,31 @@
                         </div>
                       </div>
                     </div>
+
+                    <img
+                      src="@/assets/icon/people.svg"
+                      alt=""
+                      class="material-icons"
+                    />
                     <div class="flex items-center">
-                      <a href="#" class="text-yellow-500">ดูรายละเอียด</a>
+                      <a href="#" class="text-[#FFD700]">ดูรายละเอียด</a>
+                      <img
+                        src="@/assets/icon/ssr.png"
+                        alt=""
+                        class="w-4 h-4 ml-2"
+                      />
                     </div>
                   </div>
                 </div>
               </div>
-
-              <LineChart></LineChart>
+              <div class="grid grid-flow-row-dense grid-cols-3 grid-rows-3">
+                <div class="col-span-2">
+                  <LineChart></LineChart>
+                </div>
+                <div class="mt-5">
+                  <DonutChart></DonutChart>
+                </div>
+              </div>
             </v-container>
           </v-main>
         </v-app>
@@ -91,12 +109,19 @@
 </template>
 
 <script setup>
+import DonutChart from "@/components/Dashboard/Admin/DonutChart.vue";
 import LineChart from "@/components/Dashboard/Admin/LineChart.vue";
 import NavbarLeft from "@/components/Dashboard/Admin/NavbarLeft.vue";
 import NavbarTop from "@/components/Dashboard/Admin/NavbarTop.vue";
 </script>
 
+244,244,244,244
+
 <style scoped>
+hr {
+  border-top: 2px;
+  color: #ffffff;
+}
 .content-admin-dashboard {
   @apply bg-[#1D1D1D] p-6  flex items-center justify-center w-64 h-24;
   border-radius: 24px;

@@ -1,8 +1,6 @@
-<script setup>
-import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
-import { Head } from "@inertiajs/vue3";
-</script>
-
 <template>
-  <Head title="Dashboard" />
+  <MainUser></MainUser>
 </template>
+<script setup>
+import MainUser from "@/components/Dashboard/User/MainUser.vue";
+</script>

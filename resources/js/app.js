@@ -21,6 +21,7 @@ import "../css/Homepage/_footerhome.scss";
 import "../css/Login/_login.scss";
 //end
 
+// import CanvasJSChart from "@canvasjs/vue-charts";
 import { createVuetify } from "vuetify";
 import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";
@@ -70,7 +71,7 @@ createInertiaApp({
       .use(ZiggyVue) // ZiggyVue สำหรับการจัดการเส้นทาง
       .use(vuetify) // Vuetify สำหรับคอมโพเนนต์ UI
       .mixin({ methods: { route } }) // ทำให้เมธอด `route` ใช้ได้ทั่วทั้งแอป
-      .mount(el); // ติดตั้งแอป Vue
+      .mount(el);
   },
   progress: {
     color: "#4B5563",
