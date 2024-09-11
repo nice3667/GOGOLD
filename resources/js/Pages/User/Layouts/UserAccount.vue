@@ -181,7 +181,9 @@
                       alt=""
                       class="w-3 h-3 mt-2"
                     />
-                    <div class="ml-2 text-[#EA4335]">6.62%</div>
+                    <div class="ml-2 text-[#EA4335]">
+                      6.62% ฮาไนท์เชียงใหม่ คิงเดี่ยวฮาก้ อิอิ
+                    </div>
                   </div>
                 </div>
               </div>
