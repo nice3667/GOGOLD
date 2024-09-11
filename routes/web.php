@@ -31,6 +31,8 @@ Route::get('/orderhistory', function () {
 
 
 //User
+Route::post('/api/update-profile', [ProfileController::class, 'updateProfile']);
+
 Route::get('/dashboardd', function () {
   return Inertia::render('User/Layouts/UserDashboard');
 })->name('UserDashboard');

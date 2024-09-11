@@ -14,57 +14,82 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 class ProfileController extends Controller
 {
-    /**
-     * Display the user's profile form.
-     */
-    public function edit(Request $request): Response
-    {
-        return Inertia::render('Profile/Edit', [
-            'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
-            'status' => session('status'),
-        ]);
+  /**
+   * Display the user's profile form.
+   */
+  public function edit(Request $request): Response
+  {
+    return Inertia::render('Profile/Edit', [
+      'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
+      'status' => session('status'),
+    ]);
+  }
+
+  /**
+   * Update the user's profile information.
+   */
+  public function update(ProfileUpdateRequest $request): RedirectResponse
+  {
+    $request->user()->fill($request->validated());
+
+    if ($request->user()->isDirty('phone')) {
+      $request->user()->email_verified_at = null;
     }
 
-    /**
-     * Update the user's profile information.
-     */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
-    {
-        $request->user()->fill($request->validated());
+    $request->user()->save();
 
-        if ($request->user()->isDirty('phone')) {
-            $request->user()->email_verified_at = null;
-        }
+    return Redirect::route('profile.edit');
+  }
 
-        $request->user()->save();
+  /**
+   * Delete the user's account.
+   */
+  public function destroy(Request $request): RedirectResponse
+  {
+    $request->validate([
+      'password' => ['required', 'current_password'],
+    ]);
 
-        return Redirect::route('profile.edit');
+    $user = $request->user();
+
+    Auth::logout();
+
+    $user->delete();
+
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+
+    return Redirect::to('/');
+  }
+
+  public function createTest(Request $request)
+  {
+    Log::info($request);
+    return 'สมัครเสร็จแล้ว ไปกันต่อ';
+  }
+  public function updateProfile(Request $request)
+  {
+    // Validate the request
+    $request->validate([
+      'firstname' => 'required|string|max:255',
+      'lastname' => 'required|string|max:255',
+      'email' => 'required|email',
+      'bank_name' => 'nullable|string|max:255',
+      'bank_account_name' => 'nullable|string|max:20',
+      'bank_account_number' => 'nullable|string|max:20',
+      'password' => 'nullable|min:8|confirmed',
+    ]);
+
+    // Update user profile in the database
+    $user = auth()->user();
+    $user->firstname = $request->firstname;
+    $user->lastname = $request->lastname;
+    $user->email = $request->email;
+    if ($request->password) {
+      $user->password = bcrypt($request->password);
     }
+    $user->save();
 
-    /**
-     * Delete the user's account.
-     */
-    public function destroy(Request $request): RedirectResponse
-    {
-        $request->validate([
-            'password' => ['required', 'current_password'],
-        ]);
-
-        $user = $request->user();
-
-        Auth::logout();
-
-        $user->delete();
-
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        return Redirect::to('/');
-    }
-
-    public function createTest(Request $request)
-    {
-        Log::info($request);
-        return 'สมัครเสร็จแล้ว ไปกันต่อ';
-    }
+    return response()->json(['success' => true, 'message' => 'Profile updated successfully']);
+  }
 }

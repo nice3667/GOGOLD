@@ -1,9 +1,4 @@
-@import '_color';
 
-.border-danger{
-	@apply text-red-600;
-	@apply border-b-red-600 #{!important};
-}
 
 select {
 	&.form-control {
@@ -72,4 +67,39 @@ select {
 		border: none;
 		cursor: default;
 	}
+}
+
+.form-control {
+  @apply border-b border-gray-500 p-2 w-full bg-gray-800 text-white rounded focus:border-yellow-500;
+}
+
+.custom-table .v-data-table__header {
+  background-color: #3f51b5;
+  color: white;
+}
+
+.custom-table .v-icon {
+  cursor: pointer;
+  color: #ff5722;
+}
+
+
+.border2-box .v-field__field{
+  background-color: #2c2c2c;
+}
+.border-box .v-text-field--outlined {
+  border-color: rgba(192, 0, 250, 0.986);
+}
+
+.text-input-footer{
+  background-color: #252525;
+  border-radius: 30px ;
+
+}
+.input-footer{
+  // width: 25%;
+  padding: 2px;
+  background-color: #252525;
+  border: 1px solid #737373;
+  --tw-ring-color: transparent;
 }

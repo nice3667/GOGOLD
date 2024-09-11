@@ -10,9 +10,10 @@
     0 2px 4px -2px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
     var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+
 }
 
-.card1 {
+.card-stats {
   @apply bg-gray-900 p-6 rounded-lg flex items-center justify-center w-64 h-24;
 }
 
@@ -20,12 +21,27 @@
   @apply w-12 h-12;
 }
 
-.text-left {
-  @apply flex flex-col;
+.comment-group{
+  background-color: #27272A;
+  height: 20rem;
+  width: 30rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  width: 100%;
 }
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
+.card-comment {
+  display: flex;
+  height: 20rem;
+  width: 40rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  background-color: #27272A;
+  padding: 1.5rem;
+}
+.icon-comment{
+  width: 100px;
+  height: 100px;
 }

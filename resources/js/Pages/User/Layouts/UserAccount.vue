@@ -122,7 +122,7 @@
               </div>
             </div>
           </div>
-          <div class="flex justify-between mt-10 main-content">
+          <div class="flex justify-between mt-5 main-content">
             <div class="flex items-center justify-center card-status">
               <div class="flex items-center justify-center space-x-4">
                 <img src="@/assets/icon/icon1.png" alt="" class="icon" />
