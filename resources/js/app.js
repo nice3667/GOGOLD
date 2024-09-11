@@ -9,6 +9,9 @@ import { ZiggyVue } from "../../vendor/tightenco/ziggy";
 import "@mdi/font/css/materialdesignicons.css";
 import "vuetify/dist/vuetify.min.css";
 
+import { usePwa } from "./composables/usePwa";
+const { createPwa } = usePwa();
+
 const appName = import.meta.env.VITE_APP_NAME || "Laravel";
 
 const vuetify = createVuetify({
@@ -35,6 +38,9 @@ const vuetify = createVuetify({
     },
   },
 });
+
+createPwa();
+
 createInertiaApp({
   title: (title) => `${title} - ${appName}`,
   resolve: (name) =>
