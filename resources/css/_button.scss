@@ -61,8 +61,12 @@
 }
 
 .btn-search {
-    color: white;
+  font-size: 15px !important;
+    color: #000000 !important;
     background-color: #FFD700;
+    width: 100px !important;
+    height: 50px !important;
+    border-radius: 20px !important;
 }
 
 .btn-edit {
@@ -91,6 +95,9 @@
         height: 22px;
         margin-right: 10px;
     }
+}
+.icon-button{
+  justify-content: center
 }
 .icon-button {
     @apply p-2 rounded-lg flex items-center justify-center;

@@ -1,0 +1,28 @@
+.chip {
+  width: 96px ;
+  height: 26px ;
+  border-radius: 20px ;
+  font-size: 12px ;
+  justify-content: center ;
+
+
+  &.chip-primary {
+    background-color: rgba(236, 243, 253, 1) ;
+    color: rgba(49, 120, 238, 1) ;
+  }
+
+  &.chip-warning {
+    background-color: rgba(255, 249, 236, 1) ;
+    color: rgba(255, 168, 0, 1) ;
+  }
+
+  &.chip-success {
+    background-color: rgba(232, 248, 235, 1) ;
+    color: rgba(56, 158, 13, 1) ;
+  }
+
+  &.chip-danger {
+    background-color: rgba(255, 231, 229, 1) ;
+    color: rgba(244, 0, 0, 1) ;
+  }
+}

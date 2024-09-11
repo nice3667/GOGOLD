@@ -13,35 +13,37 @@ use Illuminate\Support\Facades\Validator;
 
 class ApiController extends Controller
 {
-    public function register(Request $request)
-    {
-        Log::info(json_encode($request));
-        $ValidateUser = Validator::make($request->all(), [
-            'name' => 'required|string|max:255',
-            'phone' => 'required|string|max:255',
-            'password' => ['required', Rules\Password::defaults()],
+  public function register(Request $request)
+  {
+    Log::info(json_encode($request));
+    $ValidateUser = Validator::make($request->all(), [
+      'firstname' => 'required|string|max:255',
+      'lastname' => 'required|string|max:255',
+      'phone' => 'required|string|max:255',
+      'password' => ['required', Rules\Password::defaults()],
 
-        ]);
-        if ($ValidateUser->fails()) {
-            return response()->json([
-                'status' => 'false',
-                'message' => 'Validation error',
-                'errors' => $ValidateUser->errors()
-            ], 401);
+    ]);
+    if ($ValidateUser->fails()) {
+      return response()->json([
+        'status' => 'false',
+        'message' => 'Validation error',
+        'errors' => $ValidateUser->errors()
+      ], 401);
 
-        }
-        $user = User::create([
-            'name' => $request->name,
-            'phone' => $request->phone,
-            'password' => Hash::make($request->password),
-            'unhashed_password' => $request->password,
-        ]);
-
-        return response()->json([
-            'status' => true,
-            'message' => 'User create suc',
-        ], 200);
     }
+    $user = User::create(attributes: [
+      'firstname' => $request->firstname,
+      'lastname' => $request->lastname,
+      'phone' => $request->phone,
+      'password' => Hash::make($request->password),
+      'unhashed_password' => $request->password,
+    ]);
+
+    return response()->json([
+      'status' => true,
+      'message' => 'User create suc',
+    ], 200);
+  }
 
 
 }

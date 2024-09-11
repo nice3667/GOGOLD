@@ -38,6 +38,10 @@ Route::get('/dashboardd', function () {
 Route::get('/account', function () {
   return Inertia::render('User/Layouts/UserAccount');
 })->name('UserAccount');
+Route::get('/account/profile', function () {
+  return Inertia::render('User/Layouts/UserAccountProfile');
+})->name('UserAccountProfile');
+
 
 Route::get('/course', function () {
   return Inertia::render('User/Layouts/UserCourse');

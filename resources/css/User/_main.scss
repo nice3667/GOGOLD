@@ -1,0 +1,318 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "_tableuser";
+@import "variables";
+@import "_chipuser";
+@import "_buttonuser";
+
+.btn-login {
+  background: linear-gradient(180deg, #2263c5 0%, #010080 100%) !important;
+  border-radius: 10px !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+.btn-download {
+  background: linear-gradient(180deg, #1a75ff 0%, #00048f 100%) !important;
+  border-radius: 3px !important;
+  color: #ffffff !important;
+  padding: 4px 33px !important;
+}
+
+.btn-send {
+  border-radius: 5px !important;
+  background: linear-gradient(180deg, #cf1322 0%, #6c0000 100%) !important;
+  color: #ffffff !important;
+  padding: 4px 33px !important;
+}
+
+.btn-login-outline {
+  border: 2px solid rgb(var(--v-theme-blue-2)) !important;
+  border-radius: 10px !important;
+  box-shadow: none !important;
+  font-weight: 500 !important;
+  color: rgb(var(--v-theme-blue-2)) !important;
+}
+
+.btn-secondary {
+  background: linear-gradient(180deg, #fd1111 0%, #750009 100%) !important;
+  border-radius: 10px !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+.btn-blue {
+  border-radius: 3px !important;
+  color: #ffffff !important;
+  font-weight: 500 !important;
+  border: 1px solid rgb(var(--v-theme-blue-5)) !important;
+  background: rgb(var(--v-theme-blue-5)) !important;
+  font-size: 12px !important;
+}
+
+.btn-blue-2 {
+  background: linear-gradient(180deg, #2263c5 0%, #3aadee 100%) !important;
+  border-radius: 3px !important;
+  color: #ffffff !important;
+  font-weight: 500 !important;
+  font-size: 13px !important;
+}
+
+.btn-yellow {
+  border-radius: 3px !important;
+  background: linear-gradient(180deg, #ffc600 3.45%, #e48900 96.55%) !important;
+  color: rgb(var(--v-theme-main)) !important;
+}
+
+.card-gradient {
+  background: linear-gradient(303.49deg, #ca030c 14.82%, #010080 75.21%) !important;
+}
+
+.card-warning {
+  border-radius: 5px;
+  padding: 16px 40px;
+  background: #ffd8d6;
+  margin-bottom: 20px;
+  ul {
+    li {
+      list-style: disc;
+      list-style-position: inside;
+      position: relative;
+      font-size: 16px;
+      margin-left: 20px;
+      padding-left: 30px;
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 5px;
+        width: 15px;
+        height: 15px;
+        background: url(/assets/images/icons/info.png) no-repeat center center;
+        background-size: cover;
+      }
+    }
+  }
+}
+.chip-type {
+  &.error {
+    border: 1px solid #ffa39e;
+    color: #cf1322;
+    background: #fff1f0;
+  }
+  &.warning {
+    border: 1px solid #ffd591;
+    color: #d46b08;
+    background: #fff7e6;
+  }
+  &.success {
+    border: 1px solid #b7eb8f;
+    color: #389e0d;
+    background: #f6ffed;
+  }
+  &.dark {
+    border: 1px solid #000;
+    color: #000;
+    background: #e8e8e8;
+  }
+  &.info {
+    border: 1px solid #2263c5;
+    color: #2263c5;
+    background: #ddf5ff;
+  }
+}
+
+.v-list-item--active {
+  &:not(.v-list-group__header) {
+    background: rgb(var(--v-theme-main)) !important;
+    color: #ffffff !important;
+    border-radius: 20px !important;
+  }
+}
+
+.v-list-item--density-default:not(.v-list-item--nav).v-list-item--one-line {
+  border-radius: 20px !important;
+
+}
+
+.v-list-group {
+  .v-list-item--active {
+    border-radius: 20px !important;
+
+    &.v-list-group__header {
+      color: #ffffff !important;
+    }
+
+    .v-list-item__overlay {
+      opacity: 0 !important;
+    }
+  }
+}
+
+.text-red {
+  color: #fd1111;
+}
+
+.v-input--density-default {
+  --v-input-control-height: 30px !important;
+  --v-input-padding-top: 10px !important;
+}
+
+.v-input--density-default .v-field--variant-outlined,
+.v-input--density-default .v-field--single-line,
+.v-input--density-default .v-field--no-label {
+  --v-field-padding-bottom: 10px !important;
+  display: flex;
+  width: 150px;
+  height: 40px;
+  padding: 8px 16px 8px 0px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 12px;
+  border: 1px solid var(--gray, #5c5c5c);
+  background: var(--white, #fff);
+}
+
+input[type="date"] {
+  &:invalid,
+  &:not(:focus) {
+    color: #b5b5b5;
+
+    &::-webkit-datetime-edit {
+      color: transparent;
+    }
+  }
+
+  &::before {
+    content: attr(placeholder);
+    @apply absolute;
+  }
+
+  &:valid,
+  &:focus,
+  &:active {
+    &::before {
+      content: "" !important;
+    }
+
+    &::-webkit-datetime-edit {
+      color: #737373;
+    }
+  }
+}
+
+input[type="time"] {
+  &:invalid,
+  &:not(:focus) {
+    color: #b5b5b5;
+
+    &::-webkit-datetime-edit {
+      color: transparent;
+    }
+  }
+
+  &::before {
+    content: attr(placeholder);
+    @apply absolute;
+  }
+
+  &:valid,
+  &:focus,
+  &:active {
+    &::before {
+      content: "" !important;
+    }
+
+    &::-webkit-datetime-edit {
+      color: #737373;
+    }
+  }
+}
+
+/* -------------------------------------------------- image form company -------------------------------------------------- */
+div .image-upload {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-top: 8px;
+  margin-bottom: 10px;
+  border: 1px dashed #002461;
+  border-radius: 16px;
+}
+
+div .image-upload img {
+  border: 1px solid rgb(209 213 219);
+  width: 210px;
+  height: 210px;
+  z-index: 2;
+}
+
+div .image-upload img.icon-action {
+  border: 0;
+  width: 13px;
+  height: 13px;
+}
+
+div .image-upload input {
+  display: none;
+}
+
+div .image-upload label {
+  position: absolute;
+  color: #fff;
+  background: #ffab3b;
+  width: 72px;
+  height: 28px;
+  padding: 5px 5px 5px 10px;
+  bottom: -12px;
+  border-radius: 15px;
+  cursor: pointer;
+  opacity: 1;
+  z-index: 50;
+  font-size: 14px;
+  line-height: 19px;
+}
+
+/* Square image */
+
+div .image-upload.image-upload-square {
+  position: relative;
+  display: block;
+  width: fit-content;
+}
+
+div .image-upload.image-upload-square img {
+  border: none;
+  width: 100%;
+  height: 100%;
+  max-width: 380px;
+  max-height: 250px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+div .image-upload.image-upload-square label {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 50%);
+  color: #fff;
+  background: #ffab3b;
+  width: 72px;
+  height: 28px;
+  padding: 5px 5px 5px 10px;
+  border-radius: 15px;
+  cursor: pointer;
+  opacity: 1;
+  z-index: 50;
+}
+
+.edit-img {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  text-align: center;
+}

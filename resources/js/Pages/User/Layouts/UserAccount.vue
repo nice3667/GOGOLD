@@ -37,13 +37,23 @@
               <div class="grid grid-cols-1 gap-4 mt-4 md:grid-cols-3">
                 <!-- Personal Information -->
                 <v-card class="flex items-center information-cards">
-                  <v-card-title class="text-lg font-semibold information-cards">
-                    <b>ข้อมูลส่วนตัว</b>
+                  <v-card-title
+                    class="flex flex-col text-lg font-semibold information-cards"
+                  >
+                    <div class="flex justify-between">
+                      <b>ข้อมูลส่วนตัว</b>
+                      <a href="/account/profile"
+                        ><img
+                          src="@/assets/icon/edit2.png"
+                          alt=""
+                          class="icon-edit"
+                      /></a>
+                    </div>
                   </v-card-title>
                   <v-card-text class="flex flex-col space-y-2">
                     <div class="flex justify-between">
                       <span><b>ชื่อ-นามสกุล:</b></span>
-                      <p>{{ data_user.name }}</p>
+                      <p>{{ data_user.firstname }} {{ data_user.lastname }}</p>
                     </div>
                     <div class="flex justify-between">
                       <span><b>เบอร์โทร:</b></span>
@@ -59,29 +69,45 @@
                 <!-- Bank Details -->
                 <v-card class="flex items-center information-cards">
                   <v-card-title class="text-lg font-semibold information-cards">
-                    <b>บัญชีธนาคาร</b></v-card-title
-                  >
+                    <div class="flex justify-between">
+                      <b>บัญชีธนาคาร</b>
+                      <a href="/account/profile"
+                        ><img
+                          src="@/assets/icon/edit2.png"
+                          alt=""
+                          class="icon-edit"
+                      /></a>
+                    </div>
+                  </v-card-title>
                   <v-card-text class="flex flex-col space-y-2">
                     <div class="flex justify-between">
                       <span><b>ชื่อบัญชี:</b></span>
-                      <p>{{ data_user.name_bank }}n</p>
+                      <p>{{ data_user.bank_account_name }}</p>
                     </div>
                     <div class="flex justify-between">
                       <span><b>ธนาคาร:</b></span>
-                      <p>{{ data_user.bank }}</p>
+                      <p>{{ data_user.bank_name }}</p>
                     </div>
                     <div class="flex justify-between">
                       <span><b>เลขที่บัญชี:</b></span>
-                      <p>{{ data_user.number }}</p>
+                      <p>{{ data_user.bank_account_number }}</p>
                     </div>
                   </v-card-text>
                 </v-card>
 
                 <!-- Package Information -->
                 <v-card class="flex items-center information-cards">
-                  <v-card-title class="text-lg font-semibold information-cards"
-                    ><span>ข้อมูลแพ็กเกจ</span></v-card-title
-                  >
+                  <v-card-title class="text-lg font-semibold information-cards">
+                    <div class="flex justify-between">
+                      <span>ข้อมูลแพ็กเกจ</span>
+                      <a href="/account/profile"
+                        ><img
+                          src="@/assets/icon/edit2.png"
+                          alt=""
+                          class="icon-edit"
+                      /></a>
+                    </div>
+                  </v-card-title>
                   <v-card-text class="flex flex-col space-y-2">
                     <div class="flex justify-between">
                       <span><b>ชื่อแพ็กเกจ:</b></span>
@@ -181,9 +207,7 @@
                       alt=""
                       class="w-3 h-3 mt-2"
                     />
-                    <div class="ml-2 text-[#EA4335]">
-                      6.62% ฮาไนท์เชียงใหม่ คิงเดี่ยวฮาก้ อิอิ
-                    </div>
+                    <div class="ml-2 text-[#EA4335]">6.62%</div>
                   </div>
                 </div>
               </div>
@@ -200,23 +224,44 @@
 import TableAccount from "@/components/User/TableAccount.vue";
 import NavbarLeftUser from "@/components/Dashboard/User/NavbarLeftUser.vue";
 import NavbarTopUser from "@/components/Dashboard/User/NavbarTopUser.vue";
-import { ref } from "vue";
-const data_user = ref({
-  name: "Thitikorn Rueanmon",
-  phone: "0970787580",
-  email: "Thitikorncs@gmail.com",
-  name_bank: "Thitikorn Rueanmon",
-  bank: "กสิกรลาว",
-  number: "123-123-123",
-  remaining_balance: "2,456",
-  commission: "1,688",
-  buy: "12",
-  sell: "34",
-});
+import { ref, useAttrs, onMounted } from "vue";
 
 const data_package = ref({
   name: "EA1",
   age: "1",
+});
+
+const attrs = useAttrs();
+
+const data_user = ref({
+  name: "",
+  phone: "",
+  email: "",
+  bank_name: "",
+  bank_account_name: "",
+  bank_account_number: "",
+  remaining_balance: "",
+  commission: "",
+  buy: "",
+  sell: "",
+});
+
+onMounted(async () => {
+  //dataUser
+  data_user.value.phone = attrs.auth.user.phone;
+  data_user.value.firstname = attrs.auth.user.firstname;
+  data_user.value.lastname = attrs.auth.user.lastname;
+  data_user.value.email = attrs.auth.user.email;
+  //end
+  //bank
+  data_user.value.bank_name = attrs.auth.user.bank_name;
+  data_user.value.bank_account_number = attrs.auth.user.bank_account_number;
+  data_user.value.bank_account_name = attrs.auth.user.bank_account_name;
+  //end
+  //commission
+  // data_user.value.commission = attrs.auth.user.commission;
+
+  //end
 });
 </script>
 
@@ -232,7 +277,7 @@ const data_package = ref({
   color: #ffffff;
 }
 hr {
-  border-top: 2px solid #252525;
+  border-top: 1px solid #a4a4a4;
 }
 .content-dashboard {
   @apply bg-[#1D1D1D] p-6  flex items-center justify-center w-64 h-24;
@@ -289,5 +334,10 @@ body {
 
 .text-left {
   @apply flex flex-col;
+}
+
+.icon-edit {
+  width: 49px;
+  height: 23px;
 }
 </style>

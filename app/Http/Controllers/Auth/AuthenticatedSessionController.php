@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\User;
 use Inertia\Inertia;
 use Inertia\Response;
 use Illuminate\Http\Request;
@@ -31,11 +32,30 @@ class AuthenticatedSessionController extends Controller
    */
   public function store(LoginRequest $request): RedirectResponse
   {
-    $request->authenticate();
+    Log::info('test');
 
-    $request->session()->regenerate();
+    Log::info($request);
+    // $credentials = $request->validate([
+    //   'phone' => ['required'],
+    //   'password' => ['required'],
+    // ]);
 
-    return redirect()->intended(route('dashboard', absolute: false));
+    // if (Auth::attempt($credentials)) {
+      $request->auth();
+      $request->session()->regenerate();
+    //   $remember = $request->has('remember') ? $request->remember : false;
+
+    //   $user = User::where('phone', $request->phone)->first();
+
+    //   $user = Auth::user();
+    //   Log::info('user 2 ' . json_encode($user));
+
+    // }
+    return redirect()->intended('dashboard');
+
+    // return back();
+
+    // return redirect()->intended(route('dashboard', absolute: false));
   }
 
   /**

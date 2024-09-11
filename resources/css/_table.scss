@@ -1,227 +1,227 @@
-.v-card-title {
-    background-color: #2c2c2c;
-    color: white;
-}
-.v-data-table__td {
-    color: white;
-}
-.v-data-table {
-    background-color: #2c2c2c;
-    color: white;
-  }
-  .v-data-table .v-data-table__wrapper {
-    background-color: #2c2c2c;
-    color: white;
-  }
-  .v-data-table-header th,
-  .v-data-table__tbody td {
-    color: white;
-  }
-  .black-table {
-    background-color: #2c2c2c;
-  }
-.v-data-table-footer{
-    justify-content:center;
-}
-.v-field__input,.v-field__input input{
-    background-color: #2c2c2c;
-    color: white;
-    --tw-ring-color: transparent;
-
-}
-
-/* เลือกสถานะ */
-.search-field .v-field__input {
-    background-color: white;
-    color: #000;
-    --tw-ring-color: transparent;
-
-  }
-  /* เลือกสถานะ */
-
-.v-container{
-    background-color: #2c2c2c;
-}
-// .v-btn{
+// .v-card-title {
 //     background-color: #2c2c2c;
-//     color:white;
+//     color: white;
+// }
+// .v-data-table__td {
+//     color: white;
+// }
+// .v-data-table {
+//     background-color: #2c2c2c;
+//     color: white;
+//   }
+//   .v-data-table .v-data-table__wrapper {
+//     background-color: #2c2c2c;
+//     color: white;
+//   }
+//   .v-data-table-header th,
+//   .v-data-table__tbody td {
+//     color: white;
+//   }
+//   .black-table {
+//     background-color: #2c2c2c;
+//   }
+// .v-data-table-footer{
+//     justify-content:center;
+// }
+// .v-field__input,.v-field__input input{
+//     background-color: #2c2c2c;
+//     color: white;
+//     --tw-ring-color: transparent;
 
 // }
 
-.end .v-field__input{
-    height: 40px;
-    width: 180px;
-    // border-radius: 30px;
-    color:white;
-    background-color: transparent;
-    // outline: 0 !important;
-    --tw-ring-color: transparent;
-}
-.v-field__input input{
-    height: 40px;
-    width: 30px;
-}
+// /* เลือกสถานะ */
+// .search-field .v-field__input {
+//     background-color: white;
+//     color: #000;
+//     --tw-ring-color: transparent;
 
-.v-end .v-field__input{
+//   }
+//   /* เลือกสถานะ */
 
-    cursor: pointer;
-    text-overflow: ellipsis;
-    border-radius: 30px;
-    color:white;
-    background-color: transparent;
-    // outline: 0 !important;
-    --tw-ring-color: transparent;
-}
-.v-end .v-field{
-    // margin-left: 10px;
-    margin-right: 0px;
-    margin-top: 30px;
-    background-color: #2c2c2c;
-    color: white;
-    cursor: pointer;
-    text-overflow: ellipsis;
-    height: 40px;
-    width: 10px;
-    border-radius: 30px;
-}
-.v-start .v-field__input {
-    height: 40px;
-    width: 100px;
-    cursor: pointer;
-    text-overflow: ellipsis;
-    color:white;
-    background-color: transparent;
-    // outline: 0 !important;
-    --tw-ring-color: transparent;
-}
-.v-start .v-input__control{
-    width: 80%;
-}
-.v-end .v-input__control{
-    width: 80%;
-}
-.n-select .v-input__control{
-    width: 80%;
-}
-.v-start .v-field__outline {
-    height: 40px;
-    width: 100%;
-}
-.v-end .v-field__outline {
-    height: 40px;
-    width: 100%;
-}
-.n-select .v-field__outline {
-    height: 40px;
-    width: 100%;
-}
-
-.v-start .v-field{
-    // margin-left: 10px;
-    margin-right: 0px;
-    margin-top: 30px;
-    background-color: #2c2c2c;
-    color: white;
-    cursor: pointer;
-    text-overflow: ellipsis;
-    height: 40px;
-    width: 10px;
-    border-radius: 30px;
-    --tw-ring-color: transparent;
-
-}
-.n-search .v-field__input {
-    border-radius: 30px;
-  }
-// .start .v-label {
-//     cursor: pointer;
+// .v-container{
+//     background-color: #2c2c2c;
 // }
-// .end .v-field{
+// // .v-btn{
+// //     background-color: #2c2c2c;
+// //     color:white;
+
+// // }
+
+// .end .v-field__input{
 //     height: 40px;
 //     width: 180px;
+//     // border-radius: 30px;
+//     color:white;
+//     background-color: transparent;
+//     // outline: 0 !important;
+//     --tw-ring-color: transparent;
+// }
+// .v-field__input input{
+//     height: 40px;
+//     width: 30px;
+// }
+
+// .v-end .v-field__input{
+
+//     cursor: pointer;
+//     text-overflow: ellipsis;
+//     border-radius: 30px;
+//     color:white;
+//     background-color: transparent;
+//     // outline: 0 !important;
+//     --tw-ring-color: transparent;
+// }
+// .v-end .v-field{
+//     // margin-left: 10px;
+//     margin-right: 0px;
+//     margin-top: 30px;
+//     background-color: #2c2c2c;
+//     color: white;
+//     cursor: pointer;
+//     text-overflow: ellipsis;
+//     height: 40px;
+//     width: 10px;
 //     border-radius: 30px;
 // }
-.n-select .v-field{
-    // margin-left: 10px;
-    margin-right: 0px;
-    margin-top: 30px;
-    background-color: #2c2c2c;
-    color: white;
-    cursor: pointer;
-    text-overflow: ellipsis;
-    height: 40px;
-    width: 10px;
-    border-radius: 30px;
-    --tw-ring-color: transparent;
+// .v-start .v-field__input {
+//     height: 40px;
+//     width: 100px;
+//     cursor: pointer;
+//     text-overflow: ellipsis;
+//     color:white;
+//     background-color: transparent;
+//     // outline: 0 !important;
+//     --tw-ring-color: transparent;
+// }
+// .v-start .v-input__control{
+//     width: 80%;
+// }
+// .v-end .v-input__control{
+//     width: 80%;
+// }
+// .n-select .v-input__control{
+//     width: 80%;
+// }
+// .v-start .v-field__outline {
+//     height: 40px;
+//     width: 100%;
+// }
+// .v-end .v-field__outline {
+//     height: 40px;
+//     width: 100%;
+// }
+// .n-select .v-field__outline {
+//     height: 40px;
+//     width: 100%;
+// }
 
-}
-.n-select input {
-    background-color: #2c2c2c;
-    color: white;
-    // border-bottom-color: #f00;
-    --tw-ring-color: transparent;
-}
+// .v-start .v-field{
+//     // margin-left: 10px;
+//     margin-right: 0px;
+//     margin-top: 30px;
+//     background-color: #2c2c2c;
+//     color: white;
+//     cursor: pointer;
+//     text-overflow: ellipsis;
+//     height: 40px;
+//     width: 10px;
+//     border-radius: 30px;
+//     --tw-ring-color: transparent;
 
-.n-select .v-field__input, .n-select .v-field__input input {
-    background-color: transparent;
-    --tw-ring-color: transparent;
+// }
+// .n-search .v-field__input {
+//     border-radius: 30px;
+//   }
+// // .start .v-label {
+// //     cursor: pointer;
+// // }
+// // .end .v-field{
+// //     height: 40px;
+// //     width: 180px;
+// //     border-radius: 30px;
+// // }
+// .n-select .v-field{
+//     // margin-left: 10px;
+//     margin-right: 0px;
+//     margin-top: 30px;
+//     background-color: #2c2c2c;
+//     color: white;
+//     cursor: pointer;
+//     text-overflow: ellipsis;
+//     height: 40px;
+//     width: 10px;
+//     border-radius: 30px;
+//     --tw-ring-color: transparent;
 
-}
+// }
+// .n-select input {
+//     background-color: #2c2c2c;
+//     color: white;
+//     // border-bottom-color: #f00;
+//     --tw-ring-color: transparent;
+// }
 
-.search-field .v-field{
-    border-radius: 90px;
-}
-.edit-status .v-field, .edit-status .v-field__input input{
-    background-color: transparent;
-}
+// .n-select .v-field__input, .n-select .v-field__input input {
+//     background-color: transparent;
+//     --tw-ring-color: transparent;
 
+// }
 
-.move-left .v-btn{
-    border-radius: 90px;
-    margin-left: -8px; /* หรือค่าที่ต้องการ */
-}
-  .v-list .v-list-item {
-    // background-color: green!important;
-  }
-  .v-list .v-list-item .v-list-item__title {
-    color: #ffd54f !important;
-  }
-  .edit-status .v-list-item__title {
-    color: red !important; /* Change to your desired color */
-  }
+// .search-field .v-field{
+//     border-radius: 90px;
+// }
+// .edit-status .v-field, .edit-status .v-field__input input{
+//     background-color: transparent;
+// }
 
 
+// .move-left .v-btn{
+//     border-radius: 90px;
+//     margin-left: -8px; /* หรือค่าที่ต้องการ */
+// }
+//   .v-list .v-list-item {
+//     // background-color: green!important;
+//   }
+//   .v-list .v-list-item .v-list-item__title {
+//     color: #ffd54f !important;
+//   }
+//   .edit-status .v-list-item__title {
+//     color: red !important; /* Change to your desired color */
+//   }
 
-  .select-wrapper {
-    margin-top: 2%;
-    position: relative;
-    display: inline-block;
-    width: 80%;
-  }
 
-  .select-label {
-    position: absolute;
-    top: 15px;
-    left: 30px;
-    background-color: #2c2c2c;
-    color: rgb(229, 231, 235);
-    font-size: 88%;
-    padding: 0 4px;
-  }
 
-  .custom-select {
-    width: 100%;
-    padding: 16.5px 14px;
-    background-color: #2c2c2c;
-    color: rgb(229, 231, 235);
-    border: 1px solid #ccc;
-    border-radius: 100px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-  }
+//   .select-wrapper {
+//     margin-top: 2%;
+//     position: relative;
+//     display: inline-block;
+//     width: 80%;
+//   }
 
-  .custom-select option {
-    background-color: #2c2c2c;
-    color: white;
-  }
+//   .select-label {
+//     position: absolute;
+//     top: 15px;
+//     left: 30px;
+//     background-color: #2c2c2c;
+//     color: rgb(229, 231, 235);
+//     font-size: 88%;
+//     padding: 0 4px;
+//   }
+
+//   .custom-select {
+//     width: 100%;
+//     padding: 16.5px 14px;
+//     background-color: #2c2c2c;
+//     color: rgb(229, 231, 235);
+//     border: 1px solid #ccc;
+//     border-radius: 100px;
+//     -webkit-appearance: none;
+//     -moz-appearance: none;
+//     appearance: none;
+//   }
+
+//   .custom-select option {
+//     background-color: #2c2c2c;
+//     color: white;
+//   }
