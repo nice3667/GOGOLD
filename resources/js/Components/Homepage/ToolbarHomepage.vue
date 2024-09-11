@@ -5,7 +5,7 @@
         <div class="flex items-center justify-evenly pl-md-7 pl-lg-15">
           <img class="img-toolbar" src="@/assets/icon/logo.jpg" alt="" />
           <div class="sm:flex main-text-toolbar">
-            <p class="text-toolbar">{{ company.name }}</p>
+            <h2 class="color-primary bg-primary">{{ company.name }}</h2>
             <a href="/home" class="ml-9 text-navbar">{{ company.home }}</a>
             <a href="/stats" class="ml-4 text-navbar">{{ company.stats }}</a>
             <a href="/learn" class="ml-4 text-navbar">{{ company.learn }}</a>
@@ -23,7 +23,7 @@
 
 //justify-content: space-evenly
 
-  <script setup>
+<script setup>
 import { ref, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { createRouter, createMemoryHistory } from "vue-router";

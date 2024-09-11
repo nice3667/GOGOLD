@@ -1,42 +1,27 @@
-$color-main:#ffd700;
-$color-dark:#000000;
+$color-main: #ffd700;
+$color-dark: #000000;
 
-$primary: #3D90D1;
+$primary: #3d90d1;
 $info: #2c2c2c;
-$info2: #5FA2FF;
-$success: #6B904D;
-$warning: #FFAB3B;
-$danger: #FF3E22;
+$info2: #5fa2ff;
+$success: #6b904d;
+$warning: #ffab3b;
+$danger: #ff3e22;
 $muted: #707070;
 
 $text-base: #707070;
-$placeholder: #B5B5B5;
+$placeholder: #b5b5b5;
 $headline: #004086;
-$white: #FFFFFF;
+$white: #ffffff;
 
-$banner-danger: #FD4755;
-$banner-success: #179BFF;
-$banner-success-text: #517D2E;
+$banner-danger: #fd4755;
+$banner-success: #179bff;
+$banner-success-text: #517d2e;
 
-$switch-active: #0E54A2;
+$switch-active: #0e54a2;
 $tab-active: #004086;
-$headline-bg: #FB5135;
-$main-bg: #E3E8EB;
-
-
-
-.color-main{
-    background: $color-main !important;
-}
-
-.color-dark{
-    background: $color-dark !important;
-    color: #ffd700 !important;
-}
-
-.color-info{
-    background: $info !important;
-}
+$headline-bg: #fb5135;
+$main-bg: #e3e8eb;
 
 // .container{
 //     background-color: #2c2c2c;

@@ -1,6 +1,3 @@
-import "./bootstrap";
-import "../css/app.css";
-import "../css/_button.scss";
 import "../css/_card.scss";
 import "../css/_text.scss";
 import "../css/_input.scss";
@@ -8,7 +5,7 @@ import "../css/_color.scss";
 import "../css/_form.scss";
 import "../css/_table.scss";
 import "../css/User/variables.scss";
-//Homepage
+// //Homepage
 import "../css/Homepage/_bodyhome.scss";
 import "../css/Homepage/_tablehome.scss";
 import "../css/Homepage/_toolbar.scss";
@@ -17,17 +14,19 @@ import "../css/Homepage/_maintablehome.scss";
 import "../css/Homepage/_commentgrouphome.scss";
 import "../css/Homepage/_imagehome.scss";
 import "../css/Homepage/_footerhome.scss";
-//end
-//Login
-import "../css/Login/_login.scss";
-//end
-//User
-import "../css/User/_buttonuser.scss";
-import "../css/User/_tableuser.scss";
-import "../css/User/_chipuser.scss";
-import "../css/User/_typographyuser.scss";
+// //end
+// //Login
+// import "../css/Login/_login.scss";
+// //end
+// //User
+// import "../css/User/_buttonuser.scss";
+// import "../css/User/_tableuser.scss";
+// import "../css/User/_chipuser.scss";
+// import "../css/User/_typographyuser.scss";
 //end
 // import CanvasJSChart from "@canvasjs/vue-charts";
+
+import "./bootstrap";
 import { createVuetify } from "vuetify";
 import * as components from "vuetify/components";
 import * as directives from "vuetify/directives";

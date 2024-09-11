@@ -1,38 +1,38 @@
-import defaultTheme from 'tailwindcss/defaultTheme';
-import forms from '@tailwindcss/forms';
+import defaultTheme from "tailwindcss/defaultTheme";
+import forms from "@tailwindcss/forms";
 
 /** @type {import('tailwindcss').Config} */
 export default {
-    content: [
-        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
-        './storage/framework/views/*.php',
-        './resources/views/**/*.blade.php',
-        './resources/js/**/*.vue',
-    ],
+  content: [
+    "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
+    "./storage/framework/views/*.php",
+    "./resources/views/**/*.blade.php",
+    "./resources/js/**/*.vue",
+  ],
 
-    theme: {
-        extend: {
-            fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
-            },
-            colors: {
-                primary: '#3D90D1',
-                info: '#30384C',
-                warning: '#FFAB3B',
-                danger: '#FF3E22',
-                muted: '#707070',
-                base: '#707070',
-                placeholder: '#B5B5B5',
-                headline: '#004086',
-                white: '#FFFFFF',
-                newGold: '#FFD700',
-                newGray: '#737373',
-                newRed: '#F56565',
-                newGreen: '#34A853',
-                newOrange: '#FF9900',
-            },
-        },
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ["Prompt", ...defaultTheme.fontFamily.sans],
+      },
+      colors: {
+        primary: "#ffd700",
+        info: "#30384C",
+        warning: "#FFAB3B",
+        danger: "#FF3E22",
+        muted: "#707070",
+        base: "#707070",
+        placeholder: "#B5B5B5",
+        headline: "#004086",
+        white: "#FFFFFF",
+        newGold: "#FFD700",
+        newGray: "#737373",
+        newRed: "#F56565",
+        newGreen: "#34A853",
+        newOrange: "#FF9900",
+      },
     },
+  },
 
-    plugins: [forms],
+  plugins: [forms],
 };
