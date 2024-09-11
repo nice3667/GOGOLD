@@ -1,7 +1,9 @@
 <template>
   <v-app>
     <!-- แถบเมนูด้านซ้าย -->
+
     <NavbarLeftUser></NavbarLeftUser>
+
     <!-- เนื้อหาหลัก -->
     <v-main>
       <!-- แถบเมนูด้านบน -->
@@ -16,8 +18,6 @@
 <script setup>
 import NavbarLeftUser from "@/components/Dashboard/User/NavbarLeftUser.vue";
 import NavbarTopUser from "@/components/Dashboard/User/NavbarTopUser.vue";
-
-import { ref, watch } from "vue";
 </script>
 
 <style scoped>
@@ -25,15 +25,19 @@ import { ref, watch } from "vue";
   color: #ffd700;
   font-size: 15px;
 }
+
 .text-yellow-500 {
   color: #ffd700;
 }
+
 .bg-yellow-500 {
   background-color: #ffd700;
 }
+
 .text-white {
   color: #ffffff;
 }
+
 .bg-black {
   background-color: #000000;
 }
