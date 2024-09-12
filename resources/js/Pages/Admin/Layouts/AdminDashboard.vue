@@ -16,7 +16,11 @@
                 <div class="flex main-content-admin-dashboard">
                   <div class="mr-5 content-admin-dashboard">
                     <div class="flex items-center space-x-4">
-                      <img src="@/assets/icon/pp-1.png" alt="" class="icon" />
+                      <img
+                        src="@/assets/icon/people-icon.png"
+                        alt=""
+                        class="icon"
+                      />
 
                       <div class="text-left">
                         <div class="text-sm text-gray-400">สมาชิกทั้งหมด</div>

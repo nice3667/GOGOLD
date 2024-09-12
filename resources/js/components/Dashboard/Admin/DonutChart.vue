@@ -9,7 +9,7 @@
         <div class="flex mt-9 justify-evenly">
           <div class="grid space-x-4 justify-items-center">
             <img
-              src="@/assets/icon/pp-1.png"
+              src="@/assets/icon/people-icon.png"
               alt=""
               class="flex justify-center icon"
             />
@@ -23,7 +23,7 @@
           </div>
           <div class="grid space-x-4 justify-items-center">
             <img
-              src="@/assets/icon/pp-1.png"
+              src="@/assets/icon/people-icon.png"
               alt=""
               class="flex justify-center icon"
             />

@@ -4,9 +4,33 @@
 
 .color-dark {
   background: $black !important;
-  color: #ffd700 !important;
+  color: $color-primary !important;
 }
 
 .color-info {
   background: $info !important;
+}
+
+.v-app-bar {
+  background-color: $black !important;
+}
+.hamburger-icon{
+  color: $color-primary !important;
+  background: $color-primary!important;
+}
+
+.mobile-drawer {
+  background: $color-secondary !important;
+  color: $white;
+}
+.text-v-list-item-homepage{
+  color: $color-primary !important;
+}
+.icon-drawer{
+  color: $color-primary !important;
+
+}
+.toolbar-content{
+  background: $color-secondary!important;
+
 }

@@ -15,7 +15,7 @@
               <!-- Profile Header -->
               <div class="flex p-4 bg-[#1D1D1D] rounded-lg">
                 <v-avatar size="100" class="mr-2">
-                  <img src="@/assets/icon/test.png" alt="" />
+                  <img src="@/assets/icon/testteeruk.png" alt="" />
                 </v-avatar>
                 <div class="ml-4">
                   <h2 class="mt-2 text-lg font-semibold text-white it">
@@ -44,7 +44,7 @@
                       <b>ข้อมูลส่วนตัว</b>
                       <a href="/account/profile"
                         ><img
-                          src="@/assets/icon/edit2.png"
+                          src="@/assets/icon/edit.png"
                           alt=""
                           class="icon-edit"
                       /></a>
@@ -73,7 +73,7 @@
                       <b>บัญชีธนาคาร</b>
                       <a href="/account/profile"
                         ><img
-                          src="@/assets/icon/edit2.png"
+                          src="@/assets/icon/edit.png"
                           alt=""
                           class="icon-edit"
                       /></a>
@@ -102,7 +102,7 @@
                       <span>ข้อมูลแพ็กเกจ</span>
                       <a href="/account/profile"
                         ><img
-                          src="@/assets/icon/edit2.png"
+                          src="@/assets/icon/edit.png"
                           alt=""
                           class="icon-edit"
                       /></a>
@@ -125,7 +125,7 @@
           <div class="flex justify-between mt-5 main-content">
             <div class="flex items-center justify-center card-status">
               <div class="flex items-center justify-center space-x-4">
-                <img src="@/assets/icon/icon1.png" alt="" class="icon" />
+                <img src="@/assets/icon/icon-wallet.png" alt="" class="icon" />
 
                 <div class="text-left">
                   <div class="text-sm text-white">ยอดเงินคงเหลือ</div>
@@ -138,7 +138,7 @@
 
             <div class="flex items-center justify-center card-status">
               <div class="flex items-center justify-center space-x-4">
-                <img src="@/assets/icon/icon2.png" alt="" class="icon" />
+                <img src="@/assets/icon/icon-money.png" alt="" class="icon" />
                 <div class="text-left">
                   <div class="text-sm text-white">ค่าคอมมิชชั่น</div>
                   <div class="mt-2 text-xl font-bold text-white">
@@ -157,7 +157,7 @@
             </div>
             <div class="flex items-center justify-center card-status">
               <div class="flex items-center justify-center space-x-4">
-                <img src="@/assets/icon/icon2.png" alt="" class="icon" />
+                <img src="@/assets/icon/icon-money.png" alt="" class="icon" />
                 <div class="text-left">
                   <div class="text-sm text-white">ซื้อ</div>
                   <div class="mt-2 text-xl font-bold text-white">
@@ -176,7 +176,7 @@
             </div>
             <div class="flex items-center justify-center card-status">
               <div class="flex items-center justify-center space-x-4">
-                <img src="@/assets/icon/icon2.png" alt="" class="icon" />
+                <img src="@/assets/icon/icon-money.png" alt="" class="icon" />
                 <div class="text-left">
                   <div class="text-sm text-white">ซื้อ</div>
                   <div class="mt-2 text-xl font-bold text-white">
@@ -195,7 +195,11 @@
             </div>
             <div class="flex items-center justify-center card-status">
               <div class="flex items-center justify-center space-x-4">
-                <img src="@/assets/icon/icon3.png" alt="" class="icon" />
+                <img
+                  src="@/assets/icon/icon-discount.png"
+                  alt=""
+                  class="icon"
+                />
                 <div class="text-left">
                   <div class="text-sm text-white">ขาย</div>
                   <div class="text-xl font-bold text-white">

@@ -2,7 +2,7 @@
   <div class="flex justify-center p-8 space-x-4 bg-gray-200">
     <div class="card-stats">
       <div class="flex items-center space-x-4">
-        <img src="@/assets/icon/3.svg" alt="" class="icon" />
+        <img src="@/assets/icon/money-icon.svg" alt="" class="icon" />
 
         <div class="flex flex-row">
           <div class="text-sm text-gray-400">สมาชิกทั้งหมด</div>
@@ -12,7 +12,7 @@
     </div>
     <div class="card-stats">
       <div class="flex items-center space-x-4">
-        <img src="@/assets/icon/3.svg" alt="" class="icon" />
+        <img src="@/assets/icon/money-icon.svg" alt="" class="icon" />
         <div class="flex flex-row">
           <div class="text-sm text-gray-400">สมัครใหม่วันนี้</div>
           <div class="text-xl font-bold text-white">20 คน</div>
@@ -21,7 +21,7 @@
     </div>
     <div class="card-stats">
       <div class="flex items-center space-x-4">
-        <img src="@/assets/icon/3.svg" alt="" class="icon" />
+        <img src="@/assets/icon/money-icon.svg" alt="" class="icon" />
         <div class="flex flex-row">
           <div class="text-sm text-gray-400">สมัครใหม่เมื่อวาน</div>
           <div class="text-xl font-bold text-white">30 คน</div>
@@ -30,7 +30,7 @@
     </div>
     <div class="card-stats">
       <div class="flex items-center space-x-4">
-        <img src="@/assets/icon/3.svg" alt="" class="icon" />
+        <img src="@/assets/icon/money-icon.svg" alt="" class="icon" />
         <div class="flex flex-row">
           <div class="text-sm text-gray-400">สมัครใหม่สองวันก่อน</div>
           <div class="text-xl font-bold text-white">30 ตน</div>

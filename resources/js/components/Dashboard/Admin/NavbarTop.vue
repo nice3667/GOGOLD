@@ -16,14 +16,14 @@
 
     <!-- โปรไฟล์ผู้ใช้งาน -->
     <v-avatar size="45" class="mr-2">
-      <img src="@/assets/icon/test.png" alt="" />
+      <img src="@/assets/icon/testteeruk.png" alt="" />
     </v-avatar>
     <div class="flex flex-col justify-center">
       <span class="flex justify-center mr-4 text-[#FFD700]">Wife Nicezy</span>
       <span class="mr-4 text-[#737373]">Thitikorncs@gmail.com</span>
     </div>
     <v-btn text class="btn-signout">
-      <img src="@/assets/icon/+.png" alt="" />
+      <img src="@/assets/icon/arrow.png" alt="" />
       Sign out</v-btn
     >
   </v-app-bar>

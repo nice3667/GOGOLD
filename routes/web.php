@@ -15,19 +15,19 @@ use App\Http\Controllers\User\UserController;
 //homepage
 Route::get('/home', function () {
   return Inertia::render('HomePage');
-})->name('test');
+})->name('HomePage');
 Route::get('/stats', function () {
   return Inertia::render('StatsPage');
-});
+})->name('StatsPage');
 Route::get('/learn', function () {
   return Inertia::render('LearnPage');
-});
+})->name('LearnPage');
 Route::get('/about', function () {
   return Inertia::render('AboutPage');
-});
+})->name('AboutPage');
 Route::get('/orderhistory', function () {
   return Inertia::render('OrderhistoryPage');
-});
+})->name('OrderhistoryPage');
 //eng
 
 

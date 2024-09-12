@@ -13,13 +13,13 @@
     <div class="flex items-center mt-3 space-x-2">
       <button class="btn-tb btn-table btn-paid">text</button>
       <button class="bg-yellow-500 icon-button">
-        <img src="@/assets/icon/1.svg" alt="" />
+        <img src="@/assets/icon/edit-icon.svg" alt="" />
       </button>
       <button class="bg-yellow-500 icon-button">
-        <img src="@/assets/icon/s.svg" alt="" />
+        <img src="@/assets/icon/search-icon.svg" alt="" />
       </button>
       <button class="bg-red-500 icon-button">
-        <img src="@/assets/icon/bin2.svg" alt="" />
+        <img src="@/assets/icon/bin-icon.svg" alt="" />
       </button>
     </div>
     <div>

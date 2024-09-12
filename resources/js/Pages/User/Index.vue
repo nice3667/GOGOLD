@@ -8,7 +8,8 @@
       <BodyHomepage />
     </div>
     <v-banner v-if="deferredPrompt" color="info" dark class="text-left">
-      Get our free app. It won't take up space on your phone and also works offline!
+      Get our free app. It won't take up space on your phone and also works
+      offline!
 
       <template v-slot:actions>
         <v-btn text @click="dismiss">Dismiss</v-btn>
@@ -44,12 +45,12 @@ import MainTableHomepage from "@/components/Homepage/MainTableHomepage.vue";
 import CommentGroupHomepage from "@/components/Homepage/CommentGroupHomepage.vue";
 import ImageHomepage from "@/components/Homepage/ImageHomepage.vue";
 import FooterHomepage from "@/components/Homepage/FooterHomepage.vue";
-import { ref, onBeforeMount } from 'vue';
+import { ref, onBeforeMount } from "vue";
 
 const deferredPrompt = ref(null);
 onBeforeMount(() => {
-  window.addEventListener('beforeinstallprompt', (e) => {
-    console.log('e ', e);
+  window.addEventListener("beforeinstallprompt", (e) => {
+    console.log("e ", e);
     e.preventDefault();
     deferredPrompt.value = e;
   });
@@ -57,14 +58,13 @@ onBeforeMount(() => {
 
 const dismiss = async () => {
   deferredPrompt.value = null;
-}
+};
 const install = async () => {
   deferredPrompt.value.prompt();
   const { outcome } = await deferredPrompt.value.userChoice;
-  if (outcome === 'accepted') {
+  if (outcome === "accepted") {
     deferredPrompt.value = null;
   }
-}
-
+};
 </script>
 <style></style>

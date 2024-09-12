@@ -5,7 +5,7 @@
     <!-- โปรไฟล์ผู้ใช้งาน -->
 
     <v-avatar size="45" class="mr-5">
-      <img src="@/assets/icon/test.png" alt="" />
+      <img src="@/assets/icon/testteeruk.png" alt="" />
     </v-avatar>
     <div class="flex flex-col justify-center mr-20">
       <span class="flex justify-center mr-4 text-[#FFD700]">Wife Nicezy</span>

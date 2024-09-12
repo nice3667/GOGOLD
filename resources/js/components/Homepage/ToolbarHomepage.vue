@@ -1,18 +1,86 @@
 <template>
   <v-layout>
-    <v-app-bar class="flex justify-between color-dark align-center">
-      <div class="flex w-full justify-evenly">
-        <div class="flex items-center justify-evenly pl-md-7 pl-lg-15">
-          <img class="img-toolbar" src="@/assets/icon/logo.jpg" alt="" />
-          <div class="sm:flex main-text-toolbar">
-            <h2 class="color-primary bg-primary">{{ company.name }}</h2>
-            <a href="/home" class="ml-9 text-navbar">{{ company.home }}</a>
-            <a href="/stats" class="ml-4 text-navbar">{{ company.stats }}</a>
-            <a href="/learn" class="ml-4 text-navbar">{{ company.learn }}</a>
-            <a href="/about" class="ml-4 text-navbar">{{ company.about }}</a>
+    <!-- Mobile Navigation Bar with Nav Icon -->
+    <v-app-bar class="mobile-drawer" v-if="!is_desktop" app dark>
+      <v-app-bar-nav-icon @click="drawer = !drawer">
+        <v-icon class="icon-drawer">mdi-menu</v-icon>
+      </v-app-bar-nav-icon>
+      <div class="flex items-center justify-evenly pl-md-7 pl-lg-15">
+        <img
+          class="img-toolbar"
+          src="@/assets/icon/logo-gogold.png"
+          alt="logo"
+        />
+      </div>
+    </v-app-bar>
+
+    <!-- Mobile Drawer -->
+    <v-navigation-drawer
+      v-if="!is_desktop"
+      app
+      temporary
+      v-model="drawer"
+      width="200"
+      class="mobile-drawer"
+    >
+      <v-app-bar-nav-icon @click="drawer = !drawer">
+        <v-icon class="icon-drawer">mdi-close</v-icon>
+      </v-app-bar-nav-icon>
+      <v-list dense>
+        <v-list-item-group active-class="bg-yellow-500">
+          <v-list-item
+            v-for="(item, index) in menuItems"
+            :key="index"
+            rounded=""
+            :class="route().current() == item.route ? '' : ''"
+          >
+            <a
+              :href="route(item.route)"
+              class="cursor-pointer text-v-list-item-homepage"
+            >
+              <v-list-item-icon> </v-list-item-icon>
+              <div class="flex ml-2">
+                <v-list-item-title>{{ item.title }}</v-list-item-title>
+                <!-- {{ item.title }} -->
+              </div>
+            </a>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
+    </v-navigation-drawer>
+
+    <!-- Desktop Navigation Bar -->
+    <v-app-bar
+      v-if="is_desktop"
+      class="flex justify-between color-dark toolbar-content align-center"
+      app
+    >
+      <div class="flex w-full justify-evenly toolbar-content">
+        <img
+          class="img-toolbar"
+          src="@/assets/icon/logo-gogold.png"
+          alt="logo"
+        />
+        <div class="flex items-center">
+          <div class="flex items-center justify-around main-text-toolbar">
+            <div>
+              <a href="/home" class="text-navbar">{{ company.home }}</a>
+            </div>
+            <div>
+              <a href="/stats" class="text-navbar">{{ company.stats }}</a>
+            </div>
+            <div>
+              <a href="/learn" class="text-navbar">{{ company.learn }}</a>
+            </div>
+            <div>
+              <a href="/about" class="text-navbar">{{ company.about }}</a>
+            </div>
+            <div>
+              <a href="/about" class="text-navbar">{{ company.contact }}</a>
+            </div>
           </div>
         </div>
-        <div class="flex items-center pr-md-7 pr-lg-15">
+        <div class="flex items-center">
           <v-btn flat href="/login" class="mr-2 btn-login">เข้าสู่ระบบ</v-btn>
           <v-btn flat href="/register" class="btn-register">สมัครสมาชิก</v-btn>
         </div>
@@ -21,52 +89,41 @@
   </v-layout>
 </template>
 
-//justify-content: space-evenly
-
 <script setup>
-import { ref, watch } from "vue";
-import { useRoute, useRouter } from "vue-router";
-import { createRouter, createMemoryHistory } from "vue-router";
-
+import { ref, onMounted, watch } from "vue";
 import { useDisplay } from "vuetify";
-import StyleGuide from "@/Pages/style-guide.vue";
-import HomePage from "@/Pages/HomePage.vue";
-import Form from "../Form.vue";
 
-// const route = useRoute();
-// const router = useRouter();
 const { width } = useDisplay();
-const is_desktop = ref(width.value > 769);
+const is_desktop = ref(false);
+const drawer = ref(false);
 
-watch(width, (newWidth) => {
-  is_desktop.value = newWidth > 769;
+onMounted(() => {
+  is_desktop.value = width.value > 1279;
 });
 
-// const drawer = ref(false);
-// const test = () => {
-//   console.log("test");
-//   router.push({ path: "/style-test" });
-// };
+watch(
+  () => width.value,
+  (newWidth) => {
+    is_desktop.value = newWidth > 1279;
+  }
+);
+
 const company = ref({
   name: "GOGOLD",
   home: "หน้าหลัก",
-  stats: "สถิติ",
-  learn: "เรียนรู้",
-  about: "เกี่ยวกับเรา",
+  stats: "แพ็กเกจ",
+  learn: "เครื่องมือช่วยเทรด",
+  about: "บทความ",
+  contact: "ติดต่อเรา",
 });
-// const router = createRouter({
-//   history: createMemoryHistory(),
-//   routes,
-// });
-
-// const routes = [
-//   { path: "/", name: "หน้าแรก", component: StyleGuide },
-//   { path: "/about", name: "เกี่ยวกับเรา", component: StyleGuide },
-//   { path: "/stats", name: "สถิติ", component: StyleGuide },
-//   { path: "/learn", name: "เรียนรู้", component: StyleGuide },
-// ];
-
-// const notifications = ref(0);
-// const notification_dialog = ref(false);
+const menuItems = ref([
+  { title: "หน้าหลัก", route: "HomePage" },
+  { title: "แพ็กเกจ", route: "StatsPage" },
+  { title: "เครื่องมือช่วยเทรด", route: "LearnPage" },
+  { title: "บทความ", route: "AboutPage" },
+  { title: "ติดต่อเรา", route: "AboutPage" },
+  { title: "เข้าสู่ระบบ", route: "login" },
+  { title: "สมัครสมาชิก", route: "register" },
+]);
 </script>
-<style></style>
+

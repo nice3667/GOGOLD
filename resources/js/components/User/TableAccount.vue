@@ -67,7 +67,7 @@
                 <td>{{ item.commission }}</td>
                 <td class="flex justify-center">
                   <button class="bg-[#B5B2B2] icon-button">
-                    <img src="@/assets/icon/s.svg" alt="" />
+                    <img src="@/assets/icon/search-icon.svg" alt="" />
                   </button>
                 </td>
                 <!-- <td>{{ item.update_date }}</td> -->
