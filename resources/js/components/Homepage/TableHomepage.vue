@@ -4,9 +4,8 @@
       <div class="table-container">
         <v-data-table hide-default-footer="" class="w-full table-hp">
           <thead>
-            <th class="flex table-title">Lorem ipsum</th>
-
             <tr class="table-content">
+              <th class="flex table-title">Lorem ipsum</th>
               <th class="text-table-name">Name</th>
               <th class="text-table-gain">Gain</th>
               <th class="text-table-monthly">Monthly</th>
@@ -14,23 +13,17 @@
             </tr>
           </thead>
           <tbody>
-            <tr
-              v-for="(item, index) in items"
-              :key="index"
-              :class="index === 1 ? 'highlight-row' : ''"
-            >
+            <tr v-for="(item, index) in items" :key="index" :class="index === 1 ? 'highlight-row' : ''">
               <td class="d-flex align-center">
                 <v-avatar class="mr-3" size="32">
                   <img :src="item.avatar" alt="" />
                 </v-avatar>
                 {{ item.name }}
               </td>
-              <td
-                :class="{
-                  'text-success': item.gain > 0,
-                  'text-error': item.gain < 0,
-                }"
-              >
+              <td :class="{
+                'text-success': item.gain > 0,
+                'text-error': item.gain < 0,
+              }">
                 {{ item.gain > 0 ? "+" : "" }}{{ item.gain }}%
               </td>
               <td>{{ item.monthly }}%</td>
@@ -41,8 +34,7 @@
       </div>
       <div class="text-main-tablehome">
         <div class="side-text">
-          <div class="mt-5 font-bold text-center text-title-content-tablehome">
-            Lorem ipsum dolor sit amet consectetur.
+          <div class="mt-5 font-bold text-center text-title-content-tablehome">Lorem ipsum dolor sit amet consectetur.
           </div>
           <div class="mt-10 text-content-tablehome">
             <li>Lorem ipsum dolor sit amet consectetur. Eget netus feugiat</li>
@@ -55,7 +47,7 @@
   </div>
 </template>
 
-  <script>
+<script>
 export default {
   data() {
     return {
@@ -97,8 +89,7 @@ export default {
           revenue: "25,256.12$",
         },
       ],
-    };
+    }
   },
-};
+}
 </script>
-

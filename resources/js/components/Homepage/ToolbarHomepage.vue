@@ -6,39 +6,21 @@
         <v-icon class="icon-drawer">mdi-menu</v-icon>
       </v-app-bar-nav-icon>
       <div class="flex items-center justify-evenly pl-md-7 pl-lg-15">
-        <img
-          class="img-toolbar"
-          src="@/assets/icon/logo-gogold.png"
-          alt="logo"
-        />
+        <img class="img-toolbar" src="@/assets/icon/logo-gogold.png" alt="logo" />
       </div>
     </v-app-bar>
 
     <!-- Mobile Drawer -->
-    <v-navigation-drawer
-      v-if="!is_desktop"
-      app
-      temporary
-      v-model="drawer"
-      width="200"
-      class="mobile-drawer"
-    >
+    <v-navigation-drawer v-if="!is_desktop" app temporary v-model="drawer" width="200" class="mobile-drawer">
       <v-app-bar-nav-icon @click="drawer = !drawer">
         <v-icon class="icon-drawer">mdi-close</v-icon>
       </v-app-bar-nav-icon>
       <v-list dense>
         <v-list-item-group active-class="bg-yellow-500">
-          <v-list-item
-            v-for="(item, index) in menuItems"
-            :key="index"
-            rounded=""
-            :class="route().current() == item.route ? '' : ''"
-          >
-            <a
-              :href="route(item.route)"
-              class="cursor-pointer text-v-list-item-homepage"
-            >
-              <v-list-item-icon> </v-list-item-icon>
+          <v-list-item v-for="(item, index) in menuItems" :key="index" rounded=""
+            :class="route().current() == item.route ? '' : ''">
+            <a :href="route(item.route)" class="cursor-pointer text-v-list-item-homepage">
+              <v-list-item> </v-list-item>
               <div class="flex ml-2">
                 <v-list-item-title>{{ item.title }}</v-list-item-title>
                 <!-- {{ item.title }} -->
@@ -50,17 +32,9 @@
     </v-navigation-drawer>
 
     <!-- Desktop Navigation Bar -->
-    <v-app-bar
-      v-if="is_desktop"
-      class="flex justify-between color-dark toolbar-content align-center"
-      app
-    >
+    <v-app-bar v-if="is_desktop" class="flex justify-between color-dark toolbar-content align-center" app>
       <div class="flex w-full justify-evenly toolbar-content">
-        <img
-          class="img-toolbar"
-          src="@/assets/icon/logo-gogold.png"
-          alt="logo"
-        />
+        <img class="img-toolbar" src="@/assets/icon/logo-gogold.png" alt="logo" />
         <div class="flex items-center">
           <div class="flex items-center justify-around main-text-toolbar">
             <div>
@@ -126,4 +100,3 @@ const menuItems = ref([
   { title: "สมัครสมาชิก", route: "register" },
 ]);
 </script>
-

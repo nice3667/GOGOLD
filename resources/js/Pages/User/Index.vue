@@ -10,7 +10,6 @@
     <v-banner v-if="deferredPrompt" color="info" dark class="text-left">
       Get our free app. It won't take up space on your phone and also works
       offline!
-
       <template v-slot:actions>
         <v-btn text @click="dismiss">Dismiss</v-btn>
         <v-btn text @click="install">Install</v-btn>

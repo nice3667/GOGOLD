@@ -2,11 +2,10 @@
   <div class="container">
     <div class="flex main-table-homepage">
       <div class="main-table-container">
-        <v-data-table hide-default-footer="" class="w-full main-table-hp">
+        <table hide-default-footer="" class="w-full main-table-hp">
           <thead>
-            <th class="flex main-table-title">Lorem ipsum</th>
-
-            <tr class="main-table-content">
+            <tr>
+              <th class="flex main-table-title">Lorem ipsum</th>
               <th class="text-main-table-name">Name</th>
               <th class="text-main-table-gain">Gain</th>
               <th class="text-main-table-monthly">Monthly</th>
@@ -14,36 +13,30 @@
             </tr>
           </thead>
           <tbody>
-            <tr
-              v-for="(item, index) in items"
-              :key="index"
-              :class="index === 1 ? 'highlight-row' : ''"
-            >
+            <tr v-for="(item, index) in items" :key="index" :class="index === 1 ? 'highlight-row' : ''">
               <td class="d-flex align-center">
                 <v-avatar class="mr-3" size="32">
                   <img :src="item.avatar" alt="" />
                 </v-avatar>
                 {{ item.name }}
               </td>
-              <td
-                :class="{
-                  'text-success': item.gain > 0,
-                  'text-error': item.gain < 0,
-                }"
-              >
+              <td :class="{
+                'text-success': item.gain > 0,
+                'text-error': item.gain < 0,
+              }">
                 {{ item.gain > 0 ? "+" : "" }}{{ item.gain }}%
               </td>
               <td>{{ item.monthly }}%</td>
               <td>{{ item.revenue }}</td>
             </tr>
           </tbody>
-        </v-data-table>
+        </table>
       </div>
     </div>
   </div>
 </template>
 
-    <script>
+<script>
 export default {
   data() {
     return {
@@ -127,8 +120,7 @@ export default {
           revenue: "25,256.12$",
         },
       ],
-    };
+    }
   },
-};
+}
 </script>
-

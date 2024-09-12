@@ -8,15 +8,10 @@
     <!-- รายการเมนู -->
     <v-list class="px-5" dense>
       <v-list-item-group active-class="bg-yellow-500">
-        <v-list-item
-          v-for="(item, index) in menuItems"
-          :key="index"
-          rounded=""
-          class="text-white"
-          :class="route().current() == item.route ? 'list-item-admin' : ''"
-        >
+        <v-list-item v-for="(item, index) in menuItems" :key="index" rounded="" class="text-white"
+          :class="route().current() == item.route ? 'list-item-admin' : ''">
           <a :href="route(item.route)" class="text-white cursor-pointer">
-            <v-list-item-icon> </v-list-item-icon>
+            <v-list-item> </v-list-item>
             <div class="flex">
               <v-icon class="mr-4 text-white">{{ item.icon }}</v-icon>
               <v-list-item-title>{{ item.title }}</v-list-item-title>
@@ -49,18 +44,23 @@ const menuItems = ref([
   color: #ffd700;
   font-size: 15px;
 }
+
 .text-yellow-500 {
   color: #ffd700;
 }
+
 .bg-yellow-500 {
   background-color: #ffd700;
 }
+
 .text-white {
   color: #ffffff;
 }
+
 .bg-black {
   background-color: #000000;
 }
+
 .list-item-admin {
   border-radius: 13px;
   background-color: #ffd700;

@@ -20,9 +20,9 @@
 </template>
 
 <script setup>
-import FormUserProfile from "@/components/User/FormUserProfile.vue";
-import NavbarLeftUser from "@/components/Dashboard/User/NavbarLeftUser.vue";
-import NavbarTopUser from "@/components/Dashboard/User/NavbarTopUser.vue";
+import FormUserProfile from "@/components/User/FormUserProfile.vue"
+import NavbarLeftUser from "@/components/Dashboard/User/NavbarLeftUser.vue"
+import NavbarTopUser from "@/components/Dashboard/User/NavbarTopUser.vue"
 </script>
 
 244,244,244,244
@@ -32,10 +32,12 @@ hr {
   border-top: 2px;
   color: #ffffff;
 }
+
 .content-admin-dashboard {
-  @apply bg-[#1D1D1D] p-6  flex items-center justify-center w-64 h-24;
+  @apply bg-[#1D1D1D] p-6 flex items-center justify-center w-64 h-24;
   border-radius: 24px;
 }
+
 .content-group-admin-dashboard {
   border-radius: 24px;
 }
@@ -47,7 +49,6 @@ hr {
 .text-left {
   @apply flex flex-col;
 }
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
 body {
   margin: 0;
@@ -57,25 +58,32 @@ body {
 .main-content-admin-dashboard {
   background-color: #252525;
 }
+
 .text-dashboard {
   color: #ffd700;
   font-size: 15px;
 }
+
 .text-yellow-500 {
   color: #ffd700;
 }
+
 .bg-yellow-500 {
   background-color: #ffd700;
 }
+
 .text-white {
   color: #ffffff;
 }
+
 .bg-black {
   background-color: #000000;
 }
+
 hr {
   border-top: 1px solid #27272a;
 }
+
 p {
   font-size: 15px;
 }
