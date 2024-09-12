@@ -22,27 +22,32 @@
 </template>
 
 <script setup>
-import NavbarLeft from "@/components/Dashboard/Admin/NavbarLeft.vue";
-import NavbarTop from "@/components/Dashboard/Admin/NavbarTop.vue";
+import NavbarLeft from "@/components/dashboard/Admin/NavbarLeft.vue";
+import NavbarTop from "@/components/dashboard/Admin/NavbarTop.vue";
 </script>
 
 <style scoped>
 .main-content-admin-dashboard {
   background-color: #252525;
 }
+
 .text-dashboard {
   color: #ffd700;
   font-size: 15px;
 }
+
 .text-yellow-500 {
   color: #ffd700;
 }
+
 .bg-yellow-500 {
   background-color: #ffd700;
 }
+
 .text-white {
   color: #ffffff;
 }
+
 .bg-black {
   background-color: #000000;
 }

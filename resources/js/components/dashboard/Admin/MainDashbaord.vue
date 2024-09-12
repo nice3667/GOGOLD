@@ -14,12 +14,12 @@
 </template>
 
 <script setup>
-import NavbarLeft from "@/components/Dashboard/Admin/NavbarLeft.vue";
-import NavbarTop from "@/components/Dashboard/Admin/NavbarTop.vue";
+import NavbarLeft from "@/components/dashboard/Admin/NavbarLeft.vue"
+import NavbarTop from "@/components/dashboard/Admin/NavbarTop.vue"
 
-import { ref, watch } from "vue";
-import LogoIcon from "@/components/LogoIcon.vue";
-import { useRouter } from "vue-router";
+import { ref, watch } from "vue"
+import LogoIcon from "@/components/LogoIcon.vue"
+import { useRouter } from "vue-router"
 const menuItems = ref([
   { title: "แดชบอร์ด", icon: "mdi-view-dashboard", route: "admindashboard" },
   { title: "รายงาน", icon: "mdi-file-chart", route: "report" },
@@ -30,7 +30,7 @@ const menuItems = ref([
   { title: "คอร์สเรียน", icon: "mdi-school", route: "course" },
   { title: "ลูกค้า", icon: "mdi-account-group", route: "customer" },
   { title: "ตั้งค่า", icon: "mdi-cog", route: "setting" },
-]);
+])
 
 const company = ref({
   home: "หน้าหลัก",
@@ -38,7 +38,7 @@ const company = ref({
   learn: "เรียนรู้",
   about: "เกี่ยวกับเรา",
   orderhistory: "ประวัติการสั่งซื้อ",
-});
+})
 </script>
 
 <style scoped>
@@ -46,15 +46,19 @@ const company = ref({
   color: #ffd700;
   font-size: 15px;
 }
+
 .text-yellow-500 {
   color: #ffd700;
 }
+
 .bg-yellow-500 {
   background-color: #ffd700;
 }
+
 .text-white {
   color: #ffffff;
 }
+
 .bg-black {
   background-color: #000000;
 }

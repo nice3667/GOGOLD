@@ -16,8 +16,8 @@
 </template>
 
 <script setup>
-import NavbarLeftUser from "@/components/Dashboard/User/NavbarLeftUser.vue";
-import NavbarTopUser from "@/components/Dashboard/User/NavbarTopUser.vue";
+import NavbarLeftUser from "@/components/dashboard/User/NavbarLeftUser.vue";
+import NavbarTopUser from "@/components/dashboard/User/NavbarTopUser.vue";
 </script>
 
 <style scoped>

@@ -14,64 +14,35 @@
       <!-- Name Section -->
       <v-col cols="6">
         <p>ชื่อ</p>
-        <v-text-field
-          v-model="firstname"
-          placeholder="กรุณากรอกชื่อ"
-          variant="outlined"
-          rounded=""
-          class="profile-form"
-        ></v-text-field>
+        <v-text-field v-model="first_name" placeholder="กรุณากรอกชื่อ" variant="outlined" rounded=""
+          class="profile-form"></v-text-field>
       </v-col>
 
       <v-col cols="6">
         <p>นามสกุล</p>
-        <v-text-field
-          v-model="lastname"
-          placeholder="กรุณากรอกนามสกุล"
-          variant="outlined"
-          rounded=""
-          class="profile-form"
-        ></v-text-field>
+        <v-text-field v-model="last_name" placeholder="กรุณากรอกนามสกุล" variant="outlined" rounded=""
+          class="profile-form"></v-text-field>
       </v-col>
 
       <!-- Email and Phone Section -->
       <v-col cols="6">
         <p>อีเมล</p>
-        <v-text-field
-          v-model="email"
-          placeholder="กรุณากรอกอีเมล"
-          variant="outlined"
-          rounded=""
-          class="profile-form"
-        ></v-text-field>
+        <v-text-field v-model="email" placeholder="กรุณากรอกอีเมล" variant="outlined" rounded=""
+          class="profile-form"></v-text-field>
       </v-col>
 
       <v-col cols="6">
         <p>เบอร์โทรศัพท์</p>
-        <v-text-field
-          v-model="phone"
-          placeholder="0970787580"
-          variant="outlined"
-          rounded=""
-          disabled
-          class="profile-form"
-        ></v-text-field>
+        <v-text-field v-model="phone" placeholder="0970787580" variant="outlined" rounded="" disabled
+          class="profile-form"></v-text-field>
       </v-col>
 
       <!-- Buttons Section -->
       <v-col cols="12" class="flex justify-center mt-4">
-        <v-btn
-          href="/account"
-          class="btn-form-user text-white !bg-[#8C8C8C] mx-2"
-          outlined
-        >
+        <v-btn href="/account" class="btn-form-user text-white !bg-[#8C8C8C] mx-2" outlined>
           ยกเลิก
         </v-btn>
-        <v-btn
-          @click="savePersonalInfo"
-          class="btn-form-user text-black !bg-[#FFD700] mx-2"
-          outlined
-        >
+        <v-btn @click="savePersonalInfo" class="btn-form-user text-black !bg-[#FFD700] mx-2" outlined>
           บันทึก
         </v-btn>
       </v-col>
@@ -85,49 +56,26 @@
 
       <v-col cols="6">
         <p>ชื่อบัญชีธนาคาร</p>
-        <v-text-field
-          v-model="bank_account_name"
-          placeholder="กรุณากรอกชื่อบัญชีใหม่"
-          variant="outlined"
-          rounded=""
-          class="profile-form"
-        ></v-text-field>
+        <v-text-field v-model="bank_account_name" placeholder="กรุณากรอกชื่อบัญชีใหม่" variant="outlined" rounded=""
+          class="profile-form"></v-text-field>
       </v-col>
 
       <v-col cols="6">
         <p>ธนาคาร</p>
-        <v-text-field
-          v-model="bank_name"
-          placeholder="กรุณายืนยันธนาคาร"
-          variant="outlined"
-          rounded=""
-          class="profile-form"
-        ></v-text-field>
+        <v-text-field v-model="bank_name" placeholder="กรุณายืนยันธนาคาร" variant="outlined" rounded=""
+          class="profile-form"></v-text-field>
       </v-col>
 
       <v-col cols="6">
         <p>เลขที่บัญชีธนาคาร</p>
-        <v-text-field
-          v-model="bank_account_number"
-          placeholder="กรุณากรอกเลขบัญชีใหม่"
-          variant="outlined"
-          rounded=""
-          class="profile-form"
-        ></v-text-field>
+        <v-text-field v-model="bank_account_number" placeholder="กรุณากรอกเลขบัญชีใหม่" variant="outlined" rounded=""
+          class="profile-form"></v-text-field>
       </v-col>
       <v-col cols="12" class="flex justify-center mt-4">
-        <v-btn
-          href="/account"
-          class="btn-form-user text-white !bg-[#8C8C8C] mx-2"
-          outlined
-        >
+        <v-btn href="/account" class="btn-form-user text-white !bg-[#8C8C8C] mx-2" outlined>
           ยกเลิก
         </v-btn>
-        <v-btn
-          @click="saveBankInfo"
-          class="btn-form-user text-black !bg-[#FFD700] mx-2"
-          outlined
-        >
+        <v-btn @click="saveBankInfo" class="btn-form-user text-black !bg-[#FFD700] mx-2" outlined>
           บันทึก
         </v-btn>
       </v-col>
@@ -139,42 +87,22 @@
 
       <v-col cols="6">
         <p>ตั้งค่ารหัสผ่านใหม่</p>
-        <v-text-field
-          v-model="password"
-          placeholder="กรุณากรอกรหัสผ่านใหม่"
-          type="password"
-          variant="outlined"
-          rounded=""
-          class="profile-form"
-        ></v-text-field>
+        <v-text-field v-model="password" placeholder="กรุณากรอกรหัสผ่านใหม่" type="password" variant="outlined"
+          rounded="" class="profile-form"></v-text-field>
       </v-col>
 
       <v-col cols="6">
         <p>ยืนยันรหัสผ่าน</p>
-        <v-text-field
-          v-model="confirm_password"
-          placeholder="กรุณายืนยันรหัสผ่านใหม่"
-          type="password"
-          variant="outlined"
-          rounded=""
-          class="profile-form"
-        ></v-text-field>
+        <v-text-field v-model="confirm_password" placeholder="กรุณายืนยันรหัสผ่านใหม่" type="password"
+          variant="outlined" rounded="" class="profile-form"></v-text-field>
       </v-col>
 
       <!-- Buttons Section -->
       <v-col cols="12" class="flex justify-center mt-4">
-        <v-btn
-          href="/account"
-          class="btn-form-user text-white !bg-[#8C8C8C] mx-2"
-          outlined
-        >
+        <v-btn href="/account" class="btn-form-user text-white !bg-[#8C8C8C] mx-2" outlined>
           ยกเลิก
         </v-btn>
-        <v-btn
-          @click="savePassword"
-          class="btn-form-user text-black !bg-[#FFD700] mx-2"
-          outlined
-        >
+        <v-btn @click="savePassword" class="btn-form-user text-black !bg-[#FFD700] mx-2" outlined>
           บันทึก
         </v-btn>
       </v-col>
@@ -186,12 +114,15 @@
 hr {
   border-top: 1px solid #27272a;
 }
+
 p {
   font-size: 15px;
 }
+
 h2 {
   font-size: 24px;
 }
+
 .btn-form-user {
   width: 130px !important;
   height: 40px !important;
@@ -218,8 +149,8 @@ const confirmPassword = ref("");
 const saveProfile = async () => {
   try {
     const response = await axios.post("/api/update-profile", {
-      firstname: firstName.value,
-      lastname: lastName.value,
+      first_name: firstName.value,
+      last_name: lastName.value,
       email: email.value,
       bank_name: bankName.value,
       bank_account_name: bankAccount.value,
@@ -239,4 +170,3 @@ const saveProfile = async () => {
   }
 };
 </script>
-

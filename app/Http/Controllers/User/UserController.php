@@ -11,19 +11,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Application;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Illuminate\Http\Response;
-
-
-
-
-
 
 class UserController extends Controller
 {
-
   public function index()
   {
-    return Inertia::render('User/Index', [
+    return Inertia::render('user/Index', [
       'canLogin' => app('router')->has('login'),
       'canRegister' => app('router')->has('register'),
       'laravelVersion' => Application::VERSION,
@@ -33,19 +26,15 @@ class UserController extends Controller
 
   public function update(Request $request)
   {
-
     $user = User::findOrFail($request->id);
-
-    // Validate the request data
     $request->validate([
       'id' => 'required|integer|exists:users,id',
-      'firstname' => 'required|string|max:255',
-      'lastname' => 'required|string|max:255',
+      'first_name' => 'required|string|max:255',
+      'last_name' => 'required|string|max:255',
       'email' => 'required|string|email|max:255|unique:users,email,',
       'phone' => 'required|string|max:15',
 
     ]);
-
 
     $user->update($request->all());
 

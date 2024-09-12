@@ -2,5 +2,5 @@
   <MainUser></MainUser>
 </template>
 <script setup>
-import MainUser from "@/components/Dashboard/User/MainUser.vue";
+import MainUser from "@/components/dashboard/User/MainUser.vue";
 </script>

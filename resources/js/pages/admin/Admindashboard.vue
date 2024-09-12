@@ -2,5 +2,5 @@
   <MainDashbaord></MainDashbaord>
 </template>
 <script setup>
-import MainDashbaord from "@/components/Dashboard/Admin/MainDashbaord.vue";
+import MainDashbaord from "@/components/dashboard/Admin/MainDashbaord.vue";
 </script>

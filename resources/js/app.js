@@ -9,10 +9,12 @@ import { ZiggyVue } from "../../vendor/tightenco/ziggy";
 import "@mdi/font/css/materialdesignicons.css";
 import "vuetify/dist/vuetify.min.css";
 
-import { usePwa } from "./composables/usePwa";
+import { usePwa } from "./composables/use-pwa";
 const { createPwa } = usePwa();
 
-const appName = import.meta.env.VITE_APP_NAME || "Laravel";
+import LayoutGuest from "./layouts/LayoutGuest.vue";
+
+const appName = import.meta.env.VITE_APP_NAME || "GoGold";
 
 const vuetify = createVuetify({
   components,
@@ -43,11 +45,17 @@ createPwa();
 
 createInertiaApp({
   title: (title) => `${title} - ${appName}`,
-  resolve: (name) =>
-    resolvePageComponent(
+  resolve: (name) => {
+    const page = resolvePageComponent(
       `./pages/${name}.vue`,
       import.meta.glob("./pages/**/*.vue")
-    ),
+    );
+
+    page.then((module) => {
+      module.default.layout = module.default.layout || LayoutGuest;
+    });
+    return page;
+  },
   setup({ el, App, props, plugin }) {
     return createApp({ render: () => h(App, props) })
       .use(plugin) // ปลั๊กอินของ Inertia

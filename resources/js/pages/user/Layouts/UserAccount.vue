@@ -39,7 +39,7 @@
                   <v-card-text class="flex flex-col space-y-2">
                     <div class="flex justify-between">
                       <span><b>ชื่อ-นามสกุล:</b></span>
-                      <p>{{ data_user.firstname }} {{ data_user.lastname }}</p>
+                      <p>{{ data_user.first_name }} {{ data_user.last_name }}</p>
                     </div>
                     <div class="flex justify-between">
                       <span><b>เบอร์โทร:</b></span>
@@ -172,8 +172,8 @@
 
 <script setup>
 import TableAccount from "@/components/User/TableAccount.vue"
-import NavbarLeftUser from "@/components/Dashboard/User/NavbarLeftUser.vue"
-import NavbarTopUser from "@/components/Dashboard/User/NavbarTopUser.vue"
+import NavbarLeftUser from "@/components/dashboard/User/NavbarLeftUser.vue"
+import NavbarTopUser from "@/components/dashboard/User/NavbarTopUser.vue"
 import { ref, useAttrs, onMounted } from "vue"
 
 const data_package = ref({
@@ -199,8 +199,8 @@ const data_user = ref({
 onMounted(async () => {
   //dataUser
   data_user.value.phone = attrs.auth.user.phone
-  data_user.value.firstname = attrs.auth.user.firstname
-  data_user.value.lastname = attrs.auth.user.lastname
+  data_user.value.first_name = attrs.auth.user.first_name
+  data_user.value.last_name = attrs.auth.user.last_name
   data_user.value.email = attrs.auth.user.email
   //end
   //bank

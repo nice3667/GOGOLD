@@ -81,10 +81,10 @@
 </template>
 
 <script setup>
-import DonutChart from "@/components/Dashboard/Admin/DonutChart.vue"
-import LineChart from "@/components/Dashboard/Admin/LineChart.vue"
-import NavbarLeft from "@/components/Dashboard/Admin/NavbarLeft.vue"
-import NavbarTop from "@/components/Dashboard/Admin/NavbarTop.vue"
+import DonutChart from "@/components/dashboard/Admin/DonutChart.vue"
+import LineChart from "@/components/dashboard/Admin/LineChart.vue"
+import NavbarLeft from "@/components/dashboard/Admin/NavbarLeft.vue"
+import NavbarTop from "@/components/dashboard/Admin/NavbarTop.vue"
 </script>
 
 244,244,244,244

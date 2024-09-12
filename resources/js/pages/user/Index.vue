@@ -1,6 +1,5 @@
 <template>
   <div class="color-info">
-    <NavbarHomepage />
     <v-banner v-if="deferredPrompt" color="info" dark class="text-left">
       Get our free app. It won't take up space on your phone and also works offline!
       <template v-slot:actions>
@@ -8,37 +7,39 @@
         <v-btn text @click="install">Install</v-btn>
       </template>
     </v-banner>
-    <BodyHomepage />
 
-    <div class="flex justify-center">
-      <TableHomepage />
+    <div class="navbar-title">
+      <div class="">
+        <div class="body-home-title sm:font-normal">Lorem ipsum dolor sit amet consectetur.</div>
+
+        <div class="flex justify-center body-home">
+          <div class="main-text-bodyhome">
+            Lorem ipsum dolor sit amet consectetur. Eget netus feugiat bibendum vitae donec lectus sapien aliquet eu.
+            Congue
+            amet morbi sed dictum scelerisque
+            fringilla amet. Eget aliquam sit pretium dolor. Sagittis laoreet eget vitae donec tincidunt adipiscing mi
+            congue.
+          </div>
+        </div>
+        <div class="flex justify-center">
+          <v-btn href="/register" class="body-home-btn">สมัครเลย!</v-btn>
+        </div>
+      </div>
     </div>
-    <div class="flex justify-center">
-      <CommentHomepage />
-    </div>
-    <div class="flex justify-center">
-      <MainTableHomepage />
-    </div>
-    <div class="flex justify-center">
-      <CommentGroupHomepage />
-    </div>
-    <div class="flex justify-center">
-      <ImageHomepage />
-    </div>
-    <div class="flex justify-center">
-      <FooterHomepage />
-    </div>
+
+    <TableHomepage />
+    <CommentHomepage />
+    <MainTableHomepage />
+    <CommentGroupHomepage />
+    <ImageHomepage />
   </div>
 </template>
 <script setup>
-import NavbarHomepage from "@/components/navbar/NavbarHomepage.vue"
-import BodyHomepage from "@/components/Homepage/BodyHomepage.vue"
-import TableHomepage from "@/components/Homepage/TableHomepage.vue"
-import CommentHomepage from "@/components/Homepage/CommentHomepage.vue"
-import MainTableHomepage from "@/components/Homepage/MainTableHomepage.vue"
-import CommentGroupHomepage from "@/components/Homepage/CommentGroupHomepage.vue"
-import ImageHomepage from "@/components/Homepage/ImageHomepage.vue"
-import FooterHomepage from "@/components/Homepage/FooterHomepage.vue"
+import TableHomepage from "@/components/homepage/TableHomepage.vue"
+import CommentHomepage from "@/components/homepage/CommentHomepage.vue"
+import MainTableHomepage from "@/components/homepage/MainTableHomepage.vue"
+import CommentGroupHomepage from "@/components/homepage/CommentGroupHomepage.vue"
+import ImageHomepage from "@/components/homepage/ImageHomepage.vue"
 import { ref, onBeforeMount } from "vue"
 
 const deferredPrompt = ref(null)

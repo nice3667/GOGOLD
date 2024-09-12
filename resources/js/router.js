@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import StyleGuide from "@/Pages/style-guide.vue";
+import StyleGuide from "@/pages/style-guide.vue";
 
 const router = createRouter({
   history: createWebHistory(),
