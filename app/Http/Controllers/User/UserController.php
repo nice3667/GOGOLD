@@ -24,7 +24,6 @@ class UserController extends Controller
   public function index()
   {
     return Inertia::render('User/Index', [
-
       'canLogin' => app('router')->has('login'),
       'canRegister' => app('router')->has('register'),
       'laravelVersion' => Application::VERSION,
@@ -77,7 +76,6 @@ class UserController extends Controller
         'message' => 'Bank account updated successfully',
         'data' => $user
       ], 200);
-
     } catch (ModelNotFoundException $e) {
       return response()->json([
         'message' => 'User not found'
@@ -156,5 +154,4 @@ class UserController extends Controller
 
     return response()->json($users);
   }
-
 }

@@ -23,7 +23,6 @@
               <v-list-item> </v-list-item>
               <div class="flex ml-2">
                 <v-list-item-title>{{ item.title }}</v-list-item-title>
-                <!-- {{ item.title }} -->
               </div>
             </a>
           </v-list-item>
@@ -64,23 +63,23 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from "vue";
-import { useDisplay } from "vuetify";
+import { ref, onMounted, watch } from "vue"
+import { useDisplay } from "vuetify"
 
-const { width } = useDisplay();
-const is_desktop = ref(false);
-const drawer = ref(false);
+const { width } = useDisplay()
+const is_desktop = ref(false)
+const drawer = ref(false)
 
 onMounted(() => {
-  is_desktop.value = width.value > 1279;
-});
+  is_desktop.value = width.value > 1279
+})
 
 watch(
   () => width.value,
   (newWidth) => {
-    is_desktop.value = newWidth > 1279;
+    is_desktop.value = newWidth > 1279
   }
-);
+)
 
 const company = ref({
   name: "GOGOLD",
@@ -89,7 +88,7 @@ const company = ref({
   learn: "เครื่องมือช่วยเทรด",
   about: "บทความ",
   contact: "ติดต่อเรา",
-});
+})
 const menuItems = ref([
   { title: "หน้าหลัก", route: "HomePage" },
   { title: "แพ็กเกจ", route: "StatsPage" },
@@ -98,5 +97,5 @@ const menuItems = ref([
   { title: "ติดต่อเรา", route: "AboutPage" },
   { title: "เข้าสู่ระบบ", route: "login" },
   { title: "สมัครสมาชิก", route: "register" },
-]);
+])
 </script>
