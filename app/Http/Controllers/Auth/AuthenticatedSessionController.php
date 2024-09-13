@@ -15,7 +15,7 @@ use App\Http\Requests\Auth\LoginRequest;
 
 class AuthenticatedSessionController extends Controller
 {
-  public function create(): Response
+  public function index(): Response
   {
     return Inertia::render('auth/Login', [
       'canResetPassword' => Route::has('password.request'),

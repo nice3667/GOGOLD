@@ -1,28 +1,3 @@
-<script setup>
-import Checkbox from "@/components/Checkbox.vue";
-import GuestLayout from "@/layouts/LayoutGuest.vue";
-import InputError from "@/components/InputError.vue";
-import InputLabel from "@/components/InputLabel.vue";
-import PrimaryButton from "@/components/PrimaryButton.vue";
-import LogoLogin from "@/components/LogoLogin.vue";
-import TextInput from "@/components/TextInput.vue";
-import { Head, Link, useForm } from "@inertiajs/vue3";
-import LogoPage from "@/components/LogoPage.vue";
-
-const form = useForm({
-  phone: "",
-  password: "",
-  password_confirmation: "",
-});
-
-const submit = () => {
-  form.post(route("register"), {
-    onFinish: () => form.reset("password", "password_confirmation"),
-  });
-};
-console.log("test2");
-</script>
-
 <template>
   <div class="">
     <div class="flex justify-evenly items-center min-h-screen bg-[#27272A]">
@@ -72,6 +47,37 @@ console.log("test2");
     </div>
   </div>
 </template>
+
+<script setup>
+import Checkbox from "@/components/Checkbox.vue";
+import GuestLayout from "@/layouts/LayoutGuest.vue";
+import InputError from "@/components/InputError.vue";
+import InputLabel from "@/components/InputLabel.vue";
+import PrimaryButton from "@/components/PrimaryButton.vue";
+import LogoLogin from "@/components/LogoLogin.vue";
+import TextInput from "@/components/TextInput.vue";
+import { Head, Link, useForm } from "@inertiajs/vue3";
+import LogoPage from "@/components/LogoPage.vue";
+import LayoutAuthenticate from "@/layouts/LayoutAuthenticate.vue";
+
+defineOptions({
+  layout: LayoutAuthenticate,
+});
+
+const form = useForm({
+  phone: "",
+  password: "",
+  password_confirmation: "",
+});
+
+const submit = () => {
+  form.post(route("register"), {
+    onFinish: () => form.reset("password", "password_confirmation"),
+  });
+};
+console.log("test2");
+</script>
+
 <style scoped>
 .register-main {
   background-color: #000000;
