@@ -171,7 +171,7 @@
 </template>
 
 <script setup>
-import TableAccount from "@/components/User/TableAccount.vue"
+import TableAccount from "@/components/user/TableAccount.vue"
 import NavbarLeftUser from "@/components/dashboard/User/NavbarLeftUser.vue"
 import NavbarTopUser from "@/components/dashboard/User/NavbarTopUser.vue"
 import { ref, useAttrs, onMounted } from "vue"

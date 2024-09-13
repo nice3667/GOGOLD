@@ -20,7 +20,7 @@
 </template>
 
 <script setup>
-import FormUserProfile from "@/components/User/FormUserProfile.vue"
+import FormUserProfile from "@/components/user/FormUserProfile.vue"
 import NavbarLeftUser from "@/components/dashboard/User/NavbarLeftUser.vue"
 import NavbarTopUser from "@/components/dashboard/User/NavbarTopUser.vue"
 </script>
