@@ -35,31 +35,31 @@ Route::get('/orderhistory', function () {
 Route::post('/api/update-profile', [ProfileController::class, 'updateProfile']);
 
 Route::get('/dashboardd', function () {
-  return Inertia::render('User/Layouts/UserDashboard');
+  return Inertia::render('user/Layouts/UserDashboard');
 })->name('UserDashboard');
 
 Route::get('/account', function () {
-  return Inertia::render('User/Layouts/UserAccount');
+  return Inertia::render('user/Layouts/UserAccount');
 })->name('UserAccount');
 Route::get('/account/profile', function () {
-  return Inertia::render('User/Layouts/UserAccountProfile');
+  return Inertia::render('user/Layouts/UserAccountProfile');
 })->name('UserAccountProfile');
 
 
 Route::get('/course', function () {
-  return Inertia::render('User/Layouts/UserCourse');
+  return Inertia::render('user/Layouts/UserCourse');
 })->name('UserCourse');
 
 Route::get('/homepage', function () {
-  return Inertia::render('User/Layouts/UserHomepage');
+  return Inertia::render('user/Layouts/UserHomepage');
 })->name('UserHomepage');
 
 Route::get('/statistics', function () {
-  return Inertia::render('User/Layouts/UserStatistics');
+  return Inertia::render('user/Layouts/UserStatistics');
 })->name('UserStatistics');
 
 Route::get('/order', function () {
-  return Inertia::render('User/Layouts/UserOrder');
+  return Inertia::render('user/Layouts/UserOrder');
 })->name('UserOrder');
 
 //End
@@ -70,35 +70,33 @@ Route::get('/dashboard', function () {
 
 //Admin Dashboard
 Route::get('/admin/dashboard', function () {
-  return Inertia::render('Admin/Layouts/AdminDashboard');
+  return Inertia::render('admin/Layouts/AdminDashboard');
 })->name('admindashboard');
 
 Route::get('/admin/product', function () {
-  return Inertia::render('Admin/Layouts/AdminProduct');
+  return Inertia::render('admin/Layouts/AdminProduct');
 })->name('product');
 Route::get('/admin/article', function () {
-  return Inertia::render('Admin/Layouts/AdminArticle');
+  return Inertia::render('admin/Layouts/AdminArticle');
 })->name('article');
 Route::get('/admin/course', function () {
-  return Inertia::render('Admin/Layouts/AdminCourse');
+  return Inertia::render('admin/Layouts/AdminCourse');
 })->name('course');
 Route::get('/admin/customer', function () {
-  return Inertia::render('Admin/Layouts/AdminCustomer');
+  return Inertia::render('admin/Layouts/AdminCustomer');
 })->name('customer');
-// Route::get('/admin/dashboard', function () {
-//   return Inertia::render('AdminDashboard');
-// })->name('dashboard');
+
 Route::get('/admin/order', function () {
-  return Inertia::render('Admin/Layouts/AdminOrder');
+  return Inertia::render('admin/Layouts/AdminOrder');
 })->name('order');
 Route::get('/admin/package', function () {
-  return Inertia::render('Admin/Layouts/AdminPackage');
+  return Inertia::render('admin/Layouts/AdminPackage');
 })->name('package');
 Route::get('/admin/report', function () {
-  return Inertia::render('Admin/Layouts/AdminReport');
+  return Inertia::render('admin/Layouts/AdminReport');
 })->name('report');
 Route::get('/admin/setting', function () {
-  return Inertia::render('Admin/Layouts/AdminSetting');
+  return Inertia::render('admin/Layouts/AdminSetting');
 })->name('setting');
 
 

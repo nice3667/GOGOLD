@@ -1,10 +1,10 @@
 <template>
   <div class="color-info">
-    <v-banner v-if="deferredPrompt" color="info" dark class="text-left">
-      Get our free app. It won't take up space on your phone and also works offline!
+    <v-banner v-if="deferredPrompt" dark class="text-left !bg-slate-500">
+      คุณสามารถติดตั้งแอพลิเคชั่นของเว็บไซค์นี้ได้
       <template v-slot:actions>
-        <v-btn text @click="dismiss">Dismiss</v-btn>
-        <v-btn text @click="install">Install</v-btn>
+        <v-btn class="!text-secondary" text @click="dismiss">ไม่สนใจ</v-btn>
+        <v-btn class="!text-primary" text @click="install">ติดตั้งเลย</v-btn>
       </template>
     </v-banner>
 
@@ -13,7 +13,7 @@
         <div class="body-home-title sm:font-normal">Lorem ipsum dolor sit amet consectetur.</div>
 
         <div class="flex justify-center body-home">
-          <div class="main-text-bodyhome">
+          <div class="w-50">
             Lorem ipsum dolor sit amet consectetur. Eget netus feugiat bibendum vitae donec lectus sapien aliquet eu.
             Congue
             amet morbi sed dictum scelerisque

@@ -20,9 +20,12 @@ const vuetify = createVuetify({
   components,
   directives,
   theme: {
+    defaultTheme: "light",
+    dark: false,
     themes: {
       light: {
-        primary: "#3D90D1",
+        primary: "#ffd700",
+        secondary: "#30384C",
         info: "#30384C",
         warning: "#FFAB3B",
         danger: "#FF3E22",

@@ -17,6 +17,7 @@ export default {
       },
       colors: {
         primary: "#ffd700",
+        secondary: "#30384C",
         info: "#30384C",
         warning: "#FFAB3B",
         danger: "#FF3E22",

@@ -17,43 +17,40 @@ use Illuminate\Auth\Events\Registered;
 class RegisteredUserController extends Controller
 {
 
-  public function create(): Response
-  {
-    return Inertia::render('Auth/Register');
-  }
+	public function create(): Response
+	{
+		return Inertia::render('auth/Register');
+	}
 
 
-  public function store(Request $request): RedirectResponse
-  {
-    Log::info('test');
+	public function store(Request $request): RedirectResponse
+	{
+		Log::info('test');
 
-    $validate = $request->validate([
-      'phone' => 'required|string|max:255',
-      'password' => ['required', 'confirmed', Rules\Password::defaults()],
-    ]);
-    Log::info($validate);
+		$validate = $request->validate([
+			'phone' => 'required|string|max:255',
+			'password' => ['required', 'confirmed', Rules\Password::defaults()],
+		]);
+		Log::info($validate);
 
-    if($validate) {
+		if ($validate) {
 
-      $user = User::create([
-        'name' => $request->name,
-        'phone' => $request->phone,
-        'password' => Hash::make($request->password),
-        'unhashed_password' => $request->password,
-      ]);
-      Log::info('test1.2');
+			$user = User::create([
+				'name' => $request->name,
+				'phone' => $request->phone,
+				'password' => Hash::make($request->password),
+				'unhashed_password' => $request->password,
+			]);
+			Log::info('test1.2');
 
 
-      $user->generateCode();
-      // event(new Registered($user));
-      Log::info('test4');
-    }
-    else{
-      Log::info('test5');
+			$user->generateCode();
+			// event(new Registered($user));
+			Log::info('test4');
+		} else {
+			Log::info('test5');
+		}
 
-    }
-
-    return redirect()->route('otp', ['data' => $user->id]);
-  }
-
+		return redirect()->route('otp', ['data' => $user->id]);
+	}
 }

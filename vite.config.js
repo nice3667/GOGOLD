@@ -14,23 +14,25 @@ export default () => {
   // This is the data structure returned by @vite-pwa/assets-generator
   const manifestIcons = [
     {
-      src: "/pwa-64x64.png",
-      sizes: "64x64",
-      type: "image/png",
-    },
-    {
-      src: "/pwa-192x192.png",
+      src: "./../logo/manifest-icon-192.maskable.png",
       sizes: "192x192",
       type: "image/png",
+      purpose: "any",
     },
     {
-      src: "/pwa-512x512.png",
+      src: "./../logo/manifest-icon-192.maskable.png",
+      sizes: "192x192",
+      type: "image/png",
+      purpose: "maskable",
+    },
+    {
+      src: "./../logo/manifest-icon-512.maskable.png",
       sizes: "512x512",
       type: "image/png",
       purpose: "any",
     },
     {
-      src: "/maskable-icon-512x512.png",
+      src: "./../logo/manifest-icon-512.maskable.png",
       sizes: "512x512",
       type: "image/png",
       purpose: "maskable",
@@ -41,11 +43,7 @@ export default () => {
   // 1. we don't need in the webmanifest, BUT
   // 2. we still want the service worker to pre-cache for offline use
   // The src is a web URL relative the public dir.
-  const publicIcons = [
-    { src: "/favicon.ico" },
-    { src: "/favicon.svg" },
-    { src: "/apple-touch-icon-180x180.png" },
-  ];
+  const publicIcons = [{ src: "/favicon.png" }];
 
   // Define any additional images in the Laravel public folder that are not
   // packaged via Vite and that we want to be available offline. (For example,
@@ -87,7 +85,7 @@ export default () => {
         base: "/",
 
         // Use 'prompt' for new versions of the PWA. 'autoUpdate' is
-        // simpler but may as well dmeo how this works.
+        // simpler but may as well demo how this works.
         registerType: "prompt",
 
         // Do not use the PWA with dev builds.
@@ -155,9 +153,9 @@ export default () => {
         // Manifest settings - these will appear in the generated manifest.webmanifest
         manifest: {
           // Metadata
-          name: "Laravel Vite PWA",
-          short_name: "laravel-vite-pwa",
-          description: "A demo of Laravel with vite-plugin-pwa",
+          name: "GoGold",
+          short_name: "GoGold",
+          description: "GoGold Forex Trading",
           theme_color: "#DE9918",
           background_color: "#DE9918",
           orientation: "portrait",

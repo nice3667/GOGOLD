@@ -1,7 +1,7 @@
 <script setup>
 import { defineProps, onMounted, ref } from "vue";
 import Checkbox from "@/components/Checkbox.vue";
-import GuestLayout from "@/Layouts/GuestLayout.vue";
+import GuestLayout from "@/layouts/LayoutGuest.vue";
 import InputError from "@/components/InputError.vue";
 import InputLabel from "@/components/InputLabel.vue";
 import PrimaryButton from "@/components/PrimaryButton.vue";
@@ -44,16 +44,8 @@ onMounted(() => {
           </div>
           <form @submit.prevent="submit">
             <div class="flex flex-col items-center justify-center w-full">
-              <v-otp-input
-                type="text"
-                placeholder="0"
-                v-model="form.phone"
-                required
-                color=""
-                rounded=""
-                length="5"
-                class="input-otp"
-              />
+              <v-otp-input type="text" placeholder="0" v-model="form.phone" required color="" rounded="" length="5"
+                class="input-otp" />
               <div class="mt-3 text-[#737373]">
                 <p>Don't receive an OTP?</p>
               </div>
@@ -61,8 +53,7 @@ onMounted(() => {
                 <a href="">Resend OTP</a>
               </div>
               <button
-                class="mt-5 items-center rounded-full block w-full px-4 py-2 text-center text-black uppercase transition duration-150 ease-in-out bg-[#FFD700] border focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-              >
+                class="mt-5 items-center rounded-full block w-full px-4 py-2 text-center text-black uppercase transition duration-150 ease-in-out bg-[#FFD700] border focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                 Confirm
               </button>
             </div>
@@ -80,14 +71,17 @@ onMounted(() => {
   padding: 30px;
   height: 552px;
 }
+
 .text-title-otp {
   color: #ffff;
   font-size: 28.44px;
 }
+
 .text-main-otp {
   font-size: 13px;
   color: #ffd700;
 }
+
 /* .input-otp {
   border-radius: 30px;
 } */
@@ -97,6 +91,7 @@ onMounted(() => {
   background-color: #252525;
   color: #737373;
 }
+
 .input-otp .v-field {
   border-radius: 12px;
   height: 61px;

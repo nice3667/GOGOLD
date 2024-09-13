@@ -22,8 +22,8 @@ class TwoFactorController extends Controller
   public function index(Request $request)
   {
     // return $request->all();
-    // return Inertia::render('Auth/OtpCode');
-    return Inertia::render('Auth/OtpCode', [
+    // return Inertia::render('auth/OtpCode');
+    return Inertia::render('auth/OtpCode', [
       'data' => $request->input('data'),
     ]);
   }
@@ -50,7 +50,6 @@ class TwoFactorController extends Controller
       // dd(2);
       return redirect()->back()->withErrors(['otp_code' => 'test']);
     }
-
   }
 
   public function show(string $id)

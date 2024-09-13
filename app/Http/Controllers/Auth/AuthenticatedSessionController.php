@@ -15,41 +15,28 @@ use App\Http\Requests\Auth\LoginRequest;
 
 class AuthenticatedSessionController extends Controller
 {
-  /**
-   * Display the login view.
-   */
   public function create(): Response
   {
-    Log::info('AuthenticatedSessionController@create');
-    return Inertia::render('Auth/Login', [
+    return Inertia::render('auth/Login', [
       'canResetPassword' => Route::has('password.request'),
       'status' => session('status'),
     ]);
   }
 
-  /**
-   * Handle an incoming authentication request.
-   */
+
   public function store(LoginRequest $request): RedirectResponse
   {
-    Log::info('test');
-
-    Log::info($request);
     // $credentials = $request->validate([
     //   'phone' => ['required'],
     //   'password' => ['required'],
     // ]);
 
     // if (Auth::attempt($credentials)) {
-      $request->auth();
-      $request->session()->regenerate();
+    $request->auth();
+    $request->session()->regenerate();
     //   $remember = $request->has('remember') ? $request->remember : false;
-
     //   $user = User::where('phone', $request->phone)->first();
-
     //   $user = Auth::user();
-    //   Log::info('user 2 ' . json_encode($user));
-
     // }
     return redirect()->intended('dashboard');
 
