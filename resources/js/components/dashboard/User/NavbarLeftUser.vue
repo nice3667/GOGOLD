@@ -1,5 +1,55 @@
 <template>
-  <v-navigation-drawer :width="330" app permanent class="text-white bg-black">
+  <!-- Mobile Navigation Bar with Nav Icon -->
+  <v-app-bar class="mobile-drawer" v-if="!is_desktop" app>
+    <v-app-bar-nav-icon @click="drawer = !drawer">
+      <v-icon class="icon-drawer">mdi-menu</v-icon>
+    </v-app-bar-nav-icon>
+    <div class="flex items-center justify-evenly pl-md-7 pl-lg-15">
+      <img class="img-toolbar" src="@/assets/icon/logo-gogold.png" alt="logo" />
+    </div>
+  </v-app-bar>
+
+  <!-- Mobile Drawer -->
+  <v-navigation-drawer
+    v-if="!is_desktop"
+    app
+    temporary
+    v-model="drawer"
+    width="180"
+    class="mobile-drawer"
+  >
+    <v-app-bar-nav-icon @click="drawer = !drawer">
+      <v-icon class="icon-drawer">mdi-close</v-icon>
+    </v-app-bar-nav-icon>
+    <v-list dense>
+      <v-list-item-group active-class="bg-yellow-500">
+        <v-list-item
+          v-for="(item, index) in menu_items_mobile"
+          :key="'mobile' + index"
+          rounded=""
+          width="170"
+          :class="route().current() == item.route ? '' : ''"
+        >
+          <a
+            :href="route(item.route)"
+            class="cursor-pointer text-v-list-item-homepage"
+          >
+            <v-list-item> </v-list-item>
+            <div class="flex ml-2">
+              <v-list-item-title>{{ item.title }}</v-list-item-title>
+            </div>
+          </a>
+        </v-list-item>
+      </v-list-item-group>
+    </v-list>
+  </v-navigation-drawer>
+  <v-navigation-drawer
+    v-if="is_desktop"
+    :width="330"
+    app
+    permanent
+    class="text-white bg-black"
+  >
     <!-- โลโก้ด้านบนในแถบซ้าย -->
     <div class="flex items-center justify-center py-4">
       <LogoIconUser />
@@ -8,11 +58,16 @@
     <!-- รายการเมนู -->
     <v-list class="px-5" dense>
       <v-list-item-group active-class="bg-yellow-500">
-        <v-list-item v-for="(item, index) in menuItems" :key="index" rounded="" class="text-white"
-          :class="route().current() == item.route ? 'list-item-admin' : ''">
+        <v-list-item
+          v-for="(item, index) in menuItems"
+          :key="index"
+          rounded=""
+          class="text-white"
+          :class="route().current() == item.route ? 'list-item-admin' : ''"
+        >
           <a :href="route(item.route)" class="text-white cursor-pointer">
             <v-list-item> </v-list-item>
-            <div class="flex">
+            <div class="flex items-center">
               <v-icon class="mr-4 text-white">{{ item.icon }}</v-icon>
               <v-list-item-title>{{ item.title }}</v-list-item-title>
               <!-- {{ item.title }} -->
@@ -25,9 +80,26 @@
 </template>
 <script setup>
 console.log(route().current());
+import { ref, onMounted, watch } from "vue";
 import LogoIconUser from "@/components/LogoIconUser.vue";
 import LogoIcon from "@/components/LogoIcon.vue";
-import { ref } from "vue";
+import { useDisplay } from "vuetify";
+
+const { width } = useDisplay();
+const is_desktop = ref(false);
+const drawer = ref(false);
+
+onMounted(() => {
+  is_desktop.value = width.value > 1279;
+});
+
+watch(
+  () => width.value,
+  (newWidth) => {
+    is_desktop.value = newWidth > 1279;
+  }
+);
+
 const menuItems = ref([
   { title: "หน้าหลัก", icon: "mdi-file-chart", route: "UserHomepage" },
   { title: "แดชบอร์ด", icon: "mdi-view-dashboard", route: "UserDashboard" },
@@ -63,5 +135,10 @@ const menuItems = ref([
 .list-item-admin {
   border-radius: 13px;
   background-color: #ffd700;
+}
+@media only screen and (max-width: 600px) {
+  v-navigation-drawer {
+    background-color: lightblue;
+  }
 }
 </style>
