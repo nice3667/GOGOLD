@@ -5,7 +5,13 @@
       <v-icon class="icon-drawer">mdi-menu</v-icon>
     </v-app-bar-nav-icon>
     <div class="flex items-center justify-evenly pl-md-7 pl-lg-15">
-      <img class="img-toolbar" src="@/assets/icon/logo-gogold.png" alt="logo" />
+      <a :href="route('home')" class="cursor-pointer">
+        <img
+          class="img-toolbar"
+          src="@/assets/icon/logo-gogold.png"
+          alt="logo"
+        />
+      </a>
     </div>
   </v-app-bar>
 
@@ -27,11 +33,10 @@
           v-for="(item, index) in menu_items_mobile"
           :key="'mobile' + index"
           rounded=""
-          width="180"
-          :class="route().current() == item.route ? '' : ''"
+          :class="route().current() == item.route_name ? '' : ''"
         >
           <a
-            :href="route(item.route)"
+            :href="route(item.route_name)"
             class="cursor-pointer text-v-list-item-homepage"
           >
             <v-list-item> </v-list-item>
@@ -50,9 +55,16 @@
     class="flex justify-between color-dark toolbar-content align-center"
   >
     <div class="flex w-full justify-evenly toolbar-content">
-      <img class="img-toolbar" src="@/assets/icon/logo-gogold.png" alt="logo" />
+      <a :href="route('home')" class="cursor-pointer">
+        <img
+          class="img-toolbar"
+          src="@/assets/icon/logo-gogold.png"
+          alt="logo"
+        />
+      </a>
       <div class="flex items-center">
         <div class="flex items-center justify-around main-text-toolbar">
+          <<<<<<< HEAD
           <a
             :href="route(item.route)"
             class="text-navbar"
@@ -60,6 +72,15 @@
             :key="'desktop' + index"
             >{{ item.title }}</a
           >
+          =======
+          <a
+            :href="route(item.route_name)"
+            class="text-navbar"
+            v-for="(item, index) in menu_items_desktop"
+            :key="'desktop' + index"
+            >{{ item.title }}</a
+          >
+          >>>>>>> 4dd524675c375a3ad61818111c60ff703b065270
         </div>
       </div>
       <div class="flex items-center">
@@ -91,6 +112,7 @@ watch(
 );
 
 const menu_items_mobile = ref([
+<<<<<<< HEAD
   { title: "หน้าหลัก", route: "HomePage" },
   { title: "แพ็กเกจ", route: "StatsPage" },
   { title: "เครื่องมือช่วยเทรด", route: "LearnPage" },
@@ -107,4 +129,22 @@ const menu_items_desktop = ref([
   { title: "บทความ", route: "AboutPage" },
   { title: "ติดต่อเรา", route: "AboutPage" },
 ]);
+=======
+  { title: "หน้าหลัก", route_name: "home" },
+  { title: "แพ็กเกจ", route_name: "StatsPage" },
+  { title: "เครื่องมือช่วยเทรด", route_name: "LearnPage" },
+  { title: "บทความ", route_name: "AboutPage" },
+  { title: "ติดต่อเรา", route_name: "AboutPage" },
+  { title: "เข้าสู่ระบบ", route_name: "login" },
+  { title: "สมัครสมาชิก", route_name: "register" },
+])
+
+const menu_items_desktop = ref([
+  { title: "หน้าหลัก", route_name: "home" },
+  { title: "แพ็กเกจ", route_name: "StatsPage" },
+  { title: "เครื่องมือช่วยเทรด", route_name: "LearnPage" },
+  { title: "บทความ", route_name: "AboutPage" },
+  { title: "ติดต่อเรา", route_name: "AboutPage" },
+])
+>>>>>>> 4dd524675c375a3ad61818111c60ff703b065270
 </script>

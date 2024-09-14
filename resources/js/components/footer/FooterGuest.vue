@@ -4,7 +4,7 @@
       <img class="img-footer" src="@/assets/icon/logo.jpg" alt="" />
     </div>
     <div class="flex justify-center mt-5">
-      <a :href="route(item.route)" class="mr-4 text-footer" v-for="(item, index) in menu_items_desktop"
+      <a :href="route(item.route_name)" class="mr-4 text-footer" v-for="(item, index) in menu_items_desktop"
         :key="'desktop' + index">
         {{ item.title }}
       </a>
@@ -42,10 +42,10 @@
 import { ref } from "vue"
 
 const menu_items_desktop = ref([
-  { title: "หน้าหลัก", route: "HomePage" },
-  { title: "แพ็กเกจ", route: "StatsPage" },
-  { title: "เครื่องมือช่วยเทรด", route: "LearnPage" },
-  { title: "บทความ", route: "AboutPage" },
-  { title: "ติดต่อเรา", route: "AboutPage" },
+  { title: "หน้าหลัก", route_name: "home" },
+  { title: "แพ็กเกจ", route_name: "StatsPage" },
+  { title: "เครื่องมือช่วยเทรด", route_name: "LearnPage" },
+  { title: "บทความ", route_name: "AboutPage" },
+  { title: "ติดต่อเรา", route_name: "AboutPage" },
 ])
 </script>

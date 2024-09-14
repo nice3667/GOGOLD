@@ -1,7 +1,5 @@
 import defaultTheme from "tailwindcss/defaultTheme";
 import forms from "@tailwindcss/forms";
-
-/** @type {import('tailwindcss').Config} */
 export default {
   content: [
     "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
@@ -17,7 +15,7 @@ export default {
       },
       colors: {
         primary: "#ffd700",
-        secondary: "#30384C",
+        secondary: "#27272A",
         info: "#30384C",
         warning: "#FFAB3B",
         danger: "#FF3E22",

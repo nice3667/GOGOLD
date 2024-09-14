@@ -1,11 +1,12 @@
 <template>
-  <v-layout>
-    <NavbarGuest />
-    <v-main>
+  <v-app>
+    <v-layout>
+      <NavbarGuest />
       <slot />
       <FooterGuest />
-    </v-main>
-  </v-layout>
+    </v-layout>
+  </v-app>
+
 </template>
 
 <script setup>
