@@ -1,6 +1,6 @@
 <template>
   <!-- Mobile Navigation Bar with Nav Icon -->
-  <v-app-bar class="mobile-drawer" v-if="!is_desktop" app>
+  <v-app-bar class="mobile-main" v-if="!is_desktop" app>
     <v-app-bar-nav-icon @click="drawer = !drawer">
       <v-icon class="icon-drawer">mdi-menu</v-icon>
     </v-app-bar-nav-icon>
@@ -15,8 +15,8 @@
     app
     temporary
     v-model="drawer"
-    width="180"
-    class="mobile-drawer"
+    width="200"
+    class="mobile-main"
   >
     <v-app-bar-nav-icon @click="drawer = !drawer">
       <v-icon class="icon-drawer">mdi-close</v-icon>
@@ -27,14 +27,12 @@
           v-for="(item, index) in menu_items_mobile"
           :key="'mobile' + index"
           rounded=""
-          width="170"
-          :class="route().current() == item.route ? '' : ''"
+          :class="route().current() == item.route_name ? '' : ''"
         >
           <a
-            :href="route(item.route)"
+            :href="route(item.route_name)"
             class="cursor-pointer text-v-list-item-homepage"
           >
-            <v-list-item> </v-list-item>
             <div class="flex ml-2">
               <v-list-item-title>{{ item.title }}</v-list-item-title>
             </div>
@@ -66,11 +64,9 @@
           :class="route().current() == item.route ? 'list-item-admin' : ''"
         >
           <a :href="route(item.route)" class="text-white cursor-pointer">
-            <v-list-item> </v-list-item>
             <div class="flex items-center">
               <v-icon class="mr-4 text-white">{{ item.icon }}</v-icon>
               <v-list-item-title>{{ item.title }}</v-list-item-title>
-              <!-- {{ item.title }} -->
             </div>
           </a>
         </v-list-item>
@@ -88,6 +84,15 @@ import { useDisplay } from "vuetify";
 const { width } = useDisplay();
 const is_desktop = ref(false);
 const drawer = ref(false);
+const menu_items_mobile = ref([
+  { title: "หน้าหลัก", route_name: "UserHomepage" },
+  { title: "แดชบอร์ด", route_name: "UserDashboard" },
+  { title: "สถิติ", route_name: "UserStatistics" },
+  { title: "คอร์สเรียน", route_name: "UserCourse" },
+  { title: "บัญชีของฉัน", route_name: "UserAccount" },
+  { title: "การสั่งซื้อ", route_name: "UserOrder" },
+  { title: "ออกจากระบบ", route_name: "logout" },
+]);
 
 onMounted(() => {
   is_desktop.value = width.value > 1279;

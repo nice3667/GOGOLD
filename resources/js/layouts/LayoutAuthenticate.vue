@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-main class=" bg-secondary">
+    <v-main class="bg-secondary">
       <slot />
     </v-main>
   </v-app>

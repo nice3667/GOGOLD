@@ -6,10 +6,9 @@
       <FooterGuest />
     </v-layout>
   </v-app>
-
 </template>
 
 <script setup>
-import NavbarGuest from "@/components/navbar/NavbarGuest.vue"
-import FooterGuest from "@/components/footer/FooterGuest.vue"
+import NavbarGuest from "@/components/navbar/NavbarGuest.vue";
+import FooterGuest from "@/components/footer/FooterGuest.vue";
 </script>

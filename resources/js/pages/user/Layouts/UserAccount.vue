@@ -8,233 +8,287 @@
       <NavbarTopUser />
 
       <!-- เนื้อหาภายในหน้า -->
-      <div class="text-lg main-content-dashboard pa-15">
-        <v-app class="main-content-dashboard">
-          <div>
-            <div class="p-4 bg-[#1D1D1D] main-content shadow-md">
-              <!-- Profile Header -->
-              <div class="flex p-4 bg-[#1D1D1D] rounded-lg">
-                <v-avatar size="100" class="mr-2">
-                  <img src="@/assets/icon/testteeruk.png" alt="" />
-                </v-avatar>
-                <div class="ml-4">
-                  <h2 class="mt-2 text-lg font-semibold text-white it">
-                    Jackson Warateno
-                  </h2>
-                  <div class="flex items-center mt-3">
-                    <span
-                      class="px-2 py-1 text-sm text-[#FF9900] bg-[#FF990040] rounded-full"
-                      >Diamond</span
-                    >
-                    <div class="ml-5 text-sm text-gray-400">
-                      หมดอายุ: 15/02/2568
+      <div class="p-4 text-lg lg:p-16 main-content-dashboard">
+        <v-container class="main-content-dashboard">
+          <v-row>
+            <v-col cols="12">
+              <v-card class="p-4 shadow-md main-content">
+                <!-- Profile Header -->
+                <v-row class="align-center">
+                  <v-col cols="auto">
+                    <v-avatar size="100" class="mr-2">
+                      <img src="@/assets/icon/testteeruk.png" alt="" />
+                    </v-avatar>
+                  </v-col>
+                  <v-col>
+                    <h2 class="mt-2 text-lg font-semibold text-white">
+                      Jackson Warateno
+                    </h2>
+                    <div class="mt-3 d-flex align-center">
+                      <span
+                        class="px-2 py-1 text-sm text-[#FF9900] bg-[#FF990040] rounded-full"
+                        >Diamond</span
+                      >
+                      <span class="ml-5 text-sm text-gray-400">
+                        หมดอายุ: 15/02/2568
+                      </span>
                     </div>
-                  </div>
-                </div>
-              </div>
-              <hr />
-              <!-- Information Cards -->
-              <div class="grid grid-cols-1 gap-4 mt-4 md:grid-cols-3">
-                <!-- Personal Information -->
-                <v-card class="flex items-center information-cards">
-                  <v-card-title
-                    class="flex flex-col text-lg font-semibold information-cards"
-                  >
-                    <div class="flex justify-between">
-                      <b>ข้อมูลส่วนตัว</b>
-                      <a href="/account/profile"
-                        ><img
-                          src="@/assets/icon/edit.png"
-                          alt=""
-                          class="icon-edit"
-                      /></a>
-                    </div>
-                  </v-card-title>
-                  <v-card-text class="flex flex-col space-y-2">
-                    <div class="flex justify-between">
-                      <span><b>ชื่อ-นามสกุล:</b></span>
-                      <p>
-                        {{ data_user.first_name }} {{ data_user.last_name }}
+                  </v-col>
+                </v-row>
+                <hr class="mt-5" />
+                <!-- Information Cards -->
+                <v-row class="mt-4">
+                  <v-col cols="12" md="4">
+                    <!-- Personal Information Card -->
+                    <v-card class="information-cards">
+                      <v-card-title class="justify-between d-flex">
+                        <b>ข้อมูลส่วนตัว</b>
+                        <a href="/account/profile">
+                          <img
+                            src="@/assets/icon/edit.png"
+                            alt=""
+                            class="icon-edit"
+                          />
+                        </a>
+                      </v-card-title>
+                      <v-card-text>
+                        <v-row class="flex-col sm:flex-row">
+                          <v-col class="justify-between d-flex">
+                            <span><b>ชื่อ-นามสกุล:</b></span>
+                            <p>
+                              {{ data_user.first_name }}
+                              {{ data_user.last_name }}
+                            </p>
+                          </v-col>
+                          <v-col class="justify-between d-flex">
+                            <span><b>เบอร์โทร:</b></span>
+                            <p>{{ data_user.phone }}</p>
+                          </v-col>
+                          <v-col class="justify-between d-flex">
+                            <span><b>อีเมล:</b></span>
+                            <p>{{ data_user.email }}</p>
+                          </v-col>
+                        </v-row>
+                      </v-card-text>
+                    </v-card>
+                  </v-col>
+
+                  <!-- Bank Details Card -->
+                  <v-col cols="12" md="4">
+                    <v-card class="information-cards">
+                      <v-card-title class="justify-between d-flex">
+                        <b>บัญชีธนาคาร</b>
+                        <a href="/account/profile">
+                          <img
+                            src="@/assets/icon/edit.png"
+                            alt=""
+                            class="icon-edit"
+                          />
+                        </a>
+                      </v-card-title>
+                      <v-card-text>
+                        <v-row class="flex-col sm:flex-row">
+                          <v-col class="justify-between d-flex">
+                            <span><b>ชื่อบัญชี:</b></span>
+                            <p>{{ data_user.bank_account_name }}</p>
+                          </v-col>
+                          <v-col class="justify-between d-flex">
+                            <span><b>ธนาคาร:</b></span>
+                            <p>{{ data_user.bank_name }}</p>
+                          </v-col>
+                          <v-col class="justify-between d-flex">
+                            <span><b>เลขที่บัญชี:</b></span>
+                            <p>{{ data_user.bank_account_number }}</p>
+                          </v-col>
+                        </v-row>
+                      </v-card-text>
+                    </v-card>
+                  </v-col>
+
+                  <!-- Package Information Card -->
+                  <v-col cols="12" md="4">
+                    <v-card class="information-cards">
+                      <v-card-title class="justify-between d-flex">
+                        <b>ข้อมูลแพ็กเกจ</b>
+                        <a href="/account/profile">
+                          <img
+                            src="@/assets/icon/edit.png"
+                            alt=""
+                            class="icon-edit"
+                          />
+                        </a>
+                      </v-card-title>
+                      <v-card-text>
+                        <v-row class="flex-col sm:flex-row">
+                          <v-col class="justify-between d-flex">
+                            <span><b>ชื่อแพ็กเกจ:</b></span>
+                            <p>{{ data_package.name }}</p>
+                          </v-col>
+                          <v-col class="justify-between d-flex">
+                            <span><b>อายุใช้งาน:</b></span>
+                            <p>{{ data_package.age }} ปี</p>
+                          </v-col>
+                        </v-row>
+                      </v-card-text>
+                    </v-card>
+                  </v-col>
+                </v-row>
+              </v-card>
+            </v-col>
+          </v-row>
+
+          <div
+            class="grid grid-cols-1 py-3 mx-0 mt-3 mb-0 lg:grid-cols-5 sm:grid-cols-2 md:grid-cols-3"
+          >
+            <div class="pr-2">
+              <v-card class="card-status">
+                <v-card-text>
+                  <v-row class="align-center">
+                    <v-col cols="auto">
+                      <img
+                        src="@/assets/icon/icon-wallet.png"
+                        alt=""
+                        class="icon"
+                      />
+                    </v-col>
+                    <v-col>
+                      <p class="text-sm text-white">ยอดเงินคงเหลือ</p>
+                      <p class="text-xl font-bold text-white">
+                        ฿ {{ data_user.remaining_balance }}
                       </p>
-                    </div>
-                    <div class="flex justify-between">
-                      <span><b>เบอร์โทร:</b></span>
-                      <p>{{ data_user.phone }}</p>
-                    </div>
-                    <div class="flex justify-between">
-                      <span><b>อีเมล:</b></span>
-                      <p>{{ data_user.email }}</p>
-                    </div>
-                  </v-card-text>
-                </v-card>
+                    </v-col>
+                  </v-row>
+                </v-card-text>
+              </v-card>
+            </div>
 
-                <!-- Bank Details -->
-                <v-card class="flex items-center information-cards">
-                  <v-card-title class="text-lg font-semibold information-cards">
-                    <div class="flex justify-between">
-                      <b>บัญชีธนาคาร</b>
-                      <a href="/account/profile"
-                        ><img
-                          src="@/assets/icon/edit.png"
-                          alt=""
-                          class="icon-edit"
-                      /></a>
+            <div class="px-2">
+              <v-card class="card-status">
+                <v-row class="align-center">
+                  <v-col cols="auto">
+                    <img
+                      src="@/assets/icon/icon-money.png"
+                      alt=""
+                      class="icon"
+                    />
+                  </v-col>
+                  <v-col>
+                    <p class="text-sm text-white">ค่าคอมมิชชั่น</p>
+                    <p class="text-xl font-bold text-white">
+                      ฿ {{ data_user.commission }}
+                    </p>
+                    <div class="d-flex">
+                      <img
+                        src="@/assets/icon/iconbuy.png"
+                        alt=""
+                        class="w-3 h-3 mt-2"
+                      />
+                      <span class="ml-2 text-[#34A853]">6.62%</span>
                     </div>
-                  </v-card-title>
-                  <v-card-text class="flex flex-col space-y-2">
-                    <div class="flex justify-between">
-                      <span><b>ชื่อบัญชี:</b></span>
-                      <p>{{ data_user.bank_account_name }}</p>
+                  </v-col>
+                </v-row>
+              </v-card>
+            </div>
+            <div class="px-2">
+              <v-card class="card-status">
+                <v-row class="align-center">
+                  <v-col cols="auto">
+                    <img
+                      src="@/assets/icon/icon-money.png"
+                      alt=""
+                      class="icon"
+                    />
+                  </v-col>
+                  <v-col>
+                    <p class="text-sm text-white">ค่าคอมมิชชั่น</p>
+                    <p class="text-xl font-bold text-white">
+                      ฿ {{ data_user.commission }}
+                    </p>
+                    <div class="d-flex">
+                      <img
+                        src="@/assets/icon/iconbuy.png"
+                        alt=""
+                        class="w-3 h-3 mt-2"
+                      />
+                      <span class="ml-2 text-[#34A853]">6.62%</span>
                     </div>
-                    <div class="flex justify-between">
-                      <span><b>ธนาคาร:</b></span>
-                      <p>{{ data_user.bank_name }}</p>
+                  </v-col>
+                </v-row>
+              </v-card>
+            </div>
+            <div class="px-2">
+              <v-card class="card-status">
+                <v-row class="align-center">
+                  <v-col cols="auto">
+                    <img
+                      src="@/assets/icon/icon-money.png"
+                      alt=""
+                      class="icon"
+                    />
+                  </v-col>
+                  <v-col>
+                    <p class="text-sm text-white">ค่าคอมมิชชั่น</p>
+                    <p class="text-xl font-bold text-white">
+                      ฿ {{ data_user.commission }}
+                    </p>
+                    <div class="d-flex">
+                      <img
+                        src="@/assets/icon/iconbuy.png"
+                        alt=""
+                        class="w-3 h-3 mt-2"
+                      />
+                      <span class="ml-2 text-[#34A853]">6.62%</span>
                     </div>
-                    <div class="flex justify-between">
-                      <span><b>เลขที่บัญชี:</b></span>
-                      <p>{{ data_user.bank_account_number }}</p>
+                  </v-col>
+                </v-row>
+              </v-card>
+            </div>
+            <div class="pl-2">
+              <v-card class="card-status">
+                <v-row class="align-center">
+                  <v-col cols="auto">
+                    <img
+                      src="@/assets/icon/icon-money.png"
+                      alt=""
+                      class="icon"
+                    />
+                  </v-col>
+                  <v-col>
+                    <p class="text-sm text-white">ค่าคอมมิชชั่น</p>
+                    <p class="text-xl font-bold text-white">
+                      ฿ {{ data_user.commission }}
+                    </p>
+                    <div class="d-flex">
+                      <img
+                        src="@/assets/icon/iconbuy.png"
+                        alt=""
+                        class="w-3 h-3 mt-2"
+                      />
+                      <span class="ml-2 text-[#34A853]">6.62%</span>
                     </div>
-                  </v-card-text>
-                </v-card>
-
-                <!-- Package Information -->
-                <v-card class="flex items-center information-cards">
-                  <v-card-title class="text-lg font-semibold information-cards">
-                    <div class="flex justify-between">
-                      <span>ข้อมูลแพ็กเกจ</span>
-                      <a href="/account/profile"
-                        ><img
-                          src="@/assets/icon/edit.png"
-                          alt=""
-                          class="icon-edit"
-                      /></a>
-                    </div>
-                  </v-card-title>
-                  <v-card-text class="flex flex-col space-y-2">
-                    <div class="flex justify-between">
-                      <span><b>ชื่อแพ็กเกจ:</b></span>
-                      <p>{{ data_package.name }}</p>
-                    </div>
-                    <div class="flex justify-between">
-                      <span><b>อายุใช้งาน:</b></span>
-                      <p>{{ data_package.age }} ปี</p>
-                    </div>
-                  </v-card-text>
-                </v-card>
-              </div>
+                  </v-col>
+                </v-row>
+              </v-card>
             </div>
           </div>
-          <div class="flex justify-between mt-5 main-content">
-            <div class="flex items-center justify-center card-status">
-              <div class="flex items-center justify-center space-x-4">
-                <img src="@/assets/icon/icon-wallet.png" alt="" class="icon" />
 
-                <div class="text-left">
-                  <div class="text-sm text-white">ยอดเงินคงเหลือ</div>
-                  <div class="text-xl font-bold text-white">
-                    ฿ {{ data_user.remaining_balance }}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="flex items-center justify-center card-status">
-              <div class="flex items-center justify-center space-x-4">
-                <img src="@/assets/icon/icon-money.png" alt="" class="icon" />
-                <div class="text-left">
-                  <div class="text-sm text-white">ค่าคอมมิชชั่น</div>
-                  <div class="mt-2 text-xl font-bold text-white">
-                    ฿ {{ data_user.commission }}
-                  </div>
-                  <div class="flex">
-                    <img
-                      src="@/assets/icon/iconbuy.png"
-                      alt=""
-                      class="w-3 h-3 mt-2"
-                    />
-                    <div class="ml-2 text-[#34A853]">6.62%</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="flex items-center justify-center card-status">
-              <div class="flex items-center justify-center space-x-4">
-                <img src="@/assets/icon/icon-money.png" alt="" class="icon" />
-                <div class="text-left">
-                  <div class="text-sm text-white">ซื้อ</div>
-                  <div class="mt-2 text-xl font-bold text-white">
-                    ฿ {{ data_user.buy }}
-                  </div>
-                  <div class="flex">
-                    <img
-                      src="@/assets/icon/iconbuy.png"
-                      alt=""
-                      class="w-3 h-3 mt-2"
-                    />
-                    <div class="ml-2 text-[#34A853]">6.62%</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="flex items-center justify-center card-status">
-              <div class="flex items-center justify-center space-x-4">
-                <img src="@/assets/icon/icon-money.png" alt="" class="icon" />
-                <div class="text-left">
-                  <div class="text-sm text-white">ซื้อ</div>
-                  <div class="mt-2 text-xl font-bold text-white">
-                    ฿ {{ data_user.buy }}
-                  </div>
-                  <div class="flex">
-                    <img
-                      src="@/assets/icon/iconbuy.png"
-                      alt=""
-                      class="w-3 h-3 mt-2"
-                    />
-                    <div class="ml-2 text-[#34A853]">6.62%</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="flex items-center justify-center card-status">
-              <div class="flex items-center justify-center space-x-4">
-                <img
-                  src="@/assets/icon/icon-discount.png"
-                  alt=""
-                  class="icon"
-                />
-                <div class="text-left">
-                  <div class="text-sm text-white">ขาย</div>
-                  <div class="text-xl font-bold text-white">
-                    ฿ {{ data_user.sell }}
-                  </div>
-                  <div class="flex">
-                    <img
-                      src="@/assets/icon/iconsell.png"
-                      alt=""
-                      class="w-3 h-3 mt-2"
-                    />
-                    <div class="ml-2 text-[#EA4335]">6.62%</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
           <TableAccount></TableAccount>
-        </v-app>
+        </v-container>
       </div>
     </v-main>
   </v-app>
 </template>
+
 
 <script setup>
 import TableAccount from "@/components/user/TableAccount.vue";
 import NavbarLeftUser from "@/components/dashboard/User/NavbarLeftUser.vue";
 import NavbarTopUser from "@/components/dashboard/User/NavbarTopUser.vue";
 import { ref, useAttrs, onMounted } from "vue";
-import LayoutAuthenticated from "@/layouts/LayoutAuthenticated.vue";
+import LayoutAuthenticate from "@/layouts/LayoutAuthenticate.vue";
 
 defineOptions({
-  layout: LayoutAuthenticated,
+  layout: LayoutAuthenticate,
 });
 
 const data_package = ref({
@@ -278,7 +332,9 @@ onMounted(async () => {
 
 <style scoped>
 .main-content {
+  background-color: #1d1d1d;
   border-radius: 16px;
+  padding: 15px;
 }
 
 .information-cards {
@@ -340,7 +396,7 @@ body {
 }
 
 .card-status {
-  width: 250.4px;
+  width: 100%;
   height: 114px;
   background-color: #1d1d1d;
   border-radius: 24px;
@@ -357,5 +413,158 @@ body {
 .icon-edit {
   width: 49px;
   height: 23px;
+}
+
+/* xs */
+@media (min-width: 475px) {
+}
+
+@media (min-width: 640px) {
+  /* .information-cards {
+    padding: 15px;
+    border-radius: 24px;
+    background-color: #27272a;
+    color: #ffffff;
+  } */
+}
+
+/* md */
+@media (min-width: 768px) {
+}
+
+/* lg */
+@media (min-width: 1024px) {
+}
+
+/* xl */
+@media (min-width: 1280px) {
+}
+
+/* 2xl */
+@media (min-width: 1536px) {
+}
+
+/* 2xl */
+@media (max-width: 1536px) {
+}
+
+/* xl */
+@media (max-width: 1280px) {
+}
+
+/* lg */
+@media (max-width: 1024px) {
+}
+
+/* md */
+@media (max-width: 768px) {
+}
+
+/* sm */
+@media (max-width: 640px) {
+}
+
+/* xs */
+@media (max-width: 475px) {
+}
+
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+/* xs */
+@media (min-width: 475px) {
+  .container {
+    max-width: 475px;
+  }
+}
+
+/* sm */
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+/* md */
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+/* lg */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+/* xl */
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+/* 2xl */
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
+.container {
+  max-width: 1536px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+/* 2xl */
+@media (max-width: 1536px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+/* xl */
+@media (max-width: 1280px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+/* lg */
+@media (max-width: 1024px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+/* md */
+@media (max-width: 768px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+/* sm */
+@media (max-width: 640px) {
+  .container {
+    max-width: 475px;
+  }
+}
+
+/* xs */
+@media (max-width: 475px) {
+  .container {
+    width: 100%;
+  }
 }
 </style>

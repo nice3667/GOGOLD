@@ -64,7 +64,6 @@
       </a>
       <div class="flex items-center">
         <div class="flex items-center justify-around main-text-toolbar">
-          <<<<<<< HEAD
           <a
             :href="route(item.route)"
             class="text-navbar"
@@ -72,7 +71,6 @@
             :key="'desktop' + index"
             >{{ item.title }}</a
           >
-          =======
           <a
             :href="route(item.route_name)"
             class="text-navbar"
@@ -80,7 +78,6 @@
             :key="'desktop' + index"
             >{{ item.title }}</a
           >
-          >>>>>>> 4dd524675c375a3ad61818111c60ff703b065270
         </div>
       </div>
       <div class="flex items-center">
@@ -112,24 +109,6 @@ watch(
 );
 
 const menu_items_mobile = ref([
-<<<<<<< HEAD
-  { title: "หน้าหลัก", route: "HomePage" },
-  { title: "แพ็กเกจ", route: "StatsPage" },
-  { title: "เครื่องมือช่วยเทรด", route: "LearnPage" },
-  { title: "บทความ", route: "AboutPage" },
-  { title: "ติดต่อเรา", route: "AboutPage" },
-  { title: "เข้าสู่ระบบ", route: "login" },
-  { title: "สมัครสมาชิก", route: "register" },
-]);
-
-const menu_items_desktop = ref([
-  { title: "หน้าหลัก", route: "HomePage" },
-  { title: "แพ็กเกจ", route: "StatsPage" },
-  { title: "เครื่องมือช่วยเทรด", route: "LearnPage" },
-  { title: "บทความ", route: "AboutPage" },
-  { title: "ติดต่อเรา", route: "AboutPage" },
-]);
-=======
   { title: "หน้าหลัก", route_name: "home" },
   { title: "แพ็กเกจ", route_name: "StatsPage" },
   { title: "เครื่องมือช่วยเทรด", route_name: "LearnPage" },
@@ -137,7 +116,7 @@ const menu_items_desktop = ref([
   { title: "ติดต่อเรา", route_name: "AboutPage" },
   { title: "เข้าสู่ระบบ", route_name: "login" },
   { title: "สมัครสมาชิก", route_name: "register" },
-])
+]);
 
 const menu_items_desktop = ref([
   { title: "หน้าหลัก", route_name: "home" },
@@ -145,6 +124,5 @@ const menu_items_desktop = ref([
   { title: "เครื่องมือช่วยเทรด", route_name: "LearnPage" },
   { title: "บทความ", route_name: "AboutPage" },
   { title: "ติดต่อเรา", route_name: "AboutPage" },
-])
->>>>>>> 4dd524675c375a3ad61818111c60ff703b065270
+]);
 </script>

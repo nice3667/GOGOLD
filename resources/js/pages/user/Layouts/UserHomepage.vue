@@ -18,8 +18,14 @@
 </template>
 
 <script setup>
-import NavbarLeftUser from "@/components/dashboard/User/NavbarLeftUser.vue"
-import NavbarTopUser from "@/components/dashboard/User/NavbarTopUser.vue"
+import NavbarLeftUser from "@/components/dashboard/User/NavbarLeftUser.vue";
+import NavbarTopUser from "@/components/dashboard/User/NavbarTopUser.vue";
+import { ref, useAttrs, onMounted } from "vue";
+import LayoutAuthenticate from "@/layouts/LayoutAuthenticate.vue";
+
+defineOptions({
+  layout: LayoutAuthenticate,
+});
 </script>
 
 244,244,244,244

@@ -18,7 +18,10 @@
   color: $color-primary !important;
   background: $color-primary!important;
 }
-
+.mobile-main{
+  background: $black !important;
+  color: $white;
+}
 .mobile-drawer {
   background: $color-secondary !important;
   color: $white;
