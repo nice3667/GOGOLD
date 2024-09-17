@@ -24,6 +24,11 @@
 <script setup>
 import NavbarLeft from "@/components/dashboard/Admin/NavbarLeft.vue";
 import NavbarTop from "@/components/dashboard/Admin/NavbarTop.vue";
+import LayoutAuthenticate from "@/layouts/LayoutAuthenticate.vue";
+
+defineOptions({
+  layout: LayoutAuthenticate,
+});
 </script>
 
 <style scoped>

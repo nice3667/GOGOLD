@@ -8,10 +8,14 @@
     <!-- รายการเมนู -->
     <v-list class="px-5" dense>
       <v-list-item-group active-class="bg-yellow-500">
-        <v-list-item v-for="(item, index) in menuItems" :key="index" rounded="" class="text-white"
-          :class="route().current() == item.route ? 'list-item-admin' : ''">
+        <v-list-item
+          v-for="(item, index) in menuItems"
+          :key="index"
+          rounded=""
+          class="text-white"
+          :class="route().current() == item.route ? 'list-item-admin' : ''"
+        >
           <a :href="route(item.route)" class="text-white cursor-pointer">
-            <v-list-item> </v-list-item>
             <div class="flex">
               <v-icon class="mr-4 text-white">{{ item.icon }}</v-icon>
               <v-list-item-title>{{ item.title }}</v-list-item-title>
@@ -37,6 +41,7 @@ const menuItems = ref([
   { title: "คอร์สเรียน", icon: "mdi-school", route: "course" },
   { title: "ลูกค้า", icon: "mdi-account-group", route: "customer" },
   { title: "ตั้งค่า", icon: "mdi-cog", route: "setting" },
+  { title: "ออกจากระบบ", icon: "mdi-cog", route: "logout" },
 ]);
 </script>
 <style scoped>

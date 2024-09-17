@@ -1,6 +1,6 @@
 <template>
   <div class="w-screen">
-    <div class="grid h-screen md:grid-cols-2 ">
+    <div class="grid items-center min-h-screen xl:grid-cols-2">
       <div class="flex items-center justify-center flex-column">
         <h5 class="text-3xl text-center md:text-5xl">Welcome to GO GOLD !</h5>
         <LogoPage></LogoPage>
@@ -13,14 +13,29 @@
           <form @submit.prevent="submit">
             <div class="mb-4">
               <label for="phone">เบอร์โทรศัพท์</label>
-              <input placeholder="กรอกเบอร์โทรศัพท์ เช่น 0812345678" class="w-full mt-1 input-rounded" type="tel"
-                v-model="form.phone" required autofocus autocomplete="username" />
+              <input
+                placeholder="กรอกเบอร์โทรศัพท์ เช่น 0812345678"
+                class="w-full mt-1 input-rounded"
+                type="tel"
+                v-model="form.phone"
+                required
+                autofocus
+                autocomplete="username"
+              />
               <InputError class="mt-1" :message="form.errors.phone" />
             </div>
             <div class="mb-4">
               <label for="password">รหัสผ่าน</label>
-              <input placeholder="กรอกเบอร์โทรศัพท์ เช่น 0812345678" class="w-full mt-1 input-rounded" id="password"
-                type="password" v-model="form.password" required autofocus autocomplete="current-password" />
+              <input
+                placeholder="กรอกเบอร์โทรศัพท์ เช่น 0812345678"
+                class="w-full mt-1 input-rounded"
+                id="password"
+                type="password"
+                v-model="form.password"
+                required
+                autofocus
+                autocomplete="current-password"
+              />
               <InputError class="mt-1" :message="form.errors.password" />
             </div>
             <div class="flex justify-between mb-4">
@@ -28,21 +43,29 @@
                 <Checkbox name="remember" v-model:checked="form.remember" />
                 <span class="text-sm ms-2 text-[#FFD700]">จำรหัสผ่าน</span>
               </label>
-              <Link v-if="canResetPassword" :href="route('password.request')"
-                class="text-sm text-[#FFD700] underline rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-text-[#FFD700]">
-              ลืมรหัสผ่าน?
+              <Link
+                v-if="canResetPassword"
+                :href="route('password.request')"
+                class="text-sm text-[#FFD700] underline rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-text-[#FFD700]"
+              >
+                ลืมรหัสผ่าน?
               </Link>
             </div>
             <div class="flex items-center justify-center w-full mt-4">
-              <Button :class="{ 'opacity-25': form.processing }" :disabled="form.processing"
-                class="items-center rounded-full block w-full px-4 py-2 text-center text-black uppercase transition duration-150 ease-in-out bg-[#FFD700] border focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+              <Button
+                :class="{ 'opacity-25': form.processing }"
+                :disabled="form.processing"
+                class="items-center rounded-full block w-full px-4 py-2 text-center text-black uppercase transition duration-150 ease-in-out bg-[#FFD700] border focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              >
                 เข้าสู่ระบบ
               </Button>
             </div>
-            <div class="flex items-center justify-center w-full mb-4">
-              <Link href="/register"
-                class="items-center rounded-full block w-full px-4 py-2 text-center text-white uppercase transition duration-150 ease-in-out bg-[#252525] border focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-              ยังไม่มีบัญชี
+            <div class="flex items-center justify-center w-full mt-4">
+              <Link
+                href="/register"
+                class="items-center rounded-full block w-full px-4 py-2 text-center text-white uppercase transition duration-150 ease-in-out bg-[#252525] border focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              >
+                ยังไม่มีบัญชี
               </Link>
             </div>
           </form>
@@ -93,9 +116,8 @@ const submit = () => {
 .card-login {
   background-color: #000000;
   border-radius: 30px;
-  width: 90%;
-  max-width: 560px;
-  padding: 30px;
+  width: 60%;
+  padding: 25px;
 }
 
 .text-input-login {
@@ -106,5 +128,11 @@ const submit = () => {
 .text-login-main {
   font-size: 40px;
   color: #ffff;
+}
+@media (max-width: 640px) {
+  .card-login {
+    padding: 25px;
+    width: 95%;
+  }
 }
 </style>

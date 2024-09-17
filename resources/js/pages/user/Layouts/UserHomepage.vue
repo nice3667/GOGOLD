@@ -3,16 +3,19 @@
     <!-- แถบเมนูด้านซ้าย -->
     <NavbarLeftUser></NavbarLeftUser>
     <!-- เนื้อหาหลัก -->
-    <v-main>
+    <v-main class="main-content-admin-dashboard">
       <!-- แถบเมนูด้านบน -->
       <NavbarTopUser />
 
       <!-- เนื้อหาภายในหน้า -->
-      <div class="text-lg main-content-admin-dashboard pa-5">
-        <v-app class="main-content-admin-dashboard">
-          <v-main></v-main>
-        </v-app>
-      </div>
+      <v-container class="text-lg main-content-admin-dashboard pa-5" fluid>
+        <v-row>
+          <v-col cols="12" md="6">
+            <div class="text-2xl text-white">Coming Soon !!!</div>
+          </v-col>
+          <v-col cols="12" md="6">test</v-col>
+        </v-row>
+      </v-container>
     </v-main>
   </v-app>
 </template>

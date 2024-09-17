@@ -1,0 +1,22 @@
+.bg-black {
+  background-color: #000000;
+}
+.bg-yellow-500 {
+  background-color: #ffd700;
+}
+.main-content-dashboard {
+  background-color: #252525;
+}
+
+.content-dashboard {
+  @apply bg-[#1D1D1D] p-6 flex items-center justify-center w-64 h-24;
+  border-radius: 24px;
+}
+.content-group-dashboard {
+  border-radius: 24px;
+}
+.main-content {
+  background-color: #1d1d1d !important;
+  border-radius: 16px !important;
+  padding: 15px !important;
+}

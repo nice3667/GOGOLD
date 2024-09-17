@@ -1,7 +1,7 @@
 <template>
   <v-app-bar color="black" flat class="text-white">
     <v-toolbar-title class="flex items-center">
-      <div class="sm:flex main-text-toolbar">
+      <div class="sm:flex">
         <a href="/home" class="text-dashboard">{{ company.home }}</a>
         <a href="/stats" class="ml-4 text-dashboard">{{ company.stats }}</a>
         <a href="/learn" class="ml-4 text-dashboard">{{ company.learn }}</a>

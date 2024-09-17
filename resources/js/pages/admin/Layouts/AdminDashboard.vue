@@ -16,7 +16,11 @@
                 <div class="flex main-content-admin-dashboard">
                   <div class="mr-5 content-admin-dashboard">
                     <div class="flex items-center space-x-4">
-                      <img src="@/assets/icon/people-icon.png" alt="" class="icon" />
+                      <img
+                        src="@/assets/icon/people-icon.png"
+                        alt=""
+                        class="icon"
+                      />
 
                       <div class="text-left">
                         <div class="text-sm text-gray-400">สมาชิกทั้งหมด</div>
@@ -26,21 +30,35 @@
                   </div>
                 </div>
                 <div class="flex-1 bg-[#1D1D1D] main-content-admin-dashboard">
-                  <div class="flex p-6 space-x-4 bg-[#1D1D1D] content-group-admin-dashboard justify-evenly">
+                  <div
+                    class="flex p-6 space-x-4 bg-[#1D1D1D] content-group-admin-dashboard justify-evenly"
+                  >
                     <div class="flex text-center text-white">
                       <div class="flex items-center space-x-4">
-                        <img src="@/assets/icon/people.svg" alt="" class="material-icons" />
+                        <img
+                          src="@/assets/icon/people.svg"
+                          alt=""
+                          class="material-icons"
+                        />
                         <div class="text-left">
-                          <div class="text-sm text-gray-400">สมัครใหม่วันนี้</div>
+                          <div class="text-sm text-gray-400">
+                            สมัครใหม่วันนี้
+                          </div>
                           <div class="text-xl font-bold text-white">20 คน</div>
                         </div>
                       </div>
                     </div>
                     <div class="flex text-center text-white">
                       <div class="flex items-center justify-center space-x-4">
-                        <img src="@/assets/icon/people.svg" alt="" class="material-icons" />
+                        <img
+                          src="@/assets/icon/people.svg"
+                          alt=""
+                          class="material-icons"
+                        />
                         <div class="text-left">
-                          <div class="text-sm text-gray-400">สมัครใหม่วันนี้</div>
+                          <div class="text-sm text-gray-400">
+                            สมัครใหม่วันนี้
+                          </div>
                           <div class="text-xl font-bold text-white">20 คน</div>
                         </div>
                       </div>
@@ -48,18 +66,32 @@
                     <hr />
                     <div class="flex text-center text-white">
                       <div class="flex items-center justify-center space-x-4">
-                        <img src="@/assets/icon/people.svg" alt="" class="material-icons" />
+                        <img
+                          src="@/assets/icon/people.svg"
+                          alt=""
+                          class="material-icons"
+                        />
                         <div class="text-left">
-                          <div class="text-sm text-gray-400">สมัครใหม่วันนี้</div>
+                          <div class="text-sm text-gray-400">
+                            สมัครใหม่วันนี้
+                          </div>
                           <div class="text-xl font-bold text-white">20 คน</div>
                         </div>
                       </div>
                     </div>
 
-                    <img src="@/assets/icon/people.svg" alt="" class="material-icons" />
+                    <img
+                      src="@/assets/icon/people.svg"
+                      alt=""
+                      class="material-icons"
+                    />
                     <div class="flex items-center">
                       <a href="#" class="text-[#FFD700]">ดูรายละเอียด</a>
-                      <img src="@/assets/icon/ssr.png" alt="" class="w-4 h-4 ml-2" />
+                      <img
+                        src="@/assets/icon/ssr.png"
+                        alt=""
+                        class="w-4 h-4 ml-2"
+                      />
                     </div>
                   </div>
                 </div>
@@ -81,10 +113,15 @@
 </template>
 
 <script setup>
-import DonutChart from "@/components/dashboard/Admin/DonutChart.vue"
-import LineChart from "@/components/dashboard/Admin/LineChart.vue"
-import NavbarLeft from "@/components/dashboard/Admin/NavbarLeft.vue"
-import NavbarTop from "@/components/dashboard/Admin/NavbarTop.vue"
+import DonutChart from "@/components/dashboard/Admin/DonutChart.vue";
+import LineChart from "@/components/dashboard/Admin/LineChart.vue";
+import NavbarLeft from "@/components/dashboard/Admin/NavbarLeft.vue";
+import NavbarTop from "@/components/dashboard/Admin/NavbarTop.vue";
+import LayoutAuthenticate from "@/layouts/LayoutAuthenticate.vue";
+
+defineOptions({
+  layout: LayoutAuthenticate,
+});
 </script>
 
 244,244,244,244
