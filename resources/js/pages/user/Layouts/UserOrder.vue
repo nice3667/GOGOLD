@@ -3,16 +3,54 @@
     <!-- แถบเมนูด้านซ้าย -->
     <NavbarLeftUser></NavbarLeftUser>
     <!-- เนื้อหาหลัก -->
-    <v-main>
+    <v-main class="main-content-admin-dashboard">
       <!-- แถบเมนูด้านบน -->
       <NavbarTopUser />
 
       <!-- เนื้อหาภายในหน้า -->
-      <div class="text-lg main-content-admin-dashboard pa-5">
-        <v-app class="main-content-admin-dashboard">
-          <v-main></v-main>
-        </v-app>
-      </div>
+      <v-container class="text-lg main-content-admin-dashboard pa-5" fluid>
+        <v-row>
+          <v-col cols="12" md="6">
+            <div>
+              <v-card class="mx-auto card-package-ea" max-width="250">
+                <!-- Image Section -->
+                <v-img
+                  src="@/assets/icon/image-ea-package.png"
+                  height="200px"
+                  class="rounded-t-lg"
+                  alt="EA Package"
+                ></v-img>
+
+                <!-- Title -->
+                <v-card-title class="text-xl font-bold">
+                  AI Gen XII EA
+                </v-card-title>
+
+                <!-- Subtitle -->
+                <v-card-subtitle class="text-gray-500">
+                  ปลดล็อกศักยภาพการเทรดของคุณด้วย EA Forex โปรแกรมเทรดอัตโนมัติ
+                </v-card-subtitle>
+
+                <!-- Pricing & Rating Section -->
+                <v-card-text>
+                  <v-row align="center" class="justify-between mx-0">
+                    <div class="text-2xl font-bold text-black">฿ 3,200</div>
+                    <div class="flex items-center">
+                      <img
+                        src="@/assets/icon/star-rating.png"
+                        class="w-4 h-4"
+                        alt="Star Rating"
+                      />
+                      <div class="mx-1 text-sm text-gray-600">4.9</div>
+                      <div class="text-sm text-gray-400">(10 sold)</div>
+                    </div>
+                  </v-row>
+                </v-card-text>
+              </v-card>
+            </div>
+          </v-col>
+        </v-row>
+      </v-container>
     </v-main>
   </v-app>
 </template>
@@ -21,6 +59,19 @@
 import NavbarLeftUser from "@/components/dashboard/User/NavbarLeftUser.vue";
 import NavbarTopUser from "@/components/dashboard/User/NavbarTopUser.vue";
 import LayoutAuthenticate from "@/layouts/LayoutAuthenticate.vue";
+import { ref } from "vue";
+
+// Reactive references for state variables
+const loading = ref(false);
+const selection = ref(1);
+
+// Reserve method with a loading timeout simulation
+const reserve = () => {
+  loading.value = true;
+  setTimeout(() => {
+    loading.value = false;
+  }, 2000);
+};
 
 defineOptions({
   layout: LayoutAuthenticate,

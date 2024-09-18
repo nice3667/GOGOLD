@@ -52,6 +52,7 @@
   <!-- Desktop Navigation Bar -->
   <v-app-bar
     v-if="is_desktop"
+    app
     class="flex justify-between color-dark toolbar-content align-center"
   >
     <div class="flex w-full justify-evenly toolbar-content">
@@ -64,20 +65,14 @@
       </a>
       <div class="flex items-center">
         <div class="flex items-center justify-around main-text-toolbar">
-          <a
-            :href="route(item.route)"
-            class="text-navbar"
+          <template
             v-for="(item, index) in menu_items_desktop"
             :key="'desktop' + index"
-            >{{ item.title }}</a
           >
-          <a
-            :href="route(item.route_name)"
-            class="text-navbar"
-            v-for="(item, index) in menu_items_desktop"
-            :key="'desktop' + index"
-            >{{ item.title }}</a
-          >
+            <a :href="route(item.route_name)" class="text-navbar">{{
+              item.title
+            }}</a>
+          </template>
         </div>
       </div>
       <div class="flex items-center">

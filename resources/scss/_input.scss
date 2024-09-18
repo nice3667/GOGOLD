@@ -107,3 +107,8 @@ select {
   border: 1px solid #737373;
   --tw-ring-color: transparent;
 }
+
+.search-package input{
+  --tw-ring-color: transparent !important;
+  background-color: $main-bg;
+  }

@@ -30,6 +30,12 @@ Route::get('/account', function () {
 Route::get('/account/profile', function () {
   return Inertia::render('user/Layouts/UserAccountProfile');
 })->name('UserAccountProfile');
+Route::get('/account/profile/bank', function () {
+  return Inertia::render('user/Layouts/UserAccountProfileBank');
+})->name('UserAccountProfileBank');
+Route::get('/account/profile/package', function () {
+  return Inertia::render('user/Layouts/UserAccountProfilePackage');
+})->name('UserAccountProfilePackage');
 
 
 Route::get('/course', function () {

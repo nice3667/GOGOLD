@@ -11,7 +11,7 @@
       <div class="text-lg main-content-admin-dashboard pa-5">
         <v-app class="main-content-admin-dashboard">
           <v-main>
-            <FormUserProfile></FormUserProfile>
+            <FormUserPackage></FormUserPackage>
           </v-main>
         </v-app>
       </div>
@@ -20,7 +20,7 @@
 </template>
 
 <script setup>
-import FormUserProfile from "@/components/user/FormUserProfile.vue";
+import FormUserPackage from "@/components/user/FormUserPackage.vue";
 import NavbarLeftUser from "@/components/dashboard/User/NavbarLeftUser.vue";
 import NavbarTopUser from "@/components/dashboard/User/NavbarTopUser.vue";
 import LayoutAuthenticate from "@/layouts/LayoutAuthenticate.vue";

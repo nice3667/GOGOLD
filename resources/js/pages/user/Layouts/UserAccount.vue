@@ -85,7 +85,7 @@
                     <v-card class="information-cards">
                       <v-card-title class="justify-between d-flex">
                         <b>บัญชีธนาคาร</b>
-                        <a href="/account/profile">
+                        <a href="/account/profile/bank">
                           <img
                             src="@/assets/icon/edit.png"
                             alt="Edit Icon"
@@ -119,7 +119,7 @@
                     <v-card class="information-cards">
                       <v-card-title class="justify-between d-flex">
                         <b>ข้อมูลแพ็กเกจ</b>
-                        <a href="/account/profile">
+                        <a href="/account/profile/package">
                           <img
                             src="@/assets/icon/edit.png"
                             alt="Edit Icon"
