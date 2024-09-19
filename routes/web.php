@@ -53,6 +53,9 @@ Route::get('/statistics', function () {
 Route::get('/order', function () {
   return Inertia::render('user/Layouts/UserOrder');
 })->name('UserOrder');
+Route::get('/order/details', function () {
+  return Inertia::render('user/Layouts/UserOrderDetails');
+})->name('UserOrderDetails');
 
 //End
 Route::get('/dashboard', function () {
