@@ -199,5 +199,6 @@ border-radius: 24px;
   width: 15% !important;
 }
 .btn-shopping{
-background-color: $placeholder;
+background-color: $placeholder !important;
+color: $white !important;
 }

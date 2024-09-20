@@ -34,3 +34,4 @@ Route::get('/admin/report', function () {
 Route::get('/admin/setting', function () {
   return Inertia::render('admin/Layouts/AdminSetting');
 })->name('setting');
+

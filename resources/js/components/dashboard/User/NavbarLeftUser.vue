@@ -111,7 +111,7 @@ const menuItems = ref([
   { title: "สถิติ", icon: "mdi-cart", route: "UserStatistics" },
   { title: "คอร์สเรียน", icon: "mdi-school", route: "UserCourse" },
   { title: "บัญชีของฉัน", icon: "mdi-cog", route: "UserAccount" },
-  { title: "การสั่งซื้อ", icon: "mdi-cog", route: "UserOrder" },
+  { title: "การสั่งซื้อ", icon: "mdi-cart", route: "UserOrder" },
   { title: "ออกจากระบบ", icon: "mdi-cog", route: "logout" },
 ]);
 </script>

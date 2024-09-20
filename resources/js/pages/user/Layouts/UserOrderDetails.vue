@@ -9,7 +9,9 @@
 
       <!-- เนื้อหาภายในหน้า -->
       <div class="p-4 text-lg lg:p-12 main-content-dashboard">
-        <div class="grid grid-flow-row-dense grid-cols-5 grid-rows-2">
+        <div
+          class="grid grid-flow-row-dense grid-cols-2 grid-rows-2 xl:grid-cols-5"
+        >
           <div class="col-span-3">
             <div>
               <v-col cols="12">
@@ -19,13 +21,14 @@
                     alt="AI Gen XII EA"
                     width="1000"
                   />
-                  <div class="flex justify-center p-5 space-x-4">
+                  <div class="flex justify-center p-5">
                     <!-- Image Slider -->
                     <swiper
-                      ref="{swiperRef}"
-                      :slidesPerView="3"
+                      ref="swiperRef"
+                      :slidesPerView="5"
                       :centeredSlides="true"
-                      :spaceBetween="30"
+                      :spaceBetween="20"
+                      :loop="true"
                       :pagination="{
                         type: 'fraction',
                       }"
@@ -33,42 +36,49 @@
                       :modules="modules"
                       class="mySwiper"
                     >
-                      <swiper-slide
-                        ><img
+                      <swiper-slide class="flex justify-center img-swiper">
+                        <img
                           src="@/assets/icon/big-image-package.png"
                           alt="AI Gen XII EA"
-                          class="img-swiper"
-                          height="10"
-                      /></swiper-slide>
-                      <swiper-slide
-                        ><img
+                        />
+                      </swiper-slide>
+                      <swiper-slide class="flex justify-center img-swiper">
+                        <img
                           src="@/assets/icon/big-image-package.png"
                           alt="AI Gen XII EA"
-                      /></swiper-slide>
-                      <swiper-slide
-                        ><img
+                        />
+                      </swiper-slide>
+                      <swiper-slide class="flex justify-center img-swiper">
+                        <img
                           src="@/assets/icon/big-image-package.png"
                           alt="AI Gen XII EA"
-                      /></swiper-slide>
-                      <swiper-slide
-                        ><img
+                        />
+                      </swiper-slide>
+                      <swiper-slide class="flex justify-center img-swiper">
+                        <img
                           src="@/assets/icon/big-image-package.png"
                           alt="AI Gen XII EA"
-                      /></swiper-slide>
+                        />
+                      </swiper-slide>
+                      <swiper-slide class="flex justify-center img-swiper">
+                        <img
+                          src="@/assets/icon/big-image-package.png"
+                          alt="AI Gen XII EA"
+                        />
+                      </swiper-slide>
                     </swiper>
                   </div>
                 </v-card>
               </v-col>
               <v-col cols="12">
-                <v-tabs v-model="tab" class="text-white" grow>
-                  <v-tab>รายละเอียด</v-tab>
-                  <v-tab>เวอร์ชัน</v-tab>
-                  <v-tab>รีวิว</v-tab>
+                <v-tabs v-model="tab" class="text-white tap-package" grow>
+                  <v-tab :key="0">รายละเอียด</v-tab>
+                  <v-tab :key="1">เวอร์ชัน</v-tab>
+                  <v-tab :key="2">รีวิว</v-tab>
                 </v-tabs>
 
                 <v-tabs-items v-model="tab">
-                  <!-- Details Tab -->
-                  <v-tab-item>
+                  <v-tab-item :value="0" v-if="tab === 0">
                     <v-card-text class="text-white">
                       <h2 class="mb-4 text-2xl font-bold">รายละเอียดสินค้า</h2>
                       <p>
@@ -85,14 +95,29 @@
                     </v-card-text>
                   </v-tab-item>
 
-                  <!-- Version Tab -->
-                  <v-tab-item>
-                    <v-card-text>ข้อมูลเวอร์ชัน</v-card-text>
+                  <v-tab-item :value="1" v-if="tab === 1">
+                    <v-card-text class="text-white">
+                      <h2 class="mb-4 text-2xl font-bold">ข้อมูลเวอร์ชัน</h2>
+                      <p>ข้อมูลเวอร์ชันปัจจุบันของโปรแกรม EA Forex ได้แก่:</p>
+                      <ul class="pl-6 mt-4 list-disc">
+                        <li>เวอร์ชัน 1.0.0</li>
+                        <li>ปรับปรุงประสิทธิภาพ</li>
+                        <li>แก้ไขข้อบกพร่องเล็กน้อย</li>
+                      </ul>
+                    </v-card-text>
                   </v-tab-item>
 
-                  <!-- Reviews Tab -->
-                  <v-tab-item>
-                    <v-card-text>รีวิวจากผู้ใช้</v-card-text>
+                  <v-tab-item rounded="" :value="2" v-if="tab === 2">
+                    <v-card-text class="text-white">
+                      <h2 class="mb-4 text-2xl font-bold">รีวิวจากผู้ใช้</h2>
+                      <p>รีวิวจากผู้ใช้งานที่พึงพอใจกับ EA Forex:</p>
+                      <ul class="pl-6 mt-4 list-disc">
+                        <li>
+                          "ทำงานอัตโนมัติได้ดีเยี่ยม ช่วยประหยัดเวลา" - ผู้ใช้ A
+                        </li>
+                        <li>"โปรแกรมใช้งานง่ายและทำกำไรได้จริง" - ผู้ใช้ B</li>
+                      </ul>
+                    </v-card-text>
                   </v-tab-item>
                 </v-tabs-items>
               </v-col>
@@ -102,7 +127,7 @@
             <v-row>
               <div class="grid">
                 <v-col cols="12">
-                  <v-card class="p-4 text-white shadow-md main-content">
+                  <v-card class="p-4 mt-3 text-white shadow-md main-content">
                     <!-- Title -->
                     <h1 class="p-3 mt-5 mb-4 text-3xl font-bold">
                       AI Gen XII EA
@@ -131,7 +156,11 @@
 
                     <!-- Price -->
                     <div class="p-3 mb-4 text-3xl font-bold">
-                      เริ่มต้น ฿1,900 – 3,200
+                      {{
+                        selectedPackage
+                          ? selectedPackage.price
+                          : "เริ่มต้น ฿1,900 - 3,200"
+                      }}
                     </div>
 
                     <!-- Button -->
@@ -152,20 +181,28 @@
                     <!-- Package Options -->
                     <v-list class="px-4 rounded-lg v-list-package">
                       <v-list-item
-                        v-for="(packages, index) in packages"
+                        v-for="(packageItem, index) in packages"
                         :key="index"
-                        class="mb-2 border border-white rounded-lg v-list-package"
+                        @click="selectPackage(packageItem)"
+                        :class="[
+                          'mb-2 border border-white rounded-lg v-list-package',
+                          {
+                            'selected-package': selectedPackage == packageItem,
+                          },
+                        ]"
                       >
-                        <v-list-item-content>
-                          <v-list-item-title class="text-white">{{
-                            packages.name
-                          }}</v-list-item-title>
-                        </v-list-item-content>
-                        <v-list-item-content class="text-right">
-                          <v-list-item-title class="text-gray-300">{{
-                            packages.price
-                          }}</v-list-item-title>
-                        </v-list-item-content>
+                        <div class="flex justify-between p-4">
+                          <v-list-item-content>
+                            <v-list-item-title class="text-white">
+                              {{ packageItem.name }}
+                            </v-list-item-title>
+                          </v-list-item-content>
+                          <v-list-item-content>
+                            <v-list-item-title class="text-white">
+                              {{ packageItem.price }}
+                            </v-list-item-title>
+                          </v-list-item-content>
+                        </div>
                       </v-list-item>
                     </v-list>
                   </v-card>
@@ -197,23 +234,37 @@ import { Pagination, Navigation } from "swiper/modules";
 
 const modules = [Pagination, Navigation];
 
+const packages = ref([
+  { name: "1 เดือน", price: "฿500" },
+  { name: "3 เดือน", price: "฿1,200" },
+  { name: "6 เดือน", price: "฿2,000" },
+  { name: "12 เดือน", price: "฿3,500" },
+]);
+const selectedPackage = ref(null); // เก็บสถานะของแพ็คเกจที่ถูกเลือก
+const selectPackage = (packageItem) => {
+  selectedPackage.value = packageItem;
+  console.log(packageItem);
+};
 const rating = ref(4.9);
 const tab = ref(0);
-
-const packages = [
-  { name: "แพ็กเกจ 3 เดือน", price: "฿1,990" },
-  { name: "แพ็กเกจ 6 เดือน", price: "฿2,800" },
-  { name: "แพ็กเกจ 1 ปี", price: "฿3,200" },
-];
 
 defineOptions({
   layout: LayoutAuthenticate,
 });
+
+const test = async (test) => {
+  console.log(test);
+};
 </script>
 
 244,244,244,244
 
 <style scoped>
+@media (min-width: 1100px) {
+  .lg\:grid-cols-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
 hr {
   border-top: 2px;
   color: #ffffff;

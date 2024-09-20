@@ -8,11 +8,51 @@
       <NavbarTopUser />
 
       <!-- เนื้อหาภายในหน้า -->
-      <div class="p-2 text-lg lg:p-16 main-content-dashboard">
+      <div
+        class="grid grid-cols-1 gap-3 text-lg lg:p-16 main-content-dashboard"
+      >
         <v-container>
           <v-row>
-            <v-col cols="12" md="4">
+            <v-col class="grid grid-rows-3">
               <div>
+                <p>รายการสินค้า</p>
+              </div>
+              <div class="">
+                <div class="relative w-80">
+                  <input
+                    v-model="searchQuery"
+                    type="text"
+                    placeholder="ค้นหา"
+                    class="w-full py-2 pl-10 pr-4 search-package focus:outline-none"
+                  />
+                  <svg
+                    class="absolute w-5 h-5 text-gray-400 transform -translate-y-1/2 left-4 top-1/2"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M21 21l-4.35-4.35M10.5 17a6.5 6.5 0 1 1 0-13 6.5 6.5 0 0 1 0 13z"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <p>MetaTrader 5</p>
+              </div>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col class="grid grid-cols-3">
+              <div
+                class="mt-10"
+                v-for="package_item in package_list.list"
+                :key="package_item.id"
+              >
                 <!-- Card wrapped in a router-link for navigation -->
                 <v-card
                   :href="route('UserOrderDetails')"
@@ -31,30 +71,23 @@
                   />
 
                   <!-- Title -->
-                  <v-card-title
-                    class="justify-center pb-0 mb-3"
-                    style="
-                      font-family: 'Google Sans', Roboto, sans-serif;
-                      line-height: 1.1;
-                    "
-                  >
-                    AI Gen XII EA
+                  <v-card-title class="justify-center pb-0 mb-3">
+                    {{ package_item.name }}
                   </v-card-title>
 
                   <!-- Subtitle -->
                   <v-card-subtitle class="text-gray-500">
-                    ปลดล็อกศักยภาพการเทรดของคุณด้วย EA Forex
-                    โปรแกรมเทรดอัตโนมัติ
+                    {{ package_item.descriptions }}
                   </v-card-subtitle>
 
                   <!-- Pricing & Rating Section -->
                   <v-row align="center" class="justify-between mx-0">
                     <div class="mt-4 ml-4 text-2xl font-bold text-white">
-                      ฿ 3,200
+                      ฿ {{ package_item.price }}
                     </div>
                   </v-row>
 
-                  <v-row align="center" class="justify-between mx-0">
+                  <v-row align="center" class="justify-between mx-0 mb-0">
                     <v-col class="d-flex align-center">
                       <img
                         src="@/assets/icon/star-rating.png"
@@ -82,10 +115,21 @@
 import NavbarLeftUser from "@/components/dashboard/User/NavbarLeftUser.vue";
 import NavbarTopUser from "@/components/dashboard/User/NavbarTopUser.vue";
 import LayoutAuthenticate from "@/layouts/LayoutAuthenticate.vue";
-import { ref } from "vue";
+import { ref, onMounted, reactive } from "vue";
+import axios from "axios";
 
 defineOptions({
   layout: LayoutAuthenticate,
+});
+const package_list = reactive({
+  list: [],
+});
+const searchQuery = ref("");
+
+onMounted(async () => {
+  const response = await axios.get("/api/packages/getlist");
+  console.log(response);
+  package_list.list = response.data;
 });
 </script>
 

@@ -66,8 +66,7 @@ color: $white !important;
 font-size: 18px !important;
 }
 .card-package-ea{
-  border-top-left-radius: 1rem !important; /* 24px */
-  border-top-right-radius: 1rem !important; /* 24px */
+  border-radius: 1rem !important; /* 24px */
   background-color: $main-bg !important;
   color: $white !important;
   font-size: 18px !important;
@@ -78,4 +77,36 @@ font-size: 18px !important;
 }
 .v-list-package{
   background-color: $headline-bg !important;
+}
+
+
+
+.tap-package{
+  color: $white !important;
+  border-radius: 1.5rem  !important;
+  // background-color: ;
+}
+.v-tabs {
+  background-color: #333; // สีพื้นหลังของแท็บทั้งหมด
+}
+
+.v-tab {
+  background-color: $headline-bg !important; // สีพื้นหลังเริ่มต้นของแต่ละแท็บ
+  color: transparent !important;
+
+
+  &.v-tab--active {
+    background-color: #ffcc00 !important;
+    color: black;
+  }
+
+  &:hover {
+    background-color: $color-primary !important; // สีเมื่อมีการ hover
+  }
+
+}
+.selected-package{
+  &:hover {
+    border: 1px solid #ffcc00 !important;
+  }
 }

@@ -75,7 +75,6 @@ class PackageController extends Controller
         return response()->json($package, 200);
     }
 
-
     public function destroy(Request $request)
     {
         $validator = Validator::make($request->all(), [
