@@ -90,7 +90,7 @@ const menu_items_mobile = ref([
   { title: "สถิติ", route_name: "UserStatistics" },
   { title: "คอร์สเรียน", route_name: "UserCourse" },
   { title: "บัญชีของฉัน", route_name: "UserAccount" },
-  { title: "การสั่งซื้อ", route_name: "UserOrder" },
+  { title: "การสั่งซื้อ", route_name: "UserMarket" },
   { title: "ออกจากระบบ", route_name: "logout" },
 ]);
 
@@ -106,13 +106,13 @@ watch(
 );
 
 const menuItems = ref([
-  { title: "หน้าหลัก", icon: "mdi-file-chart", route: "UserHomepage" },
+  { title: "หน้าหลัก", icon: "mdi-home", route: "UserHomepage" },
   { title: "แดชบอร์ด", icon: "mdi-view-dashboard", route: "UserDashboard" },
-  { title: "สถิติ", icon: "mdi-cart", route: "UserStatistics" },
+  { title: "สถิติ", icon: "mdi-trending-up", route: "UserStatistics" },
   { title: "คอร์สเรียน", icon: "mdi-school", route: "UserCourse" },
-  { title: "บัญชีของฉัน", icon: "mdi-cog", route: "UserAccount" },
-  { title: "การสั่งซื้อ", icon: "mdi-cart", route: "UserOrder" },
-  { title: "ออกจากระบบ", icon: "mdi-cog", route: "logout" },
+  { title: "บัญชีของฉัน", icon: "mdi-account-circle", route: "UserAccount" },
+  { title: "การสั่งซื้อ", icon: "mdi-cart", route: "UserMarket" },
+  { title: "ออกจากระบบ", icon: "mdi-logout", route: "logout" },
 ]);
 </script>
 <style scoped>

@@ -86,9 +86,7 @@ font-size: 18px !important;
   border-radius: 1.5rem  !important;
   // background-color: ;
 }
-.v-tabs {
-  background-color: #333; // สีพื้นหลังของแท็บทั้งหมด
-}
+
 
 .v-tab {
   background-color: $headline-bg !important; // สีพื้นหลังเริ่มต้นของแต่ละแท็บ
@@ -97,7 +95,7 @@ font-size: 18px !important;
 
   &.v-tab--active {
     background-color: #ffcc00 !important;
-    color: black;
+    color: black ;
   }
 
   &:hover {
@@ -109,4 +107,27 @@ font-size: 18px !important;
   &:hover {
     border: 1px solid #ffcc00 !important;
   }
+}
+
+.tap-package .v-btn__content{
+  color: $white !important;
+}
+
+.tap-package .v-tab__slider{
+  color: transparent !important;
+
+}
+.card-order-summary{
+  background-color: $main !important;
+  border-radius: 9px !important;
+  padding: 15px !important;
+  border: 1px solid $placeholder !important;
+}
+.card-order-payment{
+  background-color: rgba(48, 48, 48, 1) !important;
+  padding: 16px !important;
+  border-radius: 16px !important;
+}
+.card-bank-peyment{
+  background-color: $main !important;
 }

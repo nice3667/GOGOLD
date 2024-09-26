@@ -47,7 +47,7 @@
             </v-col>
           </v-row>
           <v-row>
-            <v-col class="grid grid-cols-3">
+            <v-col class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
               <div
                 class="mt-10"
                 v-for="package_item in package_list.list"
@@ -55,7 +55,7 @@
               >
                 <!-- Card wrapped in a router-link for navigation -->
                 <v-card
-                  :href="route('UserOrderDetails')"
+                  :href="route('UserMarketProduct')"
                   exact
                   rounded=""
                   tile

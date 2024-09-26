@@ -8,7 +8,7 @@
       <NavbarTopUser />
 
       <!-- เนื้อหาภายในหน้า -->
-      <div class="p-4 text-lg lg:p-12 main-content-dashboard">
+      <div class="p-5 text-lg lg:px-14 lg:p-14 main-content-dashboard">
         <div
           class="grid grid-flow-row-dense grid-cols-2 grid-rows-2 xl:grid-cols-5"
         >
@@ -76,7 +76,6 @@
                   <v-tab :key="1">เวอร์ชัน</v-tab>
                   <v-tab :key="2">รีวิว</v-tab>
                 </v-tabs>
-
                 <v-tabs-items v-model="tab">
                   <v-tab-item :value="0" v-if="tab === 0">
                     <v-card-text class="text-white">
@@ -134,17 +133,25 @@
                     </h1>
 
                     <!-- Rating and Sales -->
-                    <div class="flex items-center mt-8 mb-4">
-                      <v-rating
-                        v-model="rating"
-                        :length="5"
-                        size="small"
-                        :model-value="4.9"
-                        active-color="yellow"
-                        inactive-color="gray"
-                      ></v-rating>
-                      <span class="ml-2 text-gray-300">4.9 (188รีวิว)</span>
-                      <span class="ml-auto text-sm text-gray-400">10 sold</span>
+                    <div
+                      class="grid items-center grid-cols-3 mt-8 mb-4 2xl:grid-rows-1"
+                    >
+                      <div>
+                        <v-rating
+                          v-model="rating"
+                          :length="4"
+                          size="small"
+                          :model-value="4.9"
+                          active-color="yellow"
+                          inactive-color="gray"
+                        ></v-rating>
+                      </div>
+                      <div class="ml-5">
+                        <p class="text-gray-300">4.9 (188รีวิว)</p>
+                      </div>
+                      <div class="col-span-2 col-end-7">
+                        <p class="text-sm text-gray-400">10 sold</p>
+                      </div>
                     </div>
                     <!-- Description -->
                     <p class="p-3 mb-4 text-gray-300">
@@ -165,7 +172,10 @@
 
                     <!-- Button -->
                     <div class="flex items-center justify-center">
-                      <v-btn class="w-full btn-shopping" rounded
+                      <v-btn
+                        href="/product/peyment"
+                        class="w-full btn-shopping"
+                        rounded
                         >ไปที่ตะกร้าสินค้า</v-btn
                       >
                     </div>
@@ -228,6 +238,7 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { FwbTab, FwbTabs } from "flowbite-vue";
 
 // Import required modules
 import { Pagination, Navigation } from "swiper/modules";
@@ -240,6 +251,8 @@ const packages = ref([
   { name: "6 เดือน", price: "฿2,000" },
   { name: "12 เดือน", price: "฿3,500" },
 ]);
+const activeTab = ref("first");
+
 const selectedPackage = ref(null); // เก็บสถานะของแพ็คเกจที่ถูกเลือก
 const selectPackage = (packageItem) => {
   selectedPackage.value = packageItem;
@@ -257,7 +270,6 @@ const test = async (test) => {
 };
 </script>
 
-244,244,244,244
 
 <style scoped>
 @media (min-width: 1100px) {

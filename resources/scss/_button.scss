@@ -188,17 +188,33 @@ border-radius: 24px;
   }
 
   .btn-footer {
-    background-color: #ffd700 !important;
+    background-color: $color-primary !important;
     border-radius: 30px !important;
     width: 15% !important;
 
 }
 .btn-footer {
-  background-color: #ffd700 !important;
+  background-color: $color-primary !important;
   border-radius: 30px !important;
   width: 15% !important;
 }
 .btn-shopping{
 background-color: $placeholder !important;
 color: $white !important;
+}
+
+.step-indicator{
+  background-color: $main !important;
+  color: $text-base;
+  border: 1px solid $text-base;
+  border-radius: 30px;
+}
+.unstep-indicator{
+  background-color: $color-primary !important;
+  border-radius: 30px;
+  font-size: 24px;
+}
+.btn-payment{
+  border-radius: 20px !important;
+ background-color: $color-primary !important;
 }

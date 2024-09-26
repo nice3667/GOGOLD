@@ -50,13 +50,15 @@ Route::get('/statistics', function () {
   return Inertia::render('user/Layouts/UserStatistics');
 })->name('UserStatistics');
 
-Route::get('/order', function () {
-  return Inertia::render('user/Layouts/UserOrder');
-})->name('UserOrder');
-Route::get('/order/details', function () {
-  return Inertia::render('user/Layouts/UserOrderDetails');
-})->name('UserOrderDetails');
-
+Route::get('/market', function () {
+  return Inertia::render('user/Layouts/UserMarket');
+})->name('UserMarket');
+Route::get('/market/product', function () {
+  return Inertia::render('user/Layouts/UserMarketProduct');
+})->name('UserMarketProduct');
+Route::get('/product/peyment', function () {
+  return Inertia::render('user/Layouts/UserProductPeyment');
+})->name('UserProductPeyment');
 //End
 Route::get('/dashboard', function () {
   Log::info('dashboard');
