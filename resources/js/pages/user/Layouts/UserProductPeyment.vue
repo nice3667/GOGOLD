@@ -222,7 +222,7 @@
               </div>
             </v-col>
           </v-row>
-          <div class="grid grid-cols-2 gap-0">
+          <div class="grid grid-cols-1 gap-0 px-15 lg:grid-cols-2">
             <v-row class="grid items-center justify-center p-4">
               <v-col cols="12">
                 <h2 class="text-lg font-bold text-white">ช่องทางชำระเงิน</h2>
@@ -260,14 +260,55 @@
                     v-if="selectedPackage === 'บัญชีธนาคาร'"
                     class="content-bank"
                   >
-                    <h3 class="text-white">Payment via Bank Transfer</h3>
-                    <p class="text-gray-400">Bank Account: 1234-5678-9000</p>
-                    <p class="text-gray-400">Account Name: บริษัท โกโกดี</p>
-                  </div>
+                    <div>
+                      <!-- Payment Channel List -->
+                      <v-list
+                        class="flex flex-row justify-between rounded-lg payment-card-list"
+                      >
+                        <v-list-item
+                          v-for="(paymentBankItem, index) in paymentBank"
+                          :key="index"
+                          @click="selectBank(paymentBankItem)"
+                          class="w-[15%] mx-2 cursor-pointer"
+                          :class="{
+                            '': selectedBank === paymentBankItem.name,
+                            '': selectedBank !== paymentBankItem.name,
+                          }"
+                        >
+                          <v-list-item-content
+                            class="flex items-center justify-between"
+                          >
+                            <img
+                              :src="paymentBankItem.icon"
+                              alt="Bank Icon"
+                              class="w-12 h-12"
+                            />
+                          </v-list-item-content>
+                        </v-list-item>
+                      </v-list>
 
-                  <div v-if="selectedPackage === 'QR Code'" class="content-qr">
-                    <h3 class="text-white">Payment via QR Code</h3>
-                    <img src="your-qr-code-image-url" alt="QR Code" />
+                      <!-- Selected Bank Details -->
+                      <div
+                        v-if="selectedBank"
+                        class="p-4 mt-4 text-white bg-gray-800 rounded-lg"
+                      >
+                        <div class="flex items-center">
+                          <img
+                            :src="selectedBankDetails.icon"
+                            alt="Selected Bank Icon"
+                            class="w-12 h-12 mr-4"
+                          />
+                          <div>
+                            <div>
+                              ชื่อบัญชี: {{ selectedBankDetails.accountName }}
+                            </div>
+                            <div>
+                              เลขบัญชี: {{ selectedBankDetails.accountNumber }}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
@@ -512,8 +553,51 @@ const selectPackage = (peymentList) => {
 };
 const paymentChannels = ref([{ name: "บัญชีธนาคาร" }, { name: "QR Code" }]);
 
-const paymentBank = ref([{ name: "บัญชีธนาคาร" }, { name: "QR Code" }]);
+const selectedBank = ref("");
+const selectedBankDetails = ref({
+  icon: "",
+  name: "",
+  accountName: "",
+  accountNumber: "",
+});
 
+const selectBank = (paymentBankItem) => {
+  selectedBank.value = paymentBankItem.name;
+  selectedBankDetails.value = paymentBankItem;
+};
+
+const paymentBank = ref([
+  {
+    name: "กรุงไทย",
+    icon: new URL("@/assets/icon/kasikon.jpg", import.meta.url).href,
+    accountName: "บริษัท กรุงไทย จำกัด",
+    accountNumber: "123-456-7890",
+  },
+  {
+    name: "กรุงศรี",
+    icon: new URL("@/assets/icon/kasikon.jpg", import.meta.url).href,
+    accountName: "บริษัท กรุงศรี จำกัด",
+    accountNumber: "987-654-3210",
+  },
+  {
+    name: "กสิกร",
+    icon: new URL("@/assets/icon/kasikon.jpg", import.meta.url).href,
+    accountName: "บริษัท กสิกร จำกัด",
+    accountNumber: "555-666-7777",
+  },
+  {
+    name: "ไทยพาณิชย์",
+    icon: new URL("@/assets/icon/kasikon.jpg", import.meta.url).href,
+    accountName: "บริษัท ไทยพาณิชย์ จำกัด",
+    accountNumber: "123-123-1234",
+  },
+  {
+    name: "ทีเอ็มบีธนชาต",
+    icon: new URL("@/assets/icon/kasikon.jpg", import.meta.url).href,
+    accountName: "บริษัท ทีเอ็มบีธนชาต จำกัด",
+    accountNumber: "222-333-4444",
+  },
+]);
 defineOptions({
   layout: LayoutAuthenticate,
 });
