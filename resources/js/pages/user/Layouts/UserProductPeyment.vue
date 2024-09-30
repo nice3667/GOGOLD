@@ -8,7 +8,7 @@
       <NavbarTopUser />
 
       <!-- เนื้อหาภายในหน้า -->
-      <v-container class="text-lg main-content-admin-dashboard pa-5" fluid>
+      <v-container class="text-lg main-content-admin-dashboard pa-10" fluid>
         <!-- Step Indicator -->
         <section v-if="step == 1">
           <div class="flex items-center justify-center mt-4 text-white">
@@ -228,18 +228,16 @@
                 <h2 class="text-lg font-bold text-white">ช่องทางชำระเงิน</h2>
 
                 <!-- Card for order summary -->
-                <div>
+                <div class="mt-3">
                   <!-- Payment Channel List -->
-                  <v-list
-                    class="flex flex-row justify-center px-4 rounded-lg card-bank-peyment"
-                  >
+                  <div class="flex flex-row justify-between card-bank-peyment">
                     <v-list-item
                       v-for="(peymentList, index) in paymentChannels"
                       :key="index"
                       @click="selectPackage(peymentList)"
                       class="w-[45%] mx-2"
                       :class="[
-                        'mb-2 border border-white rounded-lg card-bank-peyment',
+                        ' border border-white rounded-lg card-bank-peyment',
                         {
                           'selected-package':
                             selectedPackage === peymentList.name,
@@ -247,12 +245,14 @@
                       ]"
                     >
                       <v-list-item-content>
-                        <v-list-item-title class="text-center text-white">
+                        <v-list-item-title
+                          class="text-center text-white text-bank-peyment"
+                        >
                           {{ peymentList.name }}
                         </v-list-item-title>
                       </v-list-item-content>
                     </v-list-item>
-                  </v-list>
+                  </div>
                 </div>
                 <!-- Content based on selected payment channel -->
                 <div class="h-[200px]">
@@ -262,41 +262,40 @@
                   >
                     <div>
                       <!-- Payment Channel List -->
-                      <v-list
-                        class="flex flex-row justify-between rounded-lg payment-card-list"
+                      <div
+                        class="flex items-center justify-center mt-5 rounded-lg payment-card-list"
                       >
-                        <v-list-item
+                        <div
                           v-for="(paymentBankItem, index) in paymentBank"
                           :key="index"
                           @click="selectBank(paymentBankItem)"
-                          class="w-[15%] mx-2 cursor-pointer"
+                          class="img-bank-peyment"
                           :class="{
-                            '': selectedBank === paymentBankItem.name,
-                            '': selectedBank !== paymentBankItem.name,
+                            'border-bank-peyment':
+                              selectedBank === paymentBankItem.name,
+                            'unborder-bank-peyment':
+                              selectedBank !== paymentBankItem.name,
                           }"
                         >
-                          <v-list-item-content
-                            class="flex items-center justify-between"
-                          >
+                          <div class="flex justify-between">
                             <img
                               :src="paymentBankItem.icon"
                               alt="Bank Icon"
-                              class="w-12 h-12"
+                              class="img-bank-peyment"
                             />
-                          </v-list-item-content>
-                        </v-list-item>
-                      </v-list>
-
+                          </div>
+                        </div>
+                      </div>
                       <!-- Selected Bank Details -->
                       <div
                         v-if="selectedBank"
-                        class="p-4 mt-4 text-white bg-gray-800 rounded-lg"
+                        class="p-4 mt-5 text-white rounded-lg selected-bank-details"
                       >
                         <div class="flex items-center">
                           <img
                             :src="selectedBankDetails.icon"
                             alt="Selected Bank Icon"
-                            class="w-12 h-12 mr-4"
+                            class="w-20 h-20 mr-4"
                           />
                           <div>
                             <div>
@@ -366,7 +365,7 @@
         </section>
         <section v-if="step == 3">
           <div class="flex items-center justify-center mt-4 text-white">
-            <h3>ตะกร้าสินค้า</h3>
+            <h2>ตรวจสอบคำสั่งซื้อ</h2>
           </div>
           <v-row class="mt-1 mb-4 text-center">
             <v-col cols="12">
@@ -414,117 +413,192 @@
             </v-col>
           </v-row>
           <!-- รายละเอียดคำสั่งซื้อ -->
-          <div class="flex items-center justify-between">
-            <h4 class="text-lg font-semibold text-white">
-              เลขที่คำสั่งซื้อ: 123456789DD - 29/08/2024 17:59
-            </h4>
-          </div>
-
-          <v-row class="mt-4">
-            <!-- คอลัมน์ซ้าย -->
-            <v-col cols="12" md="7">
-              <v-card class="p-4 text-white bg-gray-800">
-                <v-row>
-                  <v-col cols="12" class="mb-2">
-                    <h5>รายการ</h5>
-                    <p>AI Gen XI EA แผ่นพับทดแทน 10 3,200฿</p>
-                  </v-col>
-
-                  <v-col cols="6">
-                    <h5>ราคาสุทธิ</h5>
-                    <p>4,099฿</p>
-                  </v-col>
-
-                  <v-col cols="6">
-                    <h5>ส่วนลด</h5>
-                    <p>20฿</p>
-                  </v-col>
-
-                  <v-col cols="12" class="text-yellow-400">
-                    <h5>ยอดที่ต้องชำระ</h5>
-                    <p>4,079฿</p>
-                  </v-col>
-                </v-row>
-
-                <!-- ฟอร์มการชำระเงิน -->
-                <v-row>
+          <div
+            class="grid grid-flow-row-dense grid-cols-2 grid-rows-2 xl:grid-cols-5"
+          >
+            <div class="col-span-3">
+              <v-col cols="12">
+                <div class="text-white card-order-details">
+                  <!-- Order details -->
                   <v-col cols="12">
-                    <v-text-field
-                      label="เลขที่อ้างอิงธนาคาร"
-                      outlined
-                      dense
-                      class="mb-2"
-                    />
+                    <div>
+                      <h2 class="text-lg font-semibold text-white">
+                        เลขที่คำสั่งซื้อ: 123456789DD - 29/08/2024 17:59
+                      </h2>
+                    </div>
+                    <div class="grid grid-rows-2 mt-5">
+                      <h5 class="main-text-peyment">รายการ</h5>
+                      <h4>AI Gen XIII EA เข่าแพ็กเกจ 1 ปี 3,200฿</h4>
+                    </div>
+                    <div class="grid grid-cols-2 mt-5">
+                      <div class="grid grid-rows-2">
+                        <h5 class="main-text-peyment">ราคารวม</h5>
+                        <h4>4,099</h4>
+                      </div>
+                      <div class="grid grid-rows-2">
+                        <h5 class="main-text-peyment">ส่วนลด</h5>
+                        <h4>20</h4>
+                      </div>
+                    </div>
+                    <div class="grid grid-cols-2 mt-5">
+                      <div class="grid grid-rows-2">
+                        <h5 class="main-text-peyment">ยอดที่ต้องชำระ</h5>
+                        <h4>4,079</h4>
+                      </div>
+                      <div class="grid grid-rows-2">
+                        <h5 class="main-text-peyment">ช่องทางการชำระเงิน</h5>
+                        <h4>QR Code</h4>
+                      </div>
+                    </div>
                   </v-col>
-                  <v-col cols="12">
-                    <v-select
-                      :items="banks"
-                      label="ธนาคาร"
-                      outlined
-                      dense
-                      class="mb-2"
-                    />
-                  </v-col>
-                  <v-col cols="6">
-                    <v-text-field
-                      label="ชื่อบัญชีธนาคาร"
-                      outlined
-                      dense
-                      class="mb-2"
-                    />
-                  </v-col>
-                  <v-col cols="6">
-                    <v-text-field
-                      label="จำนวนเงินโอน"
-                      outlined
-                      dense
-                      class="mb-2"
-                    />
-                  </v-col>
-                  <v-col cols="6">
-                    <v-text-field
-                      label="วันที่โอน"
-                      outlined
-                      dense
-                      class="mb-2"
-                    />
-                  </v-col>
-                  <v-col cols="6">
-                    <v-text-field label="เวลาโอน" outlined dense class="mb-2" />
-                  </v-col>
-                </v-row>
+                  <hr class="mt-2" />
+                  <!-- Payment details form -->
+                  <v-row class="mt-3">
+                    <v-col cols="12" md="6">
+                      <div>
+                        <h5 class="main-text-peyment">เลขที่บัญชีธนาคาร</h5>
+                      </div>
+                      <v-text-field
+                        v-model="accountNumber"
+                        label="เลขที่บัญชีธนาคาร"
+                        variant="outlined"
+                        class="form-peyment"
+                        rounded=""
+                      ></v-text-field>
+                    </v-col>
+                    <v-col cols="12" md="6">
+                      <div>
+                        <h5 class="main-text-peyment">ธนาคาร</h5>
+                      </div>
+                      <v-text-field
+                        v-model="bank"
+                        label="ธนาคาร"
+                        variant="outlined"
+                        class="form-peyment"
+                        rounded=""
+                      ></v-text-field>
+                    </v-col>
+                    <v-col cols="12" md="6">
+                      <div>
+                        <h5 class="main-text-peyment">ชื่อบัญชีธนาคาร</h5>
+                      </div>
+                      <v-text-field
+                        v-model="accountName"
+                        label="ชื่อบัญชีธนาคาร"
+                        variant="outlined"
+                        class="form-peyment"
+                        rounded=""
+                      ></v-text-field>
+                    </v-col>
+                    <v-col cols="12" md="6">
+                      <div>
+                        <h5 class="main-text-peyment">จำนวนเงินที่โอน</h5>
+                      </div>
+                      <v-text-field
+                        v-model="amount"
+                        label="จำนวนเงินโอน"
+                        variant="outlined"
+                        class="form-peyment"
+                        rounded=""
+                      ></v-text-field>
+                    </v-col>
+                    <v-col cols="12" md="6">
+                      <div>
+                        <h5 class="main-text-peyment">วันที่โอน</h5>
+                      </div>
+                      <v-text-field
+                        v-model="date"
+                        label="วันที่โอน"
+                        variant="outlined"
+                        class="form-peyment"
+                        rounded=""
+                      ></v-text-field>
+                    </v-col>
+                    <v-col cols="12" md="6">
+                      <div>
+                        <h5 class="main-text-peyment">เวลาที่โอน</h5>
+                      </div>
+                      <v-text-field
+                        v-model="time"
+                        label="เวลาโอน"
+                        variant="outlined"
+                        class="form-peyment"
+                        rounded=""
+                      ></v-text-field>
+                    </v-col>
+                  </v-row>
+                </div>
+              </v-col>
+            </div>
+            <div class="col-span-2">
+              <!-- Proof of payment upload -->
+              <v-row class="p-14">
+                <v-col cols="12">
+                  <div class="p-10 form-group-peyment">
+                    <div class="flex justify-between">
+                      <div class="text-white">
+                        <h2>หลักฐานการชำระเงิน</h2>
+                      </div>
+                      <div>
+                        <v-chip class="chip-peyment">รอการชำระเงิน</v-chip>
+                      </div>
+                    </div>
 
-                <!-- ปุ่มยกเลิกและยืนยัน -->
-                <v-row class="mt-4">
-                  <v-col cols="6">
-                    <v-btn class="w-full text-white bg-red-600">ยกเลิก</v-btn>
-                  </v-col>
-                  <v-col cols="6">
-                    <v-btn class="w-full text-white bg-gray-400" disabled
-                      >ส่งคำสั่ง</v-btn
+                    <!-- Hidden file input for selecting the file -->
+                    <input
+                      type="file"
+                      ref="fileInput"
+                      class="form-control form-control-dark"
+                      @change="onFileChange"
+                      style="display: none"
+                    />
+
+                    <!-- Show this if no image has been uploaded yet -->
+                    <div
+                      v-if="!imageShow"
+                      class="flex mt-5 flex-column align-items-center justify-content-center card-image-peyment"
+                      @click="triggerFileUpload"
+                      style="height: 450px"
                     >
-                  </v-col>
-                </v-row>
-              </v-card>
-            </v-col>
+                      <img
+                        src="/duangdee/images/Img_upload.png"
+                        alt=""
+                        class="img-fluid p-auto"
+                        style="max-height: 80%; max-width: 60%"
+                      />
+                      <div class="text-center text-primary-600">
+                        อัปโหลดสลิป
+                      </div>
+                    </div>
 
-            <!-- คอลัมน์ขวา -->
-            <v-col cols="12" md="5">
-              <v-card class="p-4 text-white bg-gray-900">
-                <div class="text-center">
-                  <h5 class="mb-4">หลักฐานการชำระเงิน</h5>
-                  <v-btn class="mb-4 text-white bg-yellow-500"
-                    >อัปโหลดหลักฐาน</v-btn
-                  >
-                  <div class="p-4 border-2 border-yellow-400 border-dashed">
-                    <p class="text-gray-400">ลากไฟล์เพื่ออัปโหลด</p>
-                    <p class="text-xs text-gray-500">
-                      *ไฟล์ .jpg, .png, .pdf ขนาดไม่เกิน 5MB
+                    <!-- Image preview section if an image is uploaded -->
+                    <div
+                      v-if="imageShow"
+                      @click="triggerFileUpload"
+                      class="items-center m-auto mt-4 p-auto w-100 d-flex flex-column justify-content"
+                    >
+                      <img
+                        class="img-fluid"
+                        :src="imageShow"
+                        style="max-height: 80%; max-width: 60%"
+                      />
+                    </div>
+
+                    <p class="mt-4 text-center text-white f-16 f-w-500">
+                      *คลิกเพื่ออัปโหลดอัปโหลด
                     </p>
                   </div>
-                </div>
-              </v-card>
-            </v-col>
+                </v-col>
+              </v-row>
+            </div>
+          </div>
+          <v-row>
+            <v-row class="" justify="center">
+              <v-btn color="red darken-2" class="mr-4">ยกเลิก</v-btn>
+              <v-btn color="gray darken-1" :disabled="!proofOfPayment"
+                >ส่งหลักฐาน</v-btn
+              >
+            </v-row>
           </v-row>
         </section>
       </v-container>
@@ -538,6 +612,14 @@ import NavbarTopUser from "@/components/dashboard/User/NavbarTopUser.vue";
 import LayoutAuthenticate from "@/layouts/LayoutAuthenticate.vue";
 import { ref } from "vue";
 
+const accountNumber = ref("");
+const bank = ref("");
+const accountName = ref("");
+const amount = ref("");
+const date = ref("");
+const time = ref("");
+const proofOfPayment = ref(null); // Reactive reference to store the uploaded file
+
 const step = ref(1);
 const nextStep = () => {
   if (step.value < 3) {
@@ -547,7 +629,6 @@ const nextStep = () => {
   }
 };
 const selectedPackage = ref("");
-
 const selectPackage = (peymentList) => {
   selectedPackage.value = peymentList.name;
 };
@@ -575,27 +656,33 @@ const paymentBank = ref([
   },
   {
     name: "กรุงศรี",
-    icon: new URL("@/assets/icon/kasikon.jpg", import.meta.url).href,
+    icon: new URL("@/assets/icon/bank-scb.png", import.meta.url).href,
     accountName: "บริษัท กรุงศรี จำกัด",
     accountNumber: "987-654-3210",
   },
   {
     name: "กสิกร",
-    icon: new URL("@/assets/icon/kasikon.jpg", import.meta.url).href,
+    icon: new URL("@/assets/icon/krungsri-bank.png", import.meta.url).href,
     accountName: "บริษัท กสิกร จำกัด",
     accountNumber: "555-666-7777",
   },
   {
     name: "ไทยพาณิชย์",
-    icon: new URL("@/assets/icon/kasikon.jpg", import.meta.url).href,
+    icon: new URL("@/assets/icon/bank-thailand.png", import.meta.url).href,
     accountName: "บริษัท ไทยพาณิชย์ จำกัด",
     accountNumber: "123-123-1234",
   },
   {
     name: "ทีเอ็มบีธนชาต",
-    icon: new URL("@/assets/icon/kasikon.jpg", import.meta.url).href,
+    icon: new URL("@/assets/icon/bank-ttb.png", import.meta.url).href,
     accountName: "บริษัท ทีเอ็มบีธนชาต จำกัด",
     accountNumber: "222-333-4444",
+  },
+  {
+    name: "nice",
+    icon: new URL("@/assets/icon/bangkok-bank.png", import.meta.url).href,
+    accountName: "บริษัท ทีเอ็มบีธนชาต จำกัด",
+    accountNumber: "222-333-4/444",
   },
 ]);
 defineOptions({
@@ -608,12 +695,32 @@ const packagePrice = "3,200";
 const discount = "-20";
 const totalPrice = "4,099";
 const finalPrice = "4,079.00";
+
+const imageShow = ref(null);
+const slipFile = ref(null);
+const fileInput = ref(null);
+
+function onFileChange(e) {
+  const file = e.target.files[0];
+  if (file) {
+    slipFile.value = file;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      imageShow.value = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+}
+
+function triggerFileUpload() {
+  fileInput.value.click();
+}
 </script>
 
 
 <style scoped>
 hr {
-  color: #ffffff;
+  border-top: 1px solid #a4a4a4;
 }
 
 .content-admin-dashboard {

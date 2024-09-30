@@ -23,3 +23,20 @@
 .rect-step{
   background-color: $color-primary !important;
 }
+.border-bank-peyment{
+  background-color:  transparent;
+  width: 60% !important;
+  height: 60% !important;
+  border: 1px solid $color-primary;
+}
+.unborder-bank-peyment{
+  background-color: transparent;
+  width: 60% !important;
+  height: 60% !important;
+}
+.selected-bank-details{
+  border: 1px solid $placeholder;
+}
+.card-order-details{
+  background-color: $main !important;
+}

@@ -130,10 +130,22 @@ font-size: 18px !important;
 }
 .card-bank-peyment{
   background-color: $main !important;
+  width: 303px !important;
+  height: 68px !important;
+  font-size: 24px !important;
 }
 .payment-card-list{
   background-color: $main !important;
 }
 .content-bank{
   width: 100%;
+}
+.card-image-peyment{
+  border-radius: 8px;
+  border: 1px dashed var(--button, #FFD700);
+
+}
+.form-group-peyment {
+  background-color: $headline-bg;
+  border-radius: 24px;
 }

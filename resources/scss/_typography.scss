@@ -2,19 +2,19 @@ h1 {
   font-size: 28px;
 }
 h2 {
-  font-size: 24px;
+  font-size: 24px !important;
 }
 h3 {
-  font-size: 20px;
+  font-size: 20px !important;
 }
 h4 {
-  font-size: 18px;
+  font-size: 18px !important;
 }
 h5 {
-  font-size: 16px;
+  font-size: 16px !important;
 }
 h6 {
-  font-size: 14px;
+  font-size: 14px !important;
 }
 h1,
 h2,
@@ -66,4 +66,10 @@ p {
 .text-dashboard {
   color: #ffd700;
   font-size: 15px;
+}
+.text-bank-peyment{
+  font-size: 24px !important;
+}
+.main-text-peyment{
+  color: $main-text-peyment !important;
 }
