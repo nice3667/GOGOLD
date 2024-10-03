@@ -218,3 +218,29 @@ color: $white !important;
   border-radius: 20px !important;
  background-color: $color-primary !important;
 }
+.btn-unpayment{
+  border-radius: 20px !important;
+ background-color: red !important;
+ color: $white !important;
+}
+.button-cancel-purchase{
+  background-color: red !important;
+  color: $white;
+  border-radius: 20px !important;
+  width: 182px;
+  height: 40px;
+}
+.button-send-evidence{
+  background-color: $main-text-peyment !important;
+  color: #4E4E4E;
+  border-radius: 20px !important;
+  width: 182px;
+  height: 40px;
+}
+.button-send-evidence-complete {
+  background-color: yellow !important;
+  color: #4E4E4E;
+  border-radius: 20px !important;
+  width: 182px;
+  height: 40px;
+}

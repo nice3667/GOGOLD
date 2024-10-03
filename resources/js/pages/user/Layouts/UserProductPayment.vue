@@ -3,12 +3,15 @@
     <!-- แถบเมนูด้านซ้าย -->
     <NavbarLeftUser></NavbarLeftUser>
     <!-- เนื้อหาหลัก -->
-    <v-main class="main-content-admin-dashboard">
+    <v-main class="h-full main-content-admin-dashboard">
       <!-- แถบเมนูด้านบน -->
       <NavbarTopUser />
 
       <!-- เนื้อหาภายในหน้า -->
-      <v-container class="text-lg main-content-admin-dashboard pa-10" fluid>
+      <v-container
+        class="h-full text-lg main-content-admin-dashboard pa-10"
+        fluid
+      >
         <!-- Step Indicator -->
         <section v-if="step == 1">
           <div class="flex items-center justify-center mt-4 text-white">
@@ -73,18 +76,22 @@
                         class="rounded-lg"
                       />
                     </div>
-                    <div class="ml-3">
+                    <div class="ml-4">
                       <div class="grid grid-rows-3">
                         <div>
-                          <h3 class="text-white">AI Gen XII EA</h3>
+                          <h2 class="text-white">
+                            {{ package_data.package_name }}
+                          </h2>
                         </div>
                         <div>
-                          <p class="mt-1 text-gray-400">
-                            แพ็กเกจ Semi-Annual 6เดือน
-                          </p>
+                          <h4 class="mt-1 text-white">
+                            {{ package_data.package_month }}
+                          </h4>
                         </div>
                         <div class="mt-1">
-                          <p class="text-white">฿3,200</p>
+                          <h2 class="text-white">
+                            ฿ {{ package_data.package_price }}
+                          </h2>
                         </div>
                       </div>
                     </div>
@@ -133,36 +140,37 @@
 
                   <!-- Package Details -->
                   <div class="flex justify-between mt-4">
-                    <span class="text-lg text-white"
-                      >AI Gen XII EA แพ็กเกจ 1ปี</span
+                    <span class="text-lg text-white">{{
+                      package_data.package_name
+                    }}</span>
+                    <span class="text-white"
+                      >{{ package_data.package_price }} ฿</span
                     >
-                    <span class="text-white">{{ packagePrice }}</span>
                   </div>
 
                   <!-- Friend Code Discount -->
                   <div class="flex justify-between">
                     <span class="text-lg text-white">โค้ดแนะนำเพื่อน</span>
-                    <span class="text-white">{{ discount }}</span>
+                    <span class="text-white">{{ discount }} ฿</span>
                   </div>
                   <hr class="my-4 border-gray-600" />
+
                   <!-- Total Price -->
                   <div class="flex justify-between mt-5">
                     <span class="text-lg text-white">ราคาทั้งหมด</span>
-                    <span class="text-white">{{ totalPrice }}</span>
+                    <span class="text-white">{{ totalPrice }} ฿</span>
                   </div>
 
                   <!-- Total Discount -->
                   <div class="flex justify-between">
                     <span class="text-lg text-white">ส่วนลดทั้งหมด</span>
-                    <span class="text-white">{{ discount }}</span>
+                    <span class="text-white">{{ totalDiscount }} ฿</span>
                   </div>
-
-                  <!-- <hr class="my-4 border-gray-600" /> -->
 
                   <!-- Final Payment -->
                   <div class="flex justify-between mt-5 font-bold">
                     <span class="text-white">ยอดชำระทั้งหมด</span>
-                    <span class="text-white">{{ finalPrice }}</span>
+                    <span class="text-white">{{ finalPrice }} ฿</span>
                   </div>
 
                   <!-- Payment Button -->
@@ -223,24 +231,27 @@
             </v-col>
           </v-row>
           <div class="grid grid-cols-1 gap-0 px-15 lg:grid-cols-2">
-            <v-row class="grid items-center justify-center p-4">
+            <v-row class="grid justify-center p-4 mt-0">
               <v-col cols="12">
                 <h2 class="text-lg font-bold text-white">ช่องทางชำระเงิน</h2>
 
                 <!-- Card for order summary -->
                 <div class="mt-3">
                   <!-- Payment Channel List -->
-                  <div class="flex flex-row justify-between card-bank-peyment">
+                  <div
+                    class="flex flex-row justify-around gap-[35px] card-bank-peyment"
+                  >
                     <v-list-item
                       v-for="(peymentList, index) in paymentChannels"
                       :key="index"
-                      @click="selectPackage(peymentList)"
-                      class="w-[45%] mx-2"
+                      @click="selectPayment(peymentList)"
                       :class="[
                         ' border border-white rounded-lg card-bank-peyment',
                         {
                           'selected-package':
-                            selectedPackage === peymentList.name,
+                            selectedPayment === peymentList.name,
+                          'unselected-package':
+                            selectedPayment !== peymentList.name,
                         },
                       ]"
                     >
@@ -255,21 +266,21 @@
                   </div>
                 </div>
                 <!-- Content based on selected payment channel -->
-                <div class="h-[200px]">
+                <div>
+                  <!-- bank -->
                   <div
-                    v-if="selectedPackage === 'บัญชีธนาคาร'"
+                    v-if="selectedPayment === 'บัญชีธนาคาร'"
                     class="content-bank"
                   >
                     <div>
                       <!-- Payment Channel List -->
                       <div
-                        class="flex items-center justify-center mt-5 rounded-lg payment-card-list"
+                        class="flex items-center justify-between mt-5 rounded-lg payment-card-list"
                       >
                         <div
                           v-for="(paymentBankItem, index) in paymentBank"
                           :key="index"
                           @click="selectBank(paymentBankItem)"
-                          class="img-bank-peyment"
                           :class="{
                             'border-bank-peyment':
                               selectedBank === paymentBankItem.name,
@@ -277,13 +288,11 @@
                               selectedBank !== paymentBankItem.name,
                           }"
                         >
-                          <div class="flex justify-between">
-                            <img
-                              :src="paymentBankItem.icon"
-                              alt="Bank Icon"
-                              class="img-bank-peyment"
-                            />
-                          </div>
+                          <img
+                            :src="paymentBankItem.icon"
+                            alt="Bank Icon"
+                            class="img-bank-peyment"
+                          />
                         </div>
                       </div>
                       <!-- Selected Bank Details -->
@@ -309,10 +318,53 @@
                       </div>
                     </div>
                   </div>
+                  <!-- Qr code -->
+                  <div
+                    v-if="selectedPayment === 'QR Code'"
+                    class="content-bank"
+                  >
+                    <div class="flex mt-5 rounded-lg payment-card-list">
+                      <div
+                        class="grid justify-center w-full grid-rows-2 text-white rounded-lg selected-rq-details"
+                      >
+                        <!-- QR Code Image -->
+                        <v-row class="text-center">
+                          <v-col>
+                            <img
+                              src="@/assets/icon/QRCODEnice.jpg"
+                              alt="QR
+                                              Code"
+                              class="mx-auto rounded-lg icon-qr-code"
+                            />
+                          </v-col>
+                        </v-row>
+
+                        <!-- Payment Details -->
+                        <v-row class="mt-4 text-center">
+                          <v-col>
+                            <p>
+                              <strong>Account Name:</strong> บริษัท แท็กซี
+                              เอสเอ็มเอส
+                            </p>
+                            <p><strong>Amount:</strong> 16,015.00 บาท</p>
+                            <p class="font-bold text-yellow-500">
+                              กรุณาชำระภายใน
+                            </p>
+                            <p class="mt-2 text-lg">
+                              Time left:
+                              <span id="time">{{ countdown }}</span>
+                            </p>
+                            <p class="mt-2 text-sm text-gray-400">
+                              Expires: 01 March 2024, 14:40
+                            </p>
+                          </v-col>
+                        </v-row>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 <!-- Referral Code Section -->
-                <v-row class="mt-4"> </v-row>
               </v-col>
             </v-row>
             <v-row class="grid justify-center">
@@ -322,10 +374,12 @@
 
                   <!-- Package Details -->
                   <div class="flex justify-between mt-4">
-                    <span class="text-lg text-white"
-                      >AI Gen XII EA แพ็กเกจ 1ปี</span
+                    <span class="text-lg text-white">
+                      {{ package_data.package_name }}</span
                     >
-                    <span class="text-white">{{ packagePrice }}</span>
+                    <span class="text-white">{{
+                      package_data.package_price
+                    }}</span>
                   </div>
 
                   <!-- Friend Code Discount -->
@@ -351,12 +405,15 @@
                   <!-- Final Payment -->
                   <div class="flex justify-between mt-5 font-bold">
                     <span class="text-white">ยอดชำระทั้งหมด</span>
-                    <span class="text-white">{{ finalPrice }}</span>
+                    <span class="text-white"> {{ finalPrice }} ฿</span>
                   </div>
 
                   <!-- Payment Button -->
                   <v-btn class="w-full mt-5 btn-payment" @click="nextStep">
-                    เลือกวิธีการชำระเงิน
+                    ยืนยันรายการสั่งซื้อ
+                  </v-btn>
+                  <v-btn class="w-full mt-5 btn-unpayment" @click="backStep">
+                    ยกเลิกคำสั่งซื้อ
                   </v-btn>
                 </v-card>
               </v-col>
@@ -413,9 +470,7 @@
             </v-col>
           </v-row>
           <!-- รายละเอียดคำสั่งซื้อ -->
-          <div
-            class="grid grid-flow-row-dense grid-cols-2 grid-rows-2 xl:grid-cols-5"
-          >
+          <div class="grid grid-flow-row-dense grid-cols-2 xl:grid-cols-5">
             <div class="col-span-3">
               <v-col cols="12">
                 <div class="text-white card-order-details">
@@ -428,26 +483,26 @@
                     </div>
                     <div class="grid grid-rows-2 mt-5">
                       <h5 class="main-text-peyment">รายการ</h5>
-                      <h4>AI Gen XIII EA เข่าแพ็กเกจ 1 ปี 3,200฿</h4>
+                      <h4>{{ package_data.package_name }}</h4>
                     </div>
                     <div class="grid grid-cols-2 mt-5">
                       <div class="grid grid-rows-2">
                         <h5 class="main-text-peyment">ราคารวม</h5>
-                        <h4>4,099</h4>
+                        <h4>{{ package_data.package_price }}</h4>
                       </div>
                       <div class="grid grid-rows-2">
                         <h5 class="main-text-peyment">ส่วนลด</h5>
-                        <h4>20</h4>
+                        <h4>0</h4>
                       </div>
                     </div>
                     <div class="grid grid-cols-2 mt-5">
                       <div class="grid grid-rows-2">
                         <h5 class="main-text-peyment">ยอดที่ต้องชำระ</h5>
-                        <h4>4,079</h4>
+                        <h4>{{ package_data.package_price }}</h4>
                       </div>
                       <div class="grid grid-rows-2">
                         <h5 class="main-text-peyment">ช่องทางการชำระเงิน</h5>
-                        <h4>QR Code</h4>
+                        <h4>{{ payment_data.payment_bank }}</h4>
                       </div>
                     </div>
                   </v-col>
@@ -549,14 +604,14 @@
                       type="file"
                       ref="fileInput"
                       class="form-control form-control-dark"
-                      @change="onFileChange"
+                      @change="handleFileChange"
                       style="display: none"
                     />
 
                     <!-- Show this if no image has been uploaded yet -->
                     <div
-                      v-if="!imageShow"
-                      class="flex mt-5 flex-column align-items-center justify-content-center card-image-peyment"
+                      v-if="!uploadedImage"
+                      class="flex justify-center mt-5 flex-column align-center card-image-peyment"
                       @click="triggerFileUpload"
                       style="height: 450px"
                     >
@@ -566,26 +621,25 @@
                         class="img-fluid p-auto"
                         style="max-height: 80%; max-width: 60%"
                       />
-                      <div class="text-center text-primary-600">
-                        อัปโหลดสลิป
-                      </div>
+                      <div class="text-center text-white">อัปโหลดสลิป</div>
                     </div>
 
                     <!-- Image preview section if an image is uploaded -->
                     <div
-                      v-if="imageShow"
+                      v-if="uploadedImage"
                       @click="triggerFileUpload"
-                      class="items-center m-auto mt-4 p-auto w-100 d-flex flex-column justify-content"
+                      class="flex justify-center mt-4 flex-column align-center w-100"
+                      style="height: 450px"
                     >
                       <img
                         class="img-fluid"
-                        :src="imageShow"
+                        :src="uploadedImage"
                         style="max-height: 80%; max-width: 60%"
                       />
                     </div>
 
                     <p class="mt-4 text-center text-white f-16 f-w-500">
-                      *คลิกเพื่ออัปโหลดอัปโหลด
+                      *คลิกเพื่ออัปโหลดสลิป
                     </p>
                   </div>
                 </v-col>
@@ -593,11 +647,18 @@
             </div>
           </div>
           <v-row>
-            <v-row class="" justify="center">
-              <v-btn color="red darken-2" class="mr-4">ยกเลิก</v-btn>
-              <v-btn color="gray darken-1" :disabled="!proofOfPayment"
-                >ส่งหลักฐาน</v-btn
+            <v-row class="mt-10 gap-[16px]" justify="center">
+              <v-btn class="button-cancel-purchase" @click="backStep">
+                ยกเลิก
+              </v-btn>
+              <v-btn
+                :class="{
+                  'button-send-evidence': !isFormComplete,
+                  'button-send-evidence-complete': isFormComplete,
+                }"
               >
+                ส่งหลักฐานการโอน
+              </v-btn>
             </v-row>
           </v-row>
         </section>
@@ -610,15 +671,68 @@
 import NavbarLeftUser from "@/components/dashboard/User/NavbarLeftUser.vue";
 import NavbarTopUser from "@/components/dashboard/User/NavbarTopUser.vue";
 import LayoutAuthenticate from "@/layouts/LayoutAuthenticate.vue";
-import { ref } from "vue";
+import { usePaymentStore } from "@/stores/usePaymentStore";
+import { useRoute } from "vue-router";
+import { ref, computed } from "vue";
+import { onMounted } from "vue";
 
+// เรียกใช้ Pinia Store
+const store_payment = usePaymentStore();
+
+// ตรวจสอบว่าได้ค่าจาก Store หรือไม่
+const package_data = computed(
+  () => JSON.parse(localStorage.getItem("package")) || "ไม่พบข้อมูลแพ็กเกจ"
+);
+console.log("Selected Package Name:", package_data.value);
+console.log("Package Price in UserProductPayment:", package_data.price);
+const discount = ref(0);
+const totalPrice = computed(() => package_data.package_price);
+const totalDiscount = computed(() => discount.value);
+const finalPrice = computed(() => totalPrice.value - totalDiscount.value);
+
+const packageNameFromStore = computed(
+  () => store_payment.form.data.package_name
+);
+const packageNameFromLocalStorage = ref(
+  localStorage.getItem("selectedPayment") || "ไม่พบข้อมูลแพ็กเกจ"
+);
+onMounted(() => {
+  console.log("Package Name from Pinia:", packageNameFromStore.value);
+  console.log(
+    "Package Name from LocalStorage:",
+    packageNameFromLocalStorage.value
+  );
+});
 const accountNumber = ref("");
 const bank = ref("");
 const accountName = ref("");
 const amount = ref("");
 const date = ref("");
 const time = ref("");
-const proofOfPayment = ref(null); // Reactive reference to store the uploaded file
+const proofOfPayment = ref(null);
+const uploadedImage = ref(null);
+const isFormComplete = computed(() => {
+  return (
+    accountNumber.value &&
+    bank.value &&
+    accountName.value &&
+    amount.value &&
+    date.value &&
+    time.value &&
+    proofOfPayment.value // ตรวจสอบว่าอัปโหลดไฟล์แล้ว
+  );
+});
+const handleFileChange = (event) => {
+  const file = event.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      proofOfPayment.value = file;
+      uploadedImage.value = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+};
 
 const step = ref(1);
 const nextStep = () => {
@@ -628,9 +742,21 @@ const nextStep = () => {
     console.log("Step");
   }
 };
-const selectedPackage = ref("");
-const selectPackage = (peymentList) => {
-  selectedPackage.value = peymentList.name;
+const backStep = () => {
+  if (step.value > 1) {
+    step.value -= 1;
+  } else {
+    console.log("Cannot go back further");
+  }
+};
+const selectedPayment = ref("");
+const selectPayment = (peymentList) => {
+  selectedPayment.value = peymentList.name;
+  store_payment.setPackage(peymentList.name);
+  let payment_data = {
+    payment_bank: peymentList.name,
+  };
+  localStorage.setItem("payment", JSON.stringify(payment_data));
 };
 const paymentChannels = ref([{ name: "บัญชีธนาคาร" }, { name: "QR Code" }]);
 
@@ -691,10 +817,6 @@ defineOptions({
 
 // Define the reactive properties
 const referralCode = ref("MONDAY15");
-const packagePrice = "3,200";
-const discount = "-20";
-const totalPrice = "4,099";
-const finalPrice = "4,079.00";
 
 const imageShow = ref(null);
 const slipFile = ref(null);
@@ -721,52 +843,5 @@ function triggerFileUpload() {
 <style scoped>
 hr {
   border-top: 1px solid #a4a4a4;
-}
-
-.content-admin-dashboard {
-  @apply bg-[#1D1D1D] p-6 flex items-center justify-center w-64 h-24;
-  border-radius: 24px;
-}
-
-.content-group-admin-dashboard {
-  border-radius: 24px;
-}
-
-.icon {
-  @apply w-12 h-12;
-}
-
-.text-left {
-  @apply flex flex-col;
-}
-
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
-
-.main-content-admin-dashboard {
-  background-color: #252525;
-}
-
-.text-dashboard {
-  color: #ffd700;
-  font-size: 15px;
-}
-
-.text-yellow-500 {
-  color: #ffd700;
-}
-
-.bg-yellow-500 {
-  background-color: #ffd700;
-}
-
-.text-white {
-  color: #ffffff;
-}
-
-.bg-black {
-  background-color: #000000;
 }
 </style>

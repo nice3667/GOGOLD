@@ -24,12 +24,15 @@
     "vuetify": "^3.7.0-beta.1"
   },
   "dependencies": {
+    "@coreui/coreui": "^5.1.2",
+    "@coreui/vue": "^5.4.0",
     "@mdi/font": "^7.4.47",
     "@vueuse/core": "^11.0.3",
     "chart.js": "^4.4.4",
     "flowbite": "^2.5.1",
     "flowbite-vue": "^0.1.6",
     "mobile-device-detect": "^0.4.3",
+    "pinia": "^2.2.3",
     "pwa-asset-generator": "^6.3.2",
     "swiper": "^11.1.14",
     "tw-elements": "^2.0.0",

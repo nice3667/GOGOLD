@@ -8,14 +8,14 @@ import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
 import { ZiggyVue } from "../../vendor/tightenco/ziggy";
 import "@mdi/font/css/materialdesignicons.css";
 import "vuetify/dist/vuetify.min.css";
-
+import { createPinia } from "pinia";
 import { usePwa } from "./composables/use-pwa";
 const { createPwa } = usePwa();
 
 import LayoutGuest from "./layouts/LayoutGuest.vue";
 
 const appName = import.meta.env.VITE_APP_NAME || "GoGold";
-
+const pinia = createPinia();
 const vuetify = createVuetify({
   components,
   directives,
@@ -69,6 +69,7 @@ createInertiaApp({
       .use(ZiggyVue) // ZiggyVue สำหรับการจัดการเส้นทาง
       .use(vuetify) // Vuetify สำหรับคอมโพเนนต์ UI
       .mixin({ methods: { route } }) // ทำให้เมธอด `route` ใช้ได้ทั่วทั้งแอป
+      .use(pinia)
       .mount(el);
   },
   progress: {

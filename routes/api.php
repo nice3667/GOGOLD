@@ -53,6 +53,9 @@ Route::get('/packages/get', [PackageController::class, 'show']);
 
 Route::get('/packages/getlist', [PackageController::class, 'index']);
 
+Route::apiResource('packages', PackageController::class);
+
+
 //end package
 
 //buy package

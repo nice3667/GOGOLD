@@ -20,23 +20,38 @@
   border-radius: 24px !important;
   padding: 15px !important;
 }
+.main-content-package-product {
+  background-color: #303030 !important;
+  border-radius: 24px !important;
+  padding: 15px !important;
+  height: 100%;
+}
 .rect-step{
   background-color: $color-primary !important;
 }
 .border-bank-peyment{
   background-color:  transparent;
-  width: 60% !important;
-  height: 60% !important;
-  border: 1px solid $color-primary;
+  // width: 60% !important;
+  // height: 60% !important;
+  border-radius: 22px;
+  // padding: 4px;
+  border: 3px solid $color-primary;
 }
 .unborder-bank-peyment{
   background-color: transparent;
-  width: 60% !important;
-  height: 60% !important;
+  // width: 60% !important;
+  // height: 60% !important;
 }
 .selected-bank-details{
   border: 1px solid $placeholder;
 }
+.selected-rq-details{
+  border: 1px solid $placeholder;
+  padding: 24px;
+}
 .card-order-details{
   background-color: $main !important;
+}
+.main-content-admin-dashboard {
+  background-color: #252525 !important;
 }

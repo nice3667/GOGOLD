@@ -4,6 +4,7 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
+use App\Http\Controllers\PackageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TwoFactorController;
 use App\Http\Controllers\User\UserController;
@@ -56,15 +57,16 @@ Route::get('/market', function () {
 Route::get('/market/product', function () {
   return Inertia::render('user/Layouts/UserMarketProduct');
 })->name('UserMarketProduct');
-Route::get('/product/peyment', function () {
-  return Inertia::render('user/Layouts/UserProductPeyment');
-})->name('UserProductPeyment');
+Route::get('/product/payment', function () {
+  return Inertia::render('user/Layouts/UserProductPayment');
+})->name('UserProductPayment');
 //End
 Route::get('/dashboard', function () {
   Log::info('dashboard');
   return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified',])->name('dashboard');
 
+Route::get('/market/product/{id}', [PackageController::class, 'showInertia'])->name('market.product.show');
 
 //eng
 

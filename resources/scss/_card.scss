@@ -104,11 +104,15 @@ font-size: 18px !important;
 
 }
 .selected-package{
-  &:hover {
-    border: 1px solid #ffcc00 !important;
-  }
-}
+  background-color:  transparent;
+  border-radius: 22px;
+  border: 3px solid $color-primary;
 
+}
+.unselected-package{
+  background-color: transparent;
+
+}
 .tap-package .v-btn__content{
   color: $white !important;
 }
@@ -148,4 +152,13 @@ font-size: 18px !important;
 .form-group-peyment {
   background-color: $headline-bg;
   border-radius: 24px;
+}
+.list-item-admin {
+  border-radius: 13px !important;
+  background-color: #ffd700 !important;
+  .icon,
+  a{
+    color:  $black !important;
+  }
+
 }

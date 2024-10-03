@@ -65,7 +65,7 @@
         >
           <a :href="route(item.route)" class="text-white cursor-pointer">
             <div class="flex items-center">
-              <v-icon class="mr-4 text-white">{{ item.icon }}</v-icon>
+              <v-icon class="mr-4 text-white icon">{{ item.icon }}</v-icon>
               <v-list-item-title>{{ item.title }}</v-list-item-title>
             </div>
           </a>
@@ -116,31 +116,6 @@ const menuItems = ref([
 ]);
 </script>
 <style scoped>
-.text-dashboard {
-  color: #ffd700;
-  font-size: 15px;
-}
-
-.text-yellow-500 {
-  color: #ffd700;
-}
-
-.bg-yellow-500 {
-  background-color: #ffd700;
-}
-
-.text-white {
-  color: #ffffff;
-}
-
-.bg-black {
-  background-color: #000000;
-}
-
-.list-item-admin {
-  border-radius: 13px;
-  background-color: #ffd700;
-}
 @media only screen and (max-width: 600px) {
   v-navigation-drawer {
     background-color: lightblue;

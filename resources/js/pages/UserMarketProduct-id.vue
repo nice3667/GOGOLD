@@ -8,18 +8,18 @@
       <NavbarTopUser />
 
       <!-- เนื้อหาภายในหน้า -->
-      <div class="p-5 text-lg lg:px-14 lg:p-14 main-content-dashboard">
+      <div class="text-lg px-14 lg:px-14 main-content-dashboard">
         <div
           class="grid grid-flow-row-dense grid-cols-2 grid-rows-2 gap-4 xl:grid-cols-5"
         >
           <div class="col-span-3">
             <div>
               <v-col cols="12">
-                <v-card class="card-package-details">
+                <v-card class="mt-3 card-package-details">
                   <img
                     src="@/assets/icon/big-image-package.png"
                     alt="AI Gen XII EA"
-                    width="1000"
+                    width="850"
                   />
                   <div class="flex justify-center p-5">
                     <!-- Image Slider -->
@@ -123,106 +123,98 @@
             </div>
           </div>
           <div class="col-span-2">
-            <v-row>
-              <div class="grid">
-                <v-col cols="12">
-                  <v-card class="p-4 mt-3 text-white shadow-md main-content">
-                    <!-- Title -->
-                    <h1 class="p-3 mt-3 mb-4 text-5xl font-bold">
-                      AI Gen XII EA
-                    </h1>
+            <div class="grid">
+              <v-col cols="12">
+                <v-card
+                  class="p-4 mt-3 text-white shadow-md main-content-package-product"
+                >
+                  <!-- Title -->
+                  <h1 class="p-3 mt-3 mb-4 text-5xl font-bold">
+                    {{ props.package.name }}
+                  </h1>
 
-                    <!-- Rating and Sales -->
-                    <div
-                      class="grid items-center grid-cols-3 mt-4 mb-4 2xl:grid-rows-1"
+                  <!-- Rating and Sales -->
+                  <div
+                    class="grid items-center grid-cols-3 mt-4 mb-4 2xl:grid-rows-1"
+                  >
+                    <div class="ml-1">
+                      <v-rating
+                        v-model="rating"
+                        :length="4"
+                        size="30"
+                        :model-value="4.9"
+                        active-color="yellow"
+                        inactive-color="gray"
+                      ></v-rating>
+                    </div>
+                    <div class="">
+                      <p class="text-gray-300">4.9 (188รีวิว)</p>
+                    </div>
+                    <div class="col-span-2 col-end-7">
+                      <p class="text-sm text-gray-400">10 sold</p>
+                    </div>
+                  </div>
+                  <!-- Description -->
+                  <p class="p-3 mb-4 text-lg text-gray-300">
+                    <ul>
+                      <li v-for="(description, index) in props.package.descriptions" :key="index">
+                        {{ description.descriptions }}
+                      </li>
+                    </ul>
+                  </p>
+                  <!-- Price -->
+                  <div class="p-3 mb-4 text-3xl font-bold">
+
+                    {{
+                      selectedPackage
+                        ? `฿ ${selectedPackage.price}`
+                        : "เริ่มต้น ฿ 500 - 3,200"
+                    }}
+                  </div>
+                  <!-- Button -->
+                  <div class="flex items-center justify-center">
+                    <v-btn
+                      href="/product/payment"
+                      class="w-full btn-shopping"
+                      rounded
+                      >ไปที่ตะกร้าสินค้า</v-btn
                     >
-                      <div class="ml-1">
-                        <v-rating
-                          v-model="rating"
-                          :length="4"
-                          size="30"
-                          :model-value="4.9"
-                          active-color="yellow"
-                          inactive-color="gray"
-                        ></v-rating>
-                      </div>
-                      <div class="">
-                        <p class="text-gray-300">4.9 (188รีวิว)</p>
-                      </div>
-                      <div class="col-span-2 col-end-7">
-                        <p class="text-sm text-gray-400">10 sold</p>
-                      </div>
-                    </div>
-                    <!-- Description -->
-                    <p class="p-3 mb-4 text-lg text-gray-300">
-                      ปลดล็อกศักยภาพการเทรดของคุณด้วย EA Forex
-                      โปรแกรมเทรดอัตโนมัติที่ออกแบบมาเพื่อช่วยให้คุณทำกำไรในตลาด
-                      Forex โดยไม่ต้องเฝ้ากราฟหรือคอยตัดสินใจด้วยตัวเอง EA
-                      จะทำงาน...
-                    </p>
+                  </div>
+                </v-card>
+              </v-col>
+              <v-col cols="12">
+                <v-card class="p-4 text-white main-content">
+                  <!-- Title -->
+                  <h4 class="mb-4 ml-4 text-lg font-bold">
+                    เลือกระยะเวลาในการเช่า
+                  </h4>
 
-                    <!-- Price -->
-                    <div class="p-3 mb-4 text-3xl font-bold">
-                      {{
-                        selectedPackage
-                          ? selectedPackage.price
-                          : "เริ่มต้น ฿1,900 - 3,200"
-                      }}
-                    </div>
-
-                    <!-- Button -->
-                    <div class="flex items-center justify-center">
-                      <v-btn
-                        href="/product/payment"
-                        class="w-full btn-shopping"
-                        rounded
-                        >ไปที่ตะกร้าสินค้า</v-btn
-                      >
-                    </div>
-                  </v-card>
-                </v-col>
-                <v-col cols="12">
-                  <v-card class="p-4 text-white main-content">
-                    <!-- Title -->
-                    <h4 class="mb-4 ml-4 text-lg font-bold">
-                      เลือกระยะเวลาในการเช่า
-                    </h4>
-
-                    <!-- Package Options -->
-                    <v-list class="px-4 rounded-lg v-list-package">
-                      <v-list-item
-                        v-for="(packageItem, index) in packages"
+                  <!-- Package Options -->
+                  <v-list class="px-4 rounded-lg v-list-package">
+                    <v-list-item
+                      v-for="(packageItem, index) in packages"
                         :key="index"
-                        @click="selectPackage(packageItem)"
-                        :class="[
-                          'mb-2 border border-white w-[100%] h-[106px] rounded-lg v-list-package',
-                          {
-                            'selected-package': selectedPackage == packageItem,
-                          },
-                        ]"
+                          @click="selectPackage(packageItem)"
+                          class="mb-2  w-[100%] h-[106px] rounded-lg "
+                          :class="selectedPackage == packageItem ? 'selected-package' : ' border border-white'"
                       >
                         <div class="flex justify-between p-4">
                           <v-list-item-content>
                             <v-list-item-title class="text-white">
-                              <h2>
-                                {{ packageItem.name }}
-                              </h2>
+                              <h2>{{ packageItem.name }}</h2>
                             </v-list-item-title>
                           </v-list-item-content>
                           <v-list-item-content>
                             <v-list-item-title class="text-white">
-                              <h4>
-                                {{ packageItem.price }}
-                              </h4>
+                              <h4>฿ {{ packageItem.month * props.package.price}}</h4>
                             </v-list-item-title>
                           </v-list-item-content>
-                        </div>
-                      </v-list-item>
-                    </v-list>
-                  </v-card>
-                </v-col>
-              </div>
-            </v-row>
+                      </div>
+                    </v-list-item>
+                  </v-list>
+                </v-card>
+              </v-col>
+            </div>
           </div>
         </div>
       </div>
@@ -233,59 +225,73 @@
 <script setup>
 import NavbarLeftUser from "@/components/dashboard/User/NavbarLeftUser.vue";
 import NavbarTopUser from "@/components/dashboard/User/NavbarTopUser.vue";
-import { ref, useAttrs, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
 import LayoutAuthenticate from "@/layouts/LayoutAuthenticate.vue";
 import { usePaymentStore } from "@/stores/usePaymentStore";
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { useRouter } from "vue-router";
 
+import { Pagination, Navigation } from "swiper/modules";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { FwbTab, FwbTabs } from "flowbite-vue";
 
-// Import required modules
-import { Pagination, Navigation } from "swiper/modules";
-
 const modules = [Pagination, Navigation];
 
-const store_payment = usePaymentStore();
+const props = defineProps({
+  package: {
+    type: Object,
+    required: true, // กำหนดให้ prop นี้จำเป็นต้องส่งมา
+  },
+  descriptions: {
+    type: Array,
+    required: true, // descriptions จะเป็น Array
+  },
+});
+// const rating = ref(productPackage.rating || 4.9);
+console.log(props);
 
 const packages = ref([
-  { name: "3 เดือน", price: "฿1,200" },
-  { name: "6 เดือน", price: "฿2,000" },
-  { name: "12 เดือน", price: "฿3,500" },
+  { name: "แพ็กเกจ 3 เดือน", month: 3 },
+  { name: "แพ็กเกจ 6 เดือน", month: 6 },
+  { name: "แพ็กเกจ 12 เดือน", month: 12 },
 ]);
-const activeTab = ref("first");
 
+const store_payment = usePaymentStore();
 const selectedPackage = ref(null);
 const selectPackage = (packageItem) => {
-  // บันทึกข้อมูลใน Store
-  store_payment.form.data.package_name = packageItem.name;
-  store_payment.form.data.package_price = packageItem.price;
-  localStorage.setItem("package_name", packageItem.name);
-  localStorage.setItem("package_price", packageItem.price);
-  console.log("PackageName:", store_payment.form.data.package_name);
-  console.log("PackagePrice:", store_payment.form.data.package_price);
+  packageItem.price = packageItem.month * props.package.price;
+  selectedPackage.value = packageItem;
+  store_payment.setPackage(
+    packageItem.name,
+    packageItem.price,
+    props.package.name
+  );
+  let package_data = {
+    package_name: props.package.name,
+    package_price: packageItem.price,
+    package_month: packageItem.name,
+  };
+  // localStorage.setItem("package", JSON.stringify(packageItem));
+  localStorage.setItem("package", JSON.stringify(package_data));
 
-  const router = useRouter();
-  // ส่งไปยังหน้าถัดไป
-  router.push({
-    name: "UserProductPayment",
-  });
+  // localStorage.getItem("package");
 };
 
-const rating = ref(4.9);
+// console.log("Package Name :", packageName.value);
+// console.log("Package Price :", packagePrice.value);
 const tab = ref(0);
 
 defineOptions({
   layout: LayoutAuthenticate,
 });
 
-const test = async (test) => {
-  console.log(test);
-};
+onMounted(() => {
+  console.log("Product Package:", props.package);
+  console.log("Product Package:", props.package.name);
+  console.log("Descriptions:", props.descriptions);
+});
 </script>
 
 
@@ -295,57 +301,4 @@ const test = async (test) => {
     grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 }
-hr {
-  border-top: 2px;
-  color: #ffffff;
-}
-
-.content-admin-dashboard {
-  @apply bg-[#1D1D1D] p-6 flex items-center justify-center w-64 h-24;
-  border-radius: 24px;
-}
-
-.content-group-admin-dashboard {
-  border-radius: 24px;
-}
-
-.icon {
-  @apply w-12 h-12;
-}
-
-.text-left {
-  @apply flex flex-col;
-}
-
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
-
-.main-content-dashboard {
-  background-color: #252525;
-}
-
-.text-dashboard {
-  color: #ffd700;
-  font-size: 15px;
-}
-
-.text-yellow-500 {
-  color: #ffd700;
-}
-
-.bg-yellow-500 {
-  background-color: #ffd700;
-}
-
-.text-white {
-  color: #ffffff;
-}
-
-.bg-black {
-  background-color: #000000;
-}
-
-/* Custom styles with Tailwind for additional design tweaks */
 </style>
