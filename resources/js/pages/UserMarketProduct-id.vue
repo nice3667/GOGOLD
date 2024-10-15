@@ -19,7 +19,7 @@
                   <img
                     src="@/assets/icon/big-image-package.png"
                     alt="AI Gen XII EA"
-                    width="850"
+                    class="img-ea-package-details"
                   />
                   <div class="flex justify-center p-5">
                     <!-- Image Slider -->
@@ -135,7 +135,7 @@
 
                   <!-- Rating and Sales -->
                   <div
-                    class="grid items-center grid-cols-3 mt-4 mb-4 2xl:grid-rows-1"
+                    class="grid items-center grid-cols-3 mt-0 mb-4 2xl:grid-rows-1"
                   >
                     <div class="ml-1">
                       <v-rating
@@ -249,7 +249,6 @@ const props = defineProps({
     required: true, // descriptions จะเป็น Array
   },
 });
-// const rating = ref(productPackage.rating || 4.9);
 console.log(props);
 
 const packages = ref([
@@ -279,8 +278,6 @@ const selectPackage = (packageItem) => {
   // localStorage.getItem("package");
 };
 
-// console.log("Package Name :", packageName.value);
-// console.log("Package Price :", packagePrice.value);
 const tab = ref(0);
 
 defineOptions({

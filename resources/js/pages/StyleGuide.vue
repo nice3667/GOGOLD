@@ -62,6 +62,11 @@ import ColorShowcase from "@/components/ColorShowcase.vue";
 import UserStatsMain from "@/components/UserStatsMain.vue";
 import Form from "@/components/Form.vue";
 import Button from "@/components/Button.vue";
+import LayoutAuthenticate from "@/layouts/LayoutAuthenticate.vue";
+
+defineOptions({
+  layout: LayoutAuthenticate,
+});
 export default {
   name: "Dashboard",
   components: {

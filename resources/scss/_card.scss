@@ -106,7 +106,7 @@ font-size: 18px !important;
 .selected-package{
   background-color:  transparent;
   border-radius: 22px;
-  border: 3px solid $color-primary;
+  border: 2px solid $color-primary !important;
 
 }
 .unselected-package{
@@ -134,7 +134,7 @@ font-size: 18px !important;
 }
 .card-bank-peyment{
   background-color: $main !important;
-  width: 303px !important;
+  width: 70% !important;
   height: 68px !important;
   font-size: 24px !important;
 }

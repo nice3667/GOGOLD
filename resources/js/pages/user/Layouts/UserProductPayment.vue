@@ -231,16 +231,14 @@
             </v-col>
           </v-row>
           <div class="grid grid-cols-1 gap-0 px-15 lg:grid-cols-2">
-            <v-row class="grid justify-center p-4 mt-0">
-              <v-col cols="12">
+            <div class="p-4 mt-0">
+              <div>
                 <h2 class="text-lg font-bold text-white">ช่องทางชำระเงิน</h2>
 
                 <!-- Card for order summary -->
-                <div class="mt-3">
+                <div class="grid grid-cols-1">
                   <!-- Payment Channel List -->
-                  <div
-                    class="flex flex-row justify-around gap-[35px] card-bank-peyment"
-                  >
+                  <div class="flex flex-row gap-3 card-bank-peyment">
                     <v-list-item
                       v-for="(peymentList, index) in paymentChannels"
                       :key="index"
@@ -365,59 +363,63 @@
                 </div>
 
                 <!-- Referral Code Section -->
-              </v-col>
-            </v-row>
-            <v-row class="grid justify-center">
-              <v-col cols="12">
-                <v-card class="card-order-payment">
-                  <h2 class="text-2xl font-bold text-white">สรุปยอดการชำระ</h2>
+              </div>
+            </div>
+            <div>
+              <v-row class="grid justify-center">
+                <v-col cols="12">
+                  <v-card class="card-order-payment">
+                    <h2 class="text-2xl font-bold text-white">
+                      สรุปยอดการชำระ
+                    </h2>
 
-                  <!-- Package Details -->
-                  <div class="flex justify-between mt-4">
-                    <span class="text-lg text-white">
-                      {{ package_data.package_name }}</span
-                    >
-                    <span class="text-white">{{
-                      package_data.package_price
-                    }}</span>
-                  </div>
+                    <!-- Package Details -->
+                    <div class="flex justify-between mt-4">
+                      <span class="text-lg text-white">
+                        {{ package_data.package_name }}</span
+                      >
+                      <span class="text-white">{{
+                        package_data.package_price
+                      }}</span>
+                    </div>
 
-                  <!-- Friend Code Discount -->
-                  <div class="flex justify-between">
-                    <span class="text-lg text-white">โค้ดแนะนำเพื่อน</span>
-                    <span class="text-white">{{ discount }}</span>
-                  </div>
-                  <hr class="my-4 border-gray-600" />
-                  <!-- Total Price -->
-                  <div class="flex justify-between mt-5">
-                    <span class="text-lg text-white">ราคาทั้งหมด</span>
-                    <span class="text-white">{{ totalPrice }}</span>
-                  </div>
+                    <!-- Friend Code Discount -->
+                    <div class="flex justify-between">
+                      <span class="text-lg text-white">โค้ดแนะนำเพื่อน</span>
+                      <span class="text-white">{{ discount }}</span>
+                    </div>
+                    <hr class="my-4 border-gray-600" />
+                    <!-- Total Price -->
+                    <div class="flex justify-between mt-5">
+                      <span class="text-lg text-white">ราคาทั้งหมด</span>
+                      <span class="text-white">{{ totalPrice }}</span>
+                    </div>
 
-                  <!-- Total Discount -->
-                  <div class="flex justify-between">
-                    <span class="text-lg text-white">ส่วนลดทั้งหมด</span>
-                    <span class="text-white">{{ discount }}</span>
-                  </div>
+                    <!-- Total Discount -->
+                    <div class="flex justify-between">
+                      <span class="text-lg text-white">ส่วนลดทั้งหมด</span>
+                      <span class="text-white">{{ discount }}</span>
+                    </div>
 
-                  <!-- <hr class="my-4 border-gray-600" /> -->
+                    <!-- <hr class="my-4 border-gray-600" /> -->
 
-                  <!-- Final Payment -->
-                  <div class="flex justify-between mt-5 font-bold">
-                    <span class="text-white">ยอดชำระทั้งหมด</span>
-                    <span class="text-white"> {{ finalPrice }} ฿</span>
-                  </div>
+                    <!-- Final Payment -->
+                    <div class="flex justify-between mt-5 font-bold">
+                      <span class="text-white">ยอดชำระทั้งหมด</span>
+                      <span class="text-white"> {{ finalPrice }} ฿</span>
+                    </div>
 
-                  <!-- Payment Button -->
-                  <v-btn class="w-full mt-5 btn-payment" @click="nextStep">
-                    ยืนยันรายการสั่งซื้อ
-                  </v-btn>
-                  <v-btn class="w-full mt-5 btn-unpayment" @click="backStep">
-                    ยกเลิกคำสั่งซื้อ
-                  </v-btn>
-                </v-card>
-              </v-col>
-            </v-row>
+                    <!-- Payment Button -->
+                    <v-btn class="w-full mt-5 btn-payment" @click="nextStep">
+                      ยืนยันรายการสั่งซื้อ
+                    </v-btn>
+                    <v-btn class="w-full mt-5 btn-unpayment" @click="backStep">
+                      ยกเลิกคำสั่งซื้อ
+                    </v-btn>
+                  </v-card>
+                </v-col>
+              </v-row>
+            </div>
           </div>
         </section>
         <section v-if="step == 3">
@@ -483,7 +485,12 @@
                     </div>
                     <div class="grid grid-rows-2 mt-5">
                       <h5 class="main-text-peyment">รายการ</h5>
-                      <h4>{{ package_data.package_name }}</h4>
+                      <h4>
+                        {{ package_data.package_name }}
+                        เช่า
+                        {{ package_data.package_month }}
+                        {{ package_data.package_price }}฿
+                      </h4>
                     </div>
                     <div class="grid grid-cols-2 mt-5">
                       <div class="grid grid-rows-2">
@@ -492,13 +499,13 @@
                       </div>
                       <div class="grid grid-rows-2">
                         <h5 class="main-text-peyment">ส่วนลด</h5>
-                        <h4>0</h4>
+                        <h4>{{ discount }}</h4>
                       </div>
                     </div>
                     <div class="grid grid-cols-2 mt-5">
                       <div class="grid grid-rows-2">
                         <h5 class="main-text-peyment">ยอดที่ต้องชำระ</h5>
-                        <h4>{{ package_data.package_price }}</h4>
+                        <h4>{{ totalAmountToBePaid }}</h4>
                       </div>
                       <div class="grid grid-rows-2">
                         <h5 class="main-text-peyment">ช่องทางการชำระเงิน</h5>
@@ -508,83 +515,86 @@
                   </v-col>
                   <hr class="mt-2" />
                   <!-- Payment details form -->
-                  <v-row class="mt-3">
-                    <v-col cols="12" md="6">
+                  <div class="mt-3">
+                    <div class="grid justify-between grid-cols-2 gap-x-8">
                       <div>
-                        <h5 class="main-text-peyment">เลขที่บัญชีธนาคาร</h5>
+                        <div>
+                          <h5 class="main-text-peyment">เลขที่บัญชีธนาคาร</h5>
+                        </div>
+                        <v-text-field
+                          v-model="account_number"
+                          label="เลขที่บัญชีธนาคาร"
+                          variant="outlined"
+                          class="form-peyment"
+                          rounded=""
+                        ></v-text-field>
                       </div>
-                      <v-text-field
-                        v-model="accountNumber"
-                        label="เลขที่บัญชีธนาคาร"
-                        variant="outlined"
-                        class="form-peyment"
-                        rounded=""
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12" md="6">
                       <div>
-                        <h5 class="main-text-peyment">ธนาคาร</h5>
+                        <div>
+                          <h5 class="main-text-peyment">ธนาคาร</h5>
+                        </div>
+                        <v-text-field
+                          v-model="bank_name"
+                          label="ธนาคาร"
+                          variant="outlined"
+                          class="form-peyment"
+                          rounded=""
+                        ></v-text-field>
                       </div>
-                      <v-text-field
-                        v-model="bank"
-                        label="ธนาคาร"
-                        variant="outlined"
-                        class="form-peyment"
-                        rounded=""
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12" md="6">
                       <div>
-                        <h5 class="main-text-peyment">ชื่อบัญชีธนาคาร</h5>
+                        <div>
+                          <h5 class="main-text-peyment">ชื่อบัญชีธนาคาร</h5>
+                        </div>
+                        <v-text-field
+                          v-model="account_name"
+                          label="ชื่อบัญชีธนาคาร"
+                          variant="outlined"
+                          class="form-peyment"
+                          rounded=""
+                        ></v-text-field>
                       </div>
-                      <v-text-field
-                        v-model="accountName"
-                        label="ชื่อบัญชีธนาคาร"
-                        variant="outlined"
-                        class="form-peyment"
-                        rounded=""
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12" md="6">
                       <div>
-                        <h5 class="main-text-peyment">จำนวนเงินที่โอน</h5>
+                        <div>
+                          <h5 class="main-text-peyment">จำนวนเงินที่โอน</h5>
+                        </div>
+                        <v-text-field
+                          v-model="transfer_money"
+                          label="จำนวนเงินโอน"
+                          variant="outlined"
+                          class="form-peyment"
+                          rounded=""
+                        ></v-text-field>
                       </div>
-                      <v-text-field
-                        v-model="amount"
-                        label="จำนวนเงินโอน"
-                        variant="outlined"
-                        class="form-peyment"
-                        rounded=""
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12" md="6">
                       <div>
-                        <h5 class="main-text-peyment">วันที่โอน</h5>
+                        <div>
+                          <h5 class="main-text-peyment">วันที่โอน</h5>
+                        </div>
+                        <v-text-field
+                          v-model="transfer_date"
+                          label="วันที่โอน"
+                          variant="outlined"
+                          class="form-peyment"
+                          rounded=""
+                        ></v-text-field>
                       </div>
-                      <v-text-field
-                        v-model="date"
-                        label="วันที่โอน"
-                        variant="outlined"
-                        class="form-peyment"
-                        rounded=""
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12" md="6">
                       <div>
-                        <h5 class="main-text-peyment">เวลาที่โอน</h5>
+                        <div>
+                          <h5 class="main-text-peyment">เวลาที่โอน</h5>
+                        </div>
+                        <v-text-field
+                          v-model="transfer_time"
+                          label="เวลาโอน"
+                          variant="outlined"
+                          class="form-peyment"
+                          rounded=""
+                        ></v-text-field>
                       </div>
-                      <v-text-field
-                        v-model="time"
-                        label="เวลาโอน"
-                        variant="outlined"
-                        class="form-peyment"
-                        rounded=""
-                      ></v-text-field>
-                    </v-col>
-                  </v-row>
+                    </div>
+                  </div>
                 </div>
               </v-col>
             </div>
+            <!-- อัพโหลดสลิป -->
             <div class="col-span-2">
               <!-- Proof of payment upload -->
               <v-row class="p-14">
@@ -634,7 +644,7 @@
                       <img
                         class="img-fluid"
                         :src="uploadedImage"
-                        style="max-height: 80%; max-width: 60%"
+                        style="max-height: 100%; max-width: 100%"
                       />
                     </div>
 
@@ -656,6 +666,7 @@
                   'button-send-evidence': !isFormComplete,
                   'button-send-evidence-complete': isFormComplete,
                 }"
+                @click="submitForm"
               >
                 ส่งหลักฐานการโอน
               </v-btn>
@@ -674,7 +685,8 @@ import LayoutAuthenticate from "@/layouts/LayoutAuthenticate.vue";
 import { usePaymentStore } from "@/stores/usePaymentStore";
 import { useRoute } from "vue-router";
 import { ref, computed } from "vue";
-import { onMounted } from "vue";
+import { reactive, onMounted } from "vue";
+import axios from "axios";
 
 // เรียกใช้ Pinia Store
 const store_payment = usePaymentStore();
@@ -685,11 +697,19 @@ const package_data = computed(
 );
 console.log("Selected Package Name:", package_data.value);
 console.log("Package Price in UserProductPayment:", package_data.price);
-const discount = ref(0);
 const totalPrice = computed(() => package_data.package_price);
 const totalDiscount = computed(() => discount.value);
 const finalPrice = computed(() => totalPrice.value - totalDiscount.value);
+const totalAmountToBePaid = computed(() => {
+  const packagePrice = package_data.package_price || 0; // ดึงราคาจาก package_data
+  const discountValue = discount || 0; // ดึงค่าลดราคา
 
+  // ตรวจสอบว่าค่าลดราคามากกว่าหรือเท่ากับราคาแพ็กเกจหรือไม่
+  const finalAmount = packagePrice - discountValue;
+
+  // ถ้าค่าที่ได้ต่ำกว่า 0 ให้คืนค่าเป็น 0
+  return finalAmount >= 0 ? finalAmount : 0;
+});
 const packageNameFromStore = computed(
   () => store_payment.form.data.package_name
 );
@@ -703,35 +723,87 @@ onMounted(() => {
     packageNameFromLocalStorage.value
   );
 });
-const accountNumber = ref("");
-const bank = ref("");
-const accountName = ref("");
-const amount = ref("");
-const date = ref("");
-const time = ref("");
-const proofOfPayment = ref(null);
+const discount = ref("30");
+const account_number = ref("");
+const bank_name = ref("");
+const account_name = ref("");
+const transfer_money = ref("");
+const transfer_date = ref("");
+const transfer_time = ref("");
+const image_path = ref(null);
 const uploadedImage = ref(null);
 const isFormComplete = computed(() => {
   return (
-    accountNumber.value &&
-    bank.value &&
-    accountName.value &&
-    amount.value &&
-    date.value &&
-    time.value &&
-    proofOfPayment.value // ตรวจสอบว่าอัปโหลดไฟล์แล้ว
+    account_number.value &&
+    bank_name.value &&
+    account_name.value &&
+    transfer_money.value &&
+    transfer_date.value &&
+    transfer_time.value &&
+    image_path.value // ตรวจสอบว่าอัปโหลดไฟล์แล้ว
   );
 });
+//doc_purchase
+
+const submitForm = async () => {
+  if (!isFormComplete.value) return; // Prevent submission if form is incomplete
+
+  const formData = new FormData();
+  if (package_data.value && package_data.value.package_id) {
+    formData.append("package_id", package_data.value.package_id);
+  } else {
+    console.error("Package ID is required.");
+  }
+  formData.append("price", package_data.value.price);
+  if (package_data.value && package_data.value.price) {
+    formData.append("price", package_data.value.price);
+  } else {
+    console.error("Price is required.");
+  }
+  // formData.append("total_amount_to_be_paid", totalAmount.value);
+  // formData.append("payment_channels", payment_data.value.payment_bank);
+  formData.append("account_number", account_number.value);
+  formData.append("bank_name", bank_name.value);
+  formData.append("account_name", account_name.value);
+  formData.append("transfer_money", transfer_money.value);
+  formData.append("transfer_date", transfer_date.value);
+  formData.append("transfer_time", transfer_time.value);
+
+  // Append the file to the FormData object
+  const fileInput = document.querySelector("input[type='file']");
+  if (fileInput.files[0]) {
+    formData.append("image_path", fileInput.files[0]);
+  }
+
+  try {
+    const response = await axios.post("/api/purchase/create", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+
+    console.log("Success:", response.data);
+    // Handle success, e.g., show a success message or reset form
+  } catch (error) {
+    console.error("Error submitting form:", error);
+    // Handle error appropriately
+  }
+};
+
 const handleFileChange = (event) => {
   const file = event.target.files[0];
   if (file) {
     const reader = new FileReader();
     reader.onload = (e) => {
-      proofOfPayment.value = file;
+      image_path.value = file;
       uploadedImage.value = e.target.result;
     };
     reader.readAsDataURL(file);
   }
+};
+const triggerFileUpload = () => {
+  const fileInput = document.querySelector("input[type='file']");
+  fileInput.click();
 };
 
 const step = ref(1);
@@ -746,18 +818,38 @@ const backStep = () => {
   if (step.value > 1) {
     step.value -= 1;
   } else {
-    console.log("Cannot go back further");
+    console.log("Step Back");
   }
 };
 const selectedPayment = ref("");
 const selectPayment = (peymentList) => {
   selectedPayment.value = peymentList.name;
-  store_payment.setPackage(peymentList.name);
-  let payment_data = {
+  store_payment.setPackage(peymentList.name); // บันทึกข้อมูลใน store
+
+  // บันทึกข้อมูลใน reactive object
+  payment_data.payment_bank = peymentList.name;
+
+  // บันทึกข้อมูลลง LocalStorage
+  let payment_info = {
     payment_bank: peymentList.name,
   };
-  localStorage.setItem("payment", JSON.stringify(payment_data));
+  localStorage.setItem("payment", JSON.stringify(payment_info));
+
+  // ตรวจสอบค่าที่เก็บใน payment_data
+  console.log("Selected Payment Bank:", payment_data.payment_bank);
 };
+const payment_data = reactive({
+  payment_bank: "",
+});
+onMounted(() => {
+  const storedPayment = localStorage.getItem("payment");
+
+  if (storedPayment) {
+    const payment = JSON.parse(storedPayment);
+    payment_data.payment_bank = payment.payment_bank; // อัปเดตข้อมูลใน reactive object
+    console.log("Payment Bank from LocalStorage:", payment_data.payment_bank);
+  }
+});
 const paymentChannels = ref([{ name: "บัญชีธนาคาร" }, { name: "QR Code" }]);
 
 const selectedBank = ref("");
@@ -822,21 +914,17 @@ const imageShow = ref(null);
 const slipFile = ref(null);
 const fileInput = ref(null);
 
-function onFileChange(e) {
-  const file = e.target.files[0];
-  if (file) {
-    slipFile.value = file;
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      imageShow.value = e.target.result;
-    };
-    reader.readAsDataURL(file);
-  }
-}
-
-function triggerFileUpload() {
-  fileInput.value.click();
-}
+// function onFileChange(e) {
+//   const file = e.target.files[0];
+//   if (file) {
+//     slipFile.value = file;
+//     const reader = new FileReader();
+//     reader.onload = (e) => {
+//       imageShow.value = e.target.result;
+//     };
+//     reader.readAsDataURL(file);
+//   }
+// }
 </script>
 
 

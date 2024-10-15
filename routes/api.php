@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\StudycoursesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
@@ -9,6 +8,8 @@ use App\Http\Controllers\PackageController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\DocPurchaseController;
+use App\Http\Controllers\StudycoursesController;
 use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Api\BankAccountController;
 
@@ -54,6 +55,9 @@ Route::get('/packages/get', [PackageController::class, 'show']);
 Route::get('/packages/getlist', [PackageController::class, 'index']);
 
 Route::apiResource('packages', PackageController::class);
+
+Route::post('/purchase/create', [DocPurchaseController::class, 'store']);
+
 
 
 //end package

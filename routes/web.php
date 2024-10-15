@@ -74,7 +74,7 @@ Route::get('/market/product/{id}', [PackageController::class, 'showInertia'])->n
 Route::get('/OtpCode', [TwoFactorController::class, 'index'])->name('otp');
 Route::post('/check-otp/store', [TwoFactorController::class, 'store'])->name('otp.store');
 Route::get('/style-guide', function () {
-  return Inertia::render('style-guide');
+  return Inertia::render('StyleGuide');
 });
 
 
