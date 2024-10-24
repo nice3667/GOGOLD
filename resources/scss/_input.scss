@@ -1,6 +1,19 @@
 .input-rounded {
-  @apply rounded-full text-black border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500;
-  color: black;
+  @apply text-black shadow-sm;
+  color: white;
+  background-color: transparent;
+  border-radius: 10px;
+  --tw-ring-color: transparent;
+  border: 1px solid #E3E3E3;
+  height: 55px;
+
+  &:focus {
+    outline: none;
+    border-color: #ffd700; /* ลบ border เมื่อ focus */
+    box-shadow: none; /* ปิดการใช้งาน shadow */
+  }
+
+
 }
 
 select {
@@ -120,4 +133,8 @@ select {
 
 .img-fluid {
   height: auto !important;
+}
+.checkbox-cuttom{
+  border: 1px solid var(--button, #FFD700);
+background-color: transparent;
 }

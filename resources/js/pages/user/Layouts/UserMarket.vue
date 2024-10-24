@@ -141,6 +141,7 @@ onMounted(async () => {
     const response = await axios.get("/api/packages/getlist");
     console.log(response);
     package_list.list = response.data;
+    console.log(package_list.list);
   } catch (error) {
     console.error("Error fetching package list:", error);
   }

@@ -80,3 +80,26 @@ p {
 .text-white-route{
   color: $white !important;
 }
+.text-overlay {
+  position: absolute;
+  top: 50%;
+  right: 5%; /* จัดตัวหนังสือชิดขวา */
+  transform: translateY(-50%);
+  color: #f1c40f; /* สีตัวหนังสือ */
+  text-align: right; /* จัดเรียงตัวอักษรให้ชิดขวา */
+}
+.highlight {
+  font-weight: bold;
+  color: #f1c40f; /* สีไฮไลท์ */
+}
+.highlighted-text {
+  background-color: #f1c40f; /* พื้นหลังสีเหลือง */
+  color: black; /* สีตัวอักษรเป็นสีดำ */
+  padding: 5px 10px;
+  border-radius: 3px;
+  margin-right: 8px;
+}
+
+.normal-text {
+  margin-left: 5px;
+}

@@ -1,21 +1,37 @@
 .btn-login {
-  background-color: $color-secondary !important;
+  background-color: $black !important;
   border-radius: 30px !important;
   color: #ffffff !important;
   font-size: 15px !important;
   width: 165px !important;
   height: 40px !important;
 }
+.btn-login-list{
+  width: 350px !important;
+  height: 80px !important;
+  color: $placeholder !important;
+  font-size: 24px !important;
+  backdrop-filter: blur(10px);
+}
+.btn-register-list{
+  width: 350px !important;
+  height: 80px !important;
+  color: $placeholder !important;
+  font-size: 24px !important;
+  backdrop-filter: blur(10px);
 
+}
 .btn-register {
-  background-color: #ffd700 !important;
+  background-color: $color-primary !important;
   border-radius: 20px !important;
   color: #000000 !important;
   font-size: 15px !important;
   width: 165px !important;
   height: 40px !important;
 }
-
+.btn-hover-list{
+  background-color: $color-secondary !important;
+}
 .btn1 {
   border-radius: 20px;
   cursor: pointer;
@@ -238,9 +254,30 @@ color: $white !important;
   height: 40px;
 }
 .button-send-evidence-complete {
-  background-color: yellow !important;
+  background-color: $color-primary !important;
   color: #4E4E4E;
   border-radius: 20px !important;
   width: 182px;
   height: 40px;
+}
+
+.cta-button {
+  margin-top: 40px;
+  padding: 10px 20px;
+  background-color: $black; /* สีปุ่ม */
+  border: 1px solid $color-primary;
+  color: $color-primary;
+  border-radius: 30px;
+  width: 268px;
+  height: 60px;
+  cursor: pointer;
+}
+.guide-trade-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: black; /* พื้นหลังสีดำ */
+  border: 1px solid #f1c40f; /* ขอบสีเหลือง */
+  color: #f1c40f; /* สีตัวอักษรเป็นสีเหลือง */
+  border-radius: 5px;
+  cursor: pointer;
 }

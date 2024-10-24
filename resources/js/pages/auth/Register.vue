@@ -1,10 +1,6 @@
 <template>
   <div class="w-screen">
     <div class="grid items-center min-h-screen xl:grid-cols-2">
-      <div class="flex items-center justify-center flex-column">
-        <h5 class="text-3xl text-center md:text-5xl">Welcome to GO GOLD !</h5>
-        <LogoPage></LogoPage>
-      </div>
       <div class="flex justify-center">
         <div class="register-main">
           <LogoLogin></LogoLogin>

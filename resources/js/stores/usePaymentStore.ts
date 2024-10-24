@@ -1,4 +1,4 @@
-import { defineStore } from 'pinia'
+import { defineStore } from 'pinia';
 
 export const usePaymentStore = defineStore('usePaymentStore', {
   state: () => {
@@ -10,17 +10,18 @@ export const usePaymentStore = defineStore('usePaymentStore', {
       form: {
         id: -1,
         data: {
+          package_id: null,
           package_name: null,
-          package_price : null,
+          package_price: null,
         }
       },
     }
   },
   actions: {
-    setPackage(name, price, packageName) {
-      this.form.data.package_name = packageName;
+    setPackage(id, name, price) {
+      this.form.data.package_id = id;
+      this.form.data.package_name = name;
       this.form.data.package_price = price;
     },
   },
-
 });

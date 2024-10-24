@@ -1,6 +1,6 @@
 <template>
   <div class="color-info">
-    <div class="flex justify-center">
+    <!-- <div class="flex justify-center">
       <img class="img-footer" src="@/assets/icon/logo.jpg" alt="" />
     </div>
     <div class="flex justify-center mt-5">
@@ -34,12 +34,12 @@
     </div>
     <div class="flex items-center justify-center pb-10 mt-5">
       <p class="text-yellow-500">&copy; 2024 EA, All rights reserved</p>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue"
+import { ref } from "vue";
 
 const menu_items_desktop = ref([
   { title: "หน้าหลัก", route_name: "home" },
@@ -47,5 +47,5 @@ const menu_items_desktop = ref([
   { title: "เครื่องมือช่วยเทรด", route_name: "LearnPage" },
   { title: "บทความ", route_name: "AboutPage" },
   { title: "ติดต่อเรา", route_name: "AboutPage" },
-])
+]);
 </script>

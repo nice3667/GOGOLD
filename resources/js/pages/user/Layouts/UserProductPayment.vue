@@ -691,38 +691,33 @@ import axios from "axios";
 // เรียกใช้ Pinia Store
 const store_payment = usePaymentStore();
 
+onMounted(() => {
+  console.log("Package:", package_data.value);
+});
 // ตรวจสอบว่าได้ค่าจาก Store หรือไม่
-const package_data = computed(
-  () => JSON.parse(localStorage.getItem("package")) || "ไม่พบข้อมูลแพ็กเกจ"
-);
-console.log("Selected Package Name:", package_data.value);
-console.log("Package Price in UserProductPayment:", package_data.price);
+const package_data = computed(() => {
+  const storedPackage = localStorage.getItem("package");
+  console.log("Retrieved package_data:", storedPackage);
+  return storedPackage ? JSON.parse(storedPackage) : "ไม่พบข้อมูลแพ็กเกจ";
+});
+
 const totalPrice = computed(() => package_data.package_price);
 const totalDiscount = computed(() => discount.value);
 const finalPrice = computed(() => totalPrice.value - totalDiscount.value);
 const totalAmountToBePaid = computed(() => {
-  const packagePrice = package_data.package_price || 0; // ดึงราคาจาก package_data
-  const discountValue = discount || 0; // ดึงค่าลดราคา
+  console.log("Package Price:", package_data.package_price);
+  console.log("Package", package_data.value.package_price);
+  console.log("Discount:", discount.value);
+  console.log("Package Data:", package_data.value);
 
-  // ตรวจสอบว่าค่าลดราคามากกว่าหรือเท่ากับราคาแพ็กเกจหรือไม่
+  const packagePrice = package_data.value.package_price || 0;
+  const discountValue = discount.value || 0;
+
   const finalAmount = packagePrice - discountValue;
 
-  // ถ้าค่าที่ได้ต่ำกว่า 0 ให้คืนค่าเป็น 0
   return finalAmount >= 0 ? finalAmount : 0;
 });
-const packageNameFromStore = computed(
-  () => store_payment.form.data.package_name
-);
-const packageNameFromLocalStorage = ref(
-  localStorage.getItem("selectedPayment") || "ไม่พบข้อมูลแพ็กเกจ"
-);
-onMounted(() => {
-  console.log("Package Name from Pinia:", packageNameFromStore.value);
-  console.log(
-    "Package Name from LocalStorage:",
-    packageNameFromLocalStorage.value
-  );
-});
+
 const discount = ref("30");
 const account_number = ref("");
 const bank_name = ref("");
@@ -754,14 +749,12 @@ const submitForm = async () => {
   } else {
     console.error("Package ID is required.");
   }
-  formData.append("price", package_data.value.price);
-  if (package_data.value && package_data.value.price) {
-    formData.append("price", package_data.value.price);
+  formData.append("price", package_data.value.package_price);
+  if (package_data.value && package_data.value.package_price) {
+    formData.append("price", package_data.value.package_price);
   } else {
     console.error("Price is required.");
   }
-  // formData.append("total_amount_to_be_paid", totalAmount.value);
-  // formData.append("payment_channels", payment_data.value.payment_bank);
   formData.append("account_number", account_number.value);
   formData.append("bank_name", bank_name.value);
   formData.append("account_name", account_name.value);
@@ -769,7 +762,6 @@ const submitForm = async () => {
   formData.append("transfer_date", transfer_date.value);
   formData.append("transfer_time", transfer_time.value);
 
-  // Append the file to the FormData object
   const fileInput = document.querySelector("input[type='file']");
   if (fileInput.files[0]) {
     formData.append("image_path", fileInput.files[0]);
@@ -783,10 +775,8 @@ const submitForm = async () => {
     });
 
     console.log("Success:", response.data);
-    // Handle success, e.g., show a success message or reset form
   } catch (error) {
     console.error("Error submitting form:", error);
-    // Handle error appropriately
   }
 };
 
@@ -824,7 +814,7 @@ const backStep = () => {
 const selectedPayment = ref("");
 const selectPayment = (peymentList) => {
   selectedPayment.value = peymentList.name;
-  store_payment.setPackage(peymentList.name); // บันทึกข้อมูลใน store
+  store_payment.setPackage(peymentList.name);
 
   // บันทึกข้อมูลใน reactive object
   payment_data.payment_bank = peymentList.name;

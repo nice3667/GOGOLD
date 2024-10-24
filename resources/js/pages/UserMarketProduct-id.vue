@@ -263,17 +263,20 @@ const selectPackage = (packageItem) => {
   packageItem.price = packageItem.month * props.package.price;
   selectedPackage.value = packageItem;
   store_payment.setPackage(
+    props.package.id,
     packageItem.name,
     packageItem.price,
     props.package.name
   );
   let package_data = {
+    package_id: props.package.id,
     package_name: props.package.name,
     package_price: packageItem.price,
     package_month: packageItem.name,
   };
   // localStorage.setItem("package", JSON.stringify(packageItem));
   localStorage.setItem("package", JSON.stringify(package_data));
+  console.log("package_data:", packageItem);
 
   // localStorage.getItem("package");
 };
@@ -286,7 +289,7 @@ defineOptions({
 
 onMounted(() => {
   console.log("Product Package:", props.package);
-  console.log("Product Package:", props.package.name);
+  console.log("Product id :", props.package.id);
   console.log("Descriptions:", props.descriptions);
 });
 </script>
