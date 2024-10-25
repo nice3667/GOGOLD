@@ -88,18 +88,24 @@ p {
   color: #f1c40f; /* สีตัวหนังสือ */
   text-align: right; /* จัดเรียงตัวอักษรให้ชิดขวา */
 }
+.text-overlay-guide{
+  position: absolute;
+  top: 50%;
+  transform: translateY(220%);
+  color: #f1c40f; /* สีตัวหนังสือ */
+  text-align: center;
+}
 .highlight {
   font-weight: bold;
   color: #f1c40f; /* สีไฮไลท์ */
 }
 .highlighted-text {
-  background-color: #f1c40f; /* พื้นหลังสีเหลือง */
+  background-color: #ffd700; /* พื้นหลังสีเหลือง */
   color: black; /* สีตัวอักษรเป็นสีดำ */
-  padding: 5px 10px;
-  border-radius: 3px;
-  margin-right: 8px;
+  width: 170px !important;
+height: 55px !important;
 }
 
 .normal-text {
-  margin-left: 5px;
+  color: $white;
 }
