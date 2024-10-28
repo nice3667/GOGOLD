@@ -62,3 +62,12 @@
   font-size: 24px;
   color: $black; /* สีข้อความเริ่มต้น */
 }
+.homepage-guide-details{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 50px;
+  padding-left: 80px;
+  padding-right: 80px;
+
+}

@@ -262,15 +262,47 @@ color: $white !important;
 }
 
 .cta-button {
-  margin-top: 40px;
-  padding: 10px 20px;
+  margin-top: 20px;
   background-color: $black; /* สีปุ่ม */
   border: 1px solid $color-primary;
   color: $color-primary;
   border-radius: 30px;
-  width: 268px;
-  height: 60px;
-  cursor: pointer;
+  width: 130px;
+    height: 30px;
+    font-size: 16px;
+  @media (min-width: 640px) {
+    /* สำหรับหน้าจอขนาดกลาง (sm) ขึ้นไป */
+    width: 130px;
+    height: 30px;
+    font-size: 16px;
+
+  }
+
+  @media (min-width: 768px) {
+    /* สำหรับหน้าจอขนาดใหญ่ (md) ขึ้นไป */
+    width: 268px;
+    font-size: 24px;
+    margin-top: 30px;
+
+    height: 60px;
+  }
+
+  @media (min-width: 1024px) {
+    /* สำหรับหน้าจอขนาดใหญ่มาก (lg) ขึ้นไป */
+    width: 268px;
+    font-size: 24px;
+    margin-top: 30px;
+
+    height: 60px;
+  }
+  @media (min-width: 1280px){
+    width: 268px;
+    font-size: 24px;
+    margin-top: 0px;
+
+    height: 60px;
+  }
+
 }
 .guide-trade-button {
   width: 160px;

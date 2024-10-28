@@ -88,24 +88,111 @@ p {
   color: #f1c40f; /* สีตัวหนังสือ */
   text-align: right; /* จัดเรียงตัวอักษรให้ชิดขวา */
 }
-.text-overlay-guide{
-  position: absolute;
-  top: 50%;
-  transform: translateY(220%);
-  color: #f1c40f; /* สีตัวหนังสือ */
-  text-align: center;
+.text-overlay-guide {
+  position: absolute; /* ทำให้ overlay อยู่ในตำแหน่งที่เราต้องการ */
+  bottom: 0; /* ตำแหน่งที่อยู่ด้านล่าง */
+  left: 50%; /* ย้ายไปกลางแนวนอน */
+  top: -10%;
+  transform: translateX(-50%); /* ปรับตำแหน่งให้ตรงกลาง */
+  display: flex;
+  flex-direction: column; /* จัดเรียงแนวตั้ง */
+  align-items: center; /* จัดให้เนื้อหาอยู่กลาง */
+  padding: 20px; /* เพิ่ม padding ตามต้องการ */
+}
+.text-overlay-guide-details{
+  position: absolute; /* ทำให้ overlay อยู่ในตำแหน่งที่เราต้องการ */
+  bottom: 0; /* ตำแหน่งที่อยู่ด้านล่าง */
+  display: flex;
+  padding: 20px; /* เพิ่ม padding ตามต้องการ */
 }
 .highlight {
   font-weight: bold;
   color: #f1c40f; /* สีไฮไลท์ */
 }
 .highlighted-text {
+  color: $black;
   background-color: #ffd700; /* พื้นหลังสีเหลือง */
-  color: black; /* สีตัวอักษรเป็นสีดำ */
-  width: 170px !important;
-height: 55px !important;
+text-align: center;
+font-family: "Century Gothic";
+font-size: 40px;
+font-style: normal;
+font-weight: 700;
+line-height: 50px; /* 125% */
+letter-spacing: 1.2px;
 }
 
 .normal-text {
   color: $white;
 }
+.text-column-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  margin: 20px;
+}
+.text-item-left {
+  margin: 20px 0;
+  text-align: left;
+
+
+  // @media (min-width: 640px) {
+  // h1 {
+  //     font-size: 20px;
+  //   }
+
+  //   h4 {
+  //     font-size: 16px;
+  //   }
+  // }
+
+  // @media (min-width: 768px) {
+  //   /* สำหรับหน้าจอขนาดใหญ่ (md) ขึ้นไป */
+  //   h1 {
+  //     font-size: 20px;
+  //   }
+
+  //   h4 {
+  //     font-size: 16px;
+  //   }
+  // }
+
+  // @media (min-width: 1024px) {
+  //   /* สำหรับหน้าจอขนาดใหญ่มาก (lg) ขึ้นไป */
+  //   h1 {
+  //     font-size: 20px;
+  //   }
+
+  //   h4 {
+  //     font-size: 16px;
+  //   }
+  // }
+  // @media (min-width: 1750px){
+  //   h1 {
+  //     font-size: 30px;
+  //   }
+
+  //   h4 {
+  //     font-size: 18px;
+  //   }
+  // }
+}
+.text-column-right {
+  display: flex;
+  justify-content: right;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  margin: 20px;
+}
+.text-item-right {
+  margin: 20px 0;
+  text-align: right;
+}
+
+
+.text-item p {
+  margin: 5px 0;
+  font-size: 1em;
+}
+

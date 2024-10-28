@@ -19,10 +19,7 @@
 .img-ea-package-details{
   width: 100% !important;
 }
-// .img-homepage{
-//   width: 1920px;
-//   height: 1080px;
-// }
+
 .overlay-image {
   position: absolute;
   top: 0;
@@ -34,4 +31,13 @@
   position: relative;
   width: 100%;
   height:100%;
+}
+
+.phone-overlay {
+  position: absolute;
+  bottom: 0;
+  right: 10%; /* ปรับตำแหน่งเพื่อให้รูปโทรศัพท์ทับบนกราฟ */
+  width: 291px;
+  height: 549px;
+  top: 35%;
 }
