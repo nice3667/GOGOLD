@@ -1,7 +1,7 @@
 <template>
   <!-- Mobile Navigation Bar with Nav Icon -->
   <v-app-bar class="mobile-drawer" v-if="!is_desktop" app>
-    <div class="flex items-center justify-between w-full">
+    <div class="flex items-center justify-between w-full mobile-drawer-toolbar">
       <div class="pl-md-7 pl-lg-15">
         <a :href="route('home')" class="cursor-pointer">
           <img

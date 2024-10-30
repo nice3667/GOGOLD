@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="!is_desktop" class="bg-black">
     <div class="bg-black image-container">
       <img
         src="@/assets/icon/img-bg-gogold.jpg"
@@ -7,10 +7,148 @@
         alt=""
       />
       <div class="text-overlay">
-        <p style="font-size: 4vw" class="">
+        <p class="text-main-homepage">
           Unlock the power of <br />
           gold trading with
-          <span style="font-size: 6vw" class="highlight">GoGold.</span>
+          <span class="highlight">GoGold.</span>
+        </p>
+        <button class="cta-button">ดูแพ็กเกจแนะนำ</button>
+      </div>
+    </div>
+    <div class="mt-10 text-white bg-black image-container">
+      <div class="homepage-guide-mobile-details">
+        <div>
+          <div class="grid items-center justify-center headline-container">
+            <div class="grid justify-center">
+              <button class="guide-trade-button">เครื่องมือช่วยเทรด</button>
+            </div>
+            <div class="mt-5">
+              <div class="grid justify-between grid-cols-2 gap-2">
+                <div>
+                  <span class="px-1 mt-2 highlighted-text-mobile text-nowrap"
+                    ><b>GoGold</b></span
+                  >
+                </div>
+                <div class="grid grid-cols-1">
+                  <span class="normal-text text-nowrap"> ผู้ช่วยเทรดทอง </span>
+                  <span class="normal-text-mobile text-nowrap">
+                    ของคนชอบกำไร</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <!-- Center Section: Mobile Image -->
+          <div class="flex justify-center mt-4 img-homepage-mobile-guide">
+            <img
+              src="@/assets/icon/mobile-view-small.png"
+              alt="GoGold Mobile Trading"
+              class="w-[315px] h-[300px] img-homepage-guide"
+            />
+          </div>
+          <div class="px-4">
+            <div class="text-left">
+              <img src="@/assets/icon/icon-item6.png" alt="" />
+              <h3 class="mt-2">การเทรดอัตโนมัติ</h3>
+              <h5 class="text-[#C7C7C7]">
+                ช่วยให้การตัดสินใจเทรดรวดเร็ว <br />
+                และแม่นยำด้วยระบบอัตโนมัติ
+              </h5>
+            </div>
+            <div class="flex flex-col items-end text-right">
+              <img src="@/assets/icon/icon-item5.png" alt="" />
+
+              <h3 class="mt-2">ลดความเหนื่อยล้า</h3>
+              <h5 class="text-[#C7C7C7]">
+                ช่วยติดตามตลาดแทนนักลงทุน <br />
+                ลดความเหนื่อยล้าจากการเฝ้าหน้าจอ
+              </h5>
+            </div>
+            <div class="text-left">
+              <img src="@/assets/icon/icon-item4.png" alt="" />
+
+              <h3 class="mt-2">ลดความเสี่ยงจากอารมณ์</h3>
+
+              <h5 class="text-[#C7C7C7]">
+                การใช้อารมณ์ขณะกำลังเทรด <br />
+                เช่น ความกลัว ความโลภ หรือความกดดัน <br />
+                มักส่งผลให้เกิดการตัดสินใจที่ผิดพลาดได้
+              </h5>
+            </div>
+          </div>
+          <div class="px-4">
+            <div class="flex flex-col items-end text-right">
+              <img src="@/assets/icon/icon-item3.png" alt="" />
+
+              <h3 class="mt-2">การติดตามตลอด 24 ชั่วโมง</h3>
+              <h5 class="text-[#C7C7C7]">
+                ทำงานอัตโนมัติตลอดเวลา ไม่พลาดโอกาส <br />
+                จากทุกความเคลื่อนไหวของตลาด
+              </h5>
+            </div>
+            <div class="text-left">
+              <img src="@/assets/icon/icon-item2.png" alt="" />
+
+              <h3 class="mt-2">สามารถใช้กลยุทธ์ที่ซับซ้อน</h3>
+              <h5 class="text-[#C7C7C7]">
+                ตั้งค่ากลยุทธ์การเทรดที่ซับซ้อน <br />
+                และใช้กลยุทธ์การเทรดที่หลากหลายในเวลาเดียวกัน
+              </h5>
+            </div>
+            <div class="flex flex-col items-end text-right">
+              <img src="@/assets/icon/icon-item1.png" alt="" />
+
+              <h3 class="mt-2">
+                การทดสอบย้อนหลัง <br />
+                (Backtesting) ได้อย่างแม่นยำ
+              </h3>
+              <h5 class="text-[#C7C7C7]">
+                ทดสอบกลยุทธ์ย้อนหลังเพื่อปรับแต่งหรือพัฒนาระบบ <br />
+                ให้เหมาะสมก่อนใช้เทรดจริง
+              </h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="grid justify-center grid-rows-1">
+        <hr class="border-gray-600 w-[258px] mt-[70px]" />
+      </div>
+    </div>
+    <div class="text-white bg-black">
+      <div>
+        <div class="grid items-center justify-center grid-rows-2">
+          <div class="mt-6">
+            <h3 class="text-center normal-text">ผลตอบแทนการทำกำไร</h3>
+            <h5 class="text-center normal-text">ของเครื่องมือช่วยเทรด</h5>
+            <span class="px-1 text-4xl highlighted-text"><b>GoGold</b></span>
+          </div>
+        </div>
+        <div class="relative grid justify-center grid-rows-1">
+          <img src="@/assets/icon/safari-browsers.png" alt="" />
+          <img src="@/assets/icon/image-chart.png" alt="" />
+          <img
+            class="phone-overlay"
+            src="@/assets/icon/mobile-small.png"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div v-if="is_desktop" class="bg-black">
+    <div class="bg-black image-container">
+      <img
+        src="@/assets/icon/img-bg-gogold.jpg"
+        class="w-full h-full img-homepage"
+        alt=""
+      />
+      <div class="text-overlay">
+        <p class="text-main-homepage">
+          Unlock the power of <br />
+          gold trading with
+          <span class="highlight">GoGold.</span>
         </p>
         <button class="cta-button">ดูแพ็กเกจแนะนำ</button>
       </div>
@@ -24,9 +162,11 @@
             <div class="grid justify-center">
               <button class="guide-trade-button">เครื่องมือช่วยเทรด</button>
             </div>
-            <div class="mt-6">
-              <span class="px-1 text-4xl highlighted-text"><b>GoGold</b></span>
-              <span class="text-4xl normal-text">
+            <div class="mt-5">
+              <span class="px-1 text-4xl highlighted-text text-nowrap"
+                ><b>GoGold</b></span
+              >
+              <span class="text-4xl normal-text text-nowrap">
                 ผู้ช่วยเทรดทอง ของคนชอบกำไร</span
               >
             </div>
@@ -290,7 +430,22 @@
     </div>
   </div>
 </template>
-<script>
+<script setup>
+import { ref, onMounted, watch } from "vue";
+import { useDisplay } from "vuetify";
+
+const { width } = useDisplay();
+const is_desktop = ref(false);
+onMounted(() => {
+  is_desktop.value = width.value > 425;
+});
+
+watch(
+  () => width.value,
+  (newWidth) => {
+    is_desktop.value = newWidth > 425;
+  }
+);
 </script>
 <style>
 </style>

@@ -82,7 +82,7 @@ p {
 }
 .text-overlay {
   position: absolute;
-  top: 50%;
+  top: 62%;
   right: 5%; /* จัดตัวหนังสือชิดขวา */
   transform: translateY(-50%);
   color: #f1c40f; /* สีตัวหนังสือ */
@@ -92,13 +92,36 @@ p {
   position: absolute; /* ทำให้ overlay อยู่ในตำแหน่งที่เราต้องการ */
   bottom: 0; /* ตำแหน่งที่อยู่ด้านล่าง */
   left: 50%; /* ย้ายไปกลางแนวนอน */
-  top: -10%;
+  top: -5%;
   transform: translateX(-50%); /* ปรับตำแหน่งให้ตรงกลาง */
   display: flex;
   flex-direction: column; /* จัดเรียงแนวตั้ง */
   align-items: center; /* จัดให้เนื้อหาอยู่กลาง */
-  padding: 20px; /* เพิ่ม padding ตามต้องการ */
 }
+/* เมื่อหน้าจอมีขนาดมากกว่า 425px */
+@media (min-width: 425px) {
+  .text-overlay-guide {
+    top: 2%;
+  }
+}
+@media (min-width: 768px) {
+  .text-overlay-guide {
+    top: -5%;  }
+}
+
+// @media (min-width: 1440px) {
+//   .text-overlay-guide {
+//     position: absolute;
+//   bottom: 0;
+//   left: 50%;
+//   top: -10%;
+//   transform: translateX(-50%);
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   }
+// }
+
 .text-overlay-guide-details{
   position: absolute; /* ทำให้ overlay อยู่ในตำแหน่งที่เราต้องการ */
   bottom: 0; /* ตำแหน่งที่อยู่ด้านล่าง */
@@ -106,9 +129,53 @@ p {
   padding: 20px; /* เพิ่ม padding ตามต้องการ */
 }
 .highlight {
+  font-family: "Century Gothic";
   font-weight: bold;
-  color: #f1c40f; /* สีไฮไลท์ */
+  color: #f1c40f;
 }
+  @media (min-width: 640px) {
+    .highlight {
+      font-size: 20px;
+    }
+  }
+
+  /* สำหรับหน้าจอขนาดกลางขึ้นไป */
+  @media (min-width: 768px) {
+    .highlight {
+      font-size: 20px;
+    }
+  }
+
+  /* สำหรับหน้าจอขนาดใหญ่ขึ้นไป */
+  @media (min-width: 1024px) {
+    .highlight {
+      font-size: 50px;
+    }
+  }
+  @media (min-width: 1270px) {
+    .highlight {
+      font-size: 80px;
+    }
+  }
+
+  /* สำหรับหน้าจอขนาดใหญ่มากขึ้นไป */
+  @media (min-width: 1750px) {
+    .highlight {
+      font-size: 96px;
+    }
+  }
+.highlighted-text-mobile{
+  color: $black;
+  background-color: #ffd700; /* พื้นหลังสีเหลือง */
+text-align: center;
+font-family: "Century Gothic";
+width: 120px;
+height: 40px;
+font-size: 28px;
+font-style: normal;
+letter-spacing: 1.2px;
+}
+
 .highlighted-text {
   color: $black;
   background-color: #ffd700; /* พื้นหลังสีเหลือง */
@@ -120,10 +187,103 @@ font-weight: 700;
 line-height: 50px; /* 125% */
 letter-spacing: 1.2px;
 }
+@media (min-width: 425px) {
+  .highlighted-text {
+    font-size: 28px;
+  }
+}
+
+/* สำหรับหน้าจอขนาดกลางขึ้นไป */
+@media (min-width: 768px) {
+  .highlighted-text {
+    color: $black;
+    background-color: #ffd700; /* พื้นหลังสีเหลือง */
+  text-align: center;
+  font-family: "Century Gothic";
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 50px; /* 125% */
+  letter-spacing: 1.2px;  }
+}
+
+// /* สำหรับหน้าจอขนาดใหญ่ขึ้นไป */
+// @media (min-width: 1024px) {
+//   .highlighted-text {
+//     font-size: 30px;
+//   }
+// }
+// @media (min-width: 1270px) {
+//   .highlighted-text {
+//     font-size: 50px;
+//   }
+// }
+.text-main-homepage {
+  font-family: "Century Gothic";
+}
+
+/* สำหรับหน้าจอขนาดเล็ก */
+@media (min-width: 640px) {
+  .text-main-homepage {
+    font-size: 16px;
+  }
+}
+
+/* สำหรับหน้าจอขนาดกลางขึ้นไป */
+@media (min-width: 768px) {
+  .text-main-homepage {
+    font-size: 20px;
+  }
+}
+
+/* สำหรับหน้าจอขนาดใหญ่ขึ้นไป */
+@media (min-width: 1024px) {
+  .text-main-homepage {
+    font-size: 30px;
+  }
+}
+@media (min-width: 1270px) {
+  .text-main-homepage {
+    font-size: 50px;
+  }
+}
+
+/* สำหรับหน้าจอขนาดใหญ่มากขึ้นไป */
+@media (min-width: 1750px) {
+  .text-main-homepage {
+    font-size: 60px;
+  }
+}
+
 
 .normal-text {
   color: $white;
 }
+@media (min-width: 425px) {
+  .normal-text {
+    font-size: 20px;
+  }
+}
+@media (min-width: 768px) {
+  .normal-text {
+    font-size: 40px;
+  }
+}
+.normal-text-mobile {
+  color: $white;
+}
+@media (min-width: 425px) {
+  .normal-text-mobile {
+    font-size: 16px !important;
+  }
+}
+@media (min-width: 768px) {
+  .normal-text-mobile {
+    font-size: 40px;
+  }
+}
+
+
 .text-column-left {
   display: flex;
   flex-direction: column;
@@ -195,4 +355,3 @@ letter-spacing: 1.2px;
   margin: 5px 0;
   font-size: 1em;
 }
-
