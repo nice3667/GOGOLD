@@ -17,7 +17,7 @@
               <h2>รายการสินค้า</h2>
             </div>
             <div>
-              <div class="relative mt-4 w-80">
+              <div class="relative w-80">
                 <input
                   v-model="searchQuery"
                   type="text"
@@ -40,7 +40,7 @@
                 </svg>
               </div>
             </div>
-            <div class="mt-4 text-white">
+            <div class="text-white">
               <h3>MetaTrader 5</h3>
             </div>
           </v-col>

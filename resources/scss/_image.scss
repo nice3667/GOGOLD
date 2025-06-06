@@ -41,6 +41,14 @@
   height: 549px;
   top: 35%;
 }
+.phone-overlay-mobile {
+  position: absolute;
+  bottom: 0;
+  right: 1%; /* ปรับตำแหน่งเพื่อให้รูปโทรศัพท์ทับบนกราฟ */
+  width: 71px;
+  height: 131px;
+  top: 45%;
+}
 .img-homepage-mobile-guide{
   margin-top: 10px;
 }

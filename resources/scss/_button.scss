@@ -260,7 +260,12 @@ color: $white !important;
   width: 182px;
   height: 40px;
 }
-
+.btn-homepage-guide{
+  width: 250px;
+  height: 40px;
+  border: 1px solid $color-primary;
+  border-radius: 30px;
+}
 .cta-button {
   margin-top: 20px;
   background-color: $black; /* สีปุ่ม */

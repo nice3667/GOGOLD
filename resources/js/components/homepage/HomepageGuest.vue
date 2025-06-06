@@ -59,7 +59,6 @@
             </div>
             <div class="flex flex-col items-end text-right">
               <img src="@/assets/icon/icon-item5.png" alt="" />
-
               <h3 class="mt-2">ลดความเหนื่อยล้า</h3>
               <h5 class="text-[#C7C7C7]">
                 ช่วยติดตามตลาดแทนนักลงทุน <br />
@@ -68,9 +67,7 @@
             </div>
             <div class="text-left">
               <img src="@/assets/icon/icon-item4.png" alt="" />
-
               <h3 class="mt-2">ลดความเสี่ยงจากอารมณ์</h3>
-
               <h5 class="text-[#C7C7C7]">
                 การใช้อารมณ์ขณะกำลังเทรด <br />
                 เช่น ความกลัว ความโลภ หรือความกดดัน <br />
@@ -81,7 +78,6 @@
           <div class="px-4">
             <div class="flex flex-col items-end text-right">
               <img src="@/assets/icon/icon-item3.png" alt="" />
-
               <h3 class="mt-2">การติดตามตลอด 24 ชั่วโมง</h3>
               <h5 class="text-[#C7C7C7]">
                 ทำงานอัตโนมัติตลอดเวลา ไม่พลาดโอกาส <br />
@@ -90,7 +86,6 @@
             </div>
             <div class="text-left">
               <img src="@/assets/icon/icon-item2.png" alt="" />
-
               <h3 class="mt-2">สามารถใช้กลยุทธ์ที่ซับซ้อน</h3>
               <h5 class="text-[#C7C7C7]">
                 ตั้งค่ากลยุทธ์การเทรดที่ซับซ้อน <br />
@@ -99,7 +94,6 @@
             </div>
             <div class="flex flex-col items-end text-right">
               <img src="@/assets/icon/icon-item1.png" alt="" />
-
               <h3 class="mt-2">
                 การทดสอบย้อนหลัง <br />
                 (Backtesting) ได้อย่างแม่นยำ
@@ -118,21 +112,50 @@
     </div>
     <div class="text-white bg-black">
       <div>
-        <div class="grid items-center justify-center grid-rows-2">
-          <div class="mt-6">
-            <h3 class="text-center normal-text">ผลตอบแทนการทำกำไร</h3>
+        <div class="grid items-center justify-center grid-rows-1">
+          <div class="grid items-center justify-center mt-6">
+            <h3 class="text-center normal-text">ผลตอบแทนการทำกำไร Superball</h3>
             <h5 class="text-center normal-text">ของเครื่องมือช่วยเทรด</h5>
-            <span class="px-1 text-4xl highlighted-text"><b>GoGold</b></span>
+            <p class="highlighted-text-mobile">
+              <b>GoGold</b>
+            </p>
           </div>
         </div>
-        <div class="relative grid justify-center grid-rows-1">
-          <img src="@/assets/icon/safari-browsers.png" alt="" />
-          <img src="@/assets/icon/image-chart.png" alt="" />
+        <div class="relative grid justify-center grid-rows-1 mt-6">
           <img
-            class="phone-overlay"
+            src="@/assets/icon/safari-browsers.png"
+            class="w-[376px] h-[20px]"
+            alt=""
+          />
+          <img
+            src="@/assets/icon/image-chart.png"
+            class="w-[376px] h-[187px]"
+            alt=""
+          />
+          <img
+            class="phone-overlay-mobile"
             src="@/assets/icon/mobile-small.png"
             alt=""
           />
+        </div>
+        <div class="grid items-center justify-center">
+          <p class="mt-5 text-center">
+            **การลงทุนย่อมมีความเสี่ยง <br />
+            ผู้ลงทุนควรศึกษาข้อมูลก่อนตัดสินใจลงทุน
+            <br />และผลการดำเนินงานในอดีต <br />
+            มิได้เป็นสิ่งยืนยันถึงผลการดำเนินงานในอนาคต**
+          </p>
+        </div>
+        <div class="grid justify-center mt-5">
+          <button class="btn-homepage-guide">Click Test</button>
+        </div>
+        <div class="grid items-center justify-center">
+          <p class="mt-5 text-center">
+            **การลงทุนย่อมมีความเสี่ยง <br />
+            ผู้ลงทุนควรศึกษาข้อมูลก่อนตัดสินใจลงทุน
+            <br />และผลการดำเนินงานในอดีต <br />
+            มิได้เป็นสิ่งยืนยันถึงผลการดำเนินงานในอนาคต**
+          </p>
         </div>
       </div>
     </div>
